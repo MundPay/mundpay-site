@@ -1,0 +1,300 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: 'Rethink Sans';
+  src: url('./assets/font/27eb591ca0-AMOWz4SDuXOMCPfdoglY9JQEVFi3.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('./assets/font/ecea81d5b4-V8mDoQDjQSkFtoMM3T6r8E7mPbF4Cw.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: 'Instrument Serif';
+  src: url('./assets/font/InstrumentSerif-Regular.ttf') format('truetype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Instrument Serif';
+  src: url('./assets/font/InstrumentSerif-Italic.ttf') format('truetype');
+  font-display: swap;
+  font-style: italic;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Mundpay Font 01';
+  src: url('./assets/font/27eb591ca0-AMOWz4SDuXOMCPfdoglY9JQEVFi3.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mundpay Font 02';
+  src: url('./assets/font/37c6e7cc0b-jn4BtSPLlS0NDp1KiFAtFKiiY0o.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mundpay Font 03';
+  src: url('./assets/font/4c9aa2708f-vQyevYAyHtARFwPqUzQGpnDs.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mundpay Font 04';
+  src: url('./assets/font/5a028a3329-UjlFhCnUjxhNfep4oYBPqnEssyo.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mundpay Font 05';
+  src: url('./assets/font/62b14de88b-AMODz4SDuXOMCPfdoglY9JQuWHBGG0X45DmqkoZWCEvmma-aua4.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mundpay Font 06';
+  src: url('./assets/font/63bc071513-L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vq_ROW4.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mundpay Font 07';
+  src: url('./assets/font/9e6cbe281d-pKRFNWFoZl77qYCAIp84lN1h944.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mundpay Font 08';
+  src: url('./assets/font/d794402544-jizHRFtNs2ka5fXjeivQ4LroWlx-6zATjnTNgNq55w.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mundpay Font 09';
+  src: url('./assets/font/e3aed5ba8b-ia3uin3hQWqDrVloC1zEtYHWw.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mundpay Font 10';
+  src: url('./assets/font/ecea81d5b4-V8mDoQDjQSkFtoMM3T6r8E7mPbF4Cw.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mundpay Font 11';
+  src: url('./assets/font/ff1b8cd58f-DXD0Q7LSl7HEvDzucnyLnGBHM.woff2') format('woff2');
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: Inter, Arial, Helvetica, ui-sans-serif, system-ui, sans-serif;
+  --font-rethink-sans: 'Rethink Sans', 'Rethink Sans Placeholder', sans-serif;
+  --font-space-grotesk: 'Space Grotesk', 'Space Grotesk Placeholder', sans-serif;
+  --font-instrument-serif: 'Instrument Serif', 'Instrument Serif Placeholder', Georgia, 'Times New Roman', serif;
+  --font-mundpay-01: 'Mundpay Font 01', var(--font-sans);
+  --font-mundpay-02: 'Mundpay Font 02', var(--font-sans);
+  --font-mundpay-03: 'Mundpay Font 03', var(--font-sans);
+  --font-mundpay-04: 'Mundpay Font 04', var(--font-sans);
+  --font-mundpay-05: 'Mundpay Font 05', var(--font-sans);
+  --font-mundpay-06: 'Mundpay Font 06', var(--font-sans);
+  --font-mundpay-07: 'Mundpay Font 07', var(--font-sans);
+  --font-mundpay-08: 'Mundpay Font 08', var(--font-sans);
+  --font-mundpay-09: 'Mundpay Font 09', var(--font-sans);
+  --font-mundpay-10: 'Mundpay Font 10', var(--font-sans);
+  --font-mundpay-11: 'Mundpay Font 11', var(--font-sans);
+  --color-mundpay-ink: #050700;
+  --color-mundpay-panel: #09090b;
+  --color-mundpay-panel-muted: #18181b;
+  --color-mundpay-border: #27272a;
+  --color-mundpay-cream: #EAEEE4;
+  --color-mundpay-lime: #A2D035;
+  --color-mundpay-lime-bright: #ADE331;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #010500;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #010500;
+  font-family: var(--font-sans);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hero-texture-pattern {
+  background-image: url('./assets/image/423250d82e-zkZcqLYKrbf3IcoLGmkQF4odXvY.svg');
+  background-position: left top;
+  background-repeat: repeat;
+  background-size: 31.5px;
+}
+
+@keyframes stats-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-33.3333%);
+  }
+}
+
+@keyframes global-chip-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -6px, 0);
+  }
+}
+
+@keyframes global-language-cursor {
+  0%,
+  39% {
+    transform: translate3d(0, 0, 0) rotate(-12deg);
+  }
+
+  47%,
+  89% {
+    transform: translate3d(96px, 0, 0) rotate(-12deg);
+  }
+
+  97%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-12deg);
+  }
+}
+
+.global-language-cursor {
+  animation: global-language-cursor 7.2s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes global-language-label-current {
+  0%,
+  43% {
+    opacity: 1;
+  }
+
+  47%,
+  93% {
+    opacity: 0;
+  }
+
+  97%,
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes global-language-label-alternate {
+  0%,
+  43% {
+    opacity: 0;
+  }
+
+  47%,
+  93% {
+    opacity: 1;
+  }
+
+  97%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.global-language-label-current {
+  animation: global-language-label-current 7.2s step-end infinite;
+}
+
+.global-language-label-alternate {
+  animation: global-language-label-alternate 7.2s step-end infinite;
+}
+
+@keyframes global-payment-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, 10px, 0);
+  }
+}
+
+.not-found-digit-column {
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+}
+
+.not-found-digit-column-up {
+  animation: not-found-zero-up 9s linear infinite;
+}
+
+.not-found-digit-column-down {
+  animation: not-found-four-down 9s linear infinite;
+}
+
+@keyframes not-found-zero-up {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, -300px, 0);
+  }
+}
+
+@keyframes not-found-four-down {
+  from {
+    transform: translate3d(0, -300px, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.integrations-background-mark {
+  -webkit-mask-image: var(--integrations-mark-mask);
+  -webkit-mask-position: top;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+  mask-image: var(--integrations-mark-mask);
+  mask-position: top;
+  mask-repeat: no-repeat;
+  mask-size: cover;
+}
