@@ -1,46 +1,137 @@
+import { useTranslation } from "react-i18next";
+
 import { LegalDocument } from "../LegalDocument";
 import { LegalLayout } from "../LegalLayout";
 
+function EnglishLegalContent() {
+  const { t } = useTranslation();
+
+  return (
+    <>
+      <h1>
+        {t("legal.pages.paymentsFees.blocks.mundpaySPayments")}
+        <br />
+        {t("legal.pages.paymentsFees.blocks.andFees")}
+      </h1>
+      <p>{t("legal.pages.paymentsFees.blocks.thisPolicyGovernsAllChargebackHandlingAndPlatform")}</p>
+      <p>{t("legal.pages.paymentsFees.blocks.mundpayOperatesThroughDistinctLegalEntitiesDependingOn")}</p>
+      <p>{t("legal.pages.paymentsFees.blocks.orderTrackingSubscriptionCancellationAndAllRefundRequests")}</p>
+      <h2>{t("legal.pages.paymentsFees.blocks.section2ChargebackPolicy")}</h2>
+      <h2>{t("legal.pages.paymentsFees.blocks.section21DefinitionsMundpaysRole")}</h2>
+      <p>{t("legal.pages.paymentsFees.blocks.aChargebackOrDisputeArisesWhenACardholder")}</p>
+      <p>{t("legal.pages.paymentsFees.blocks.asAParticipantInThePaymentArrangementEcosystem")}</p>
+      <h2>{t("legal.pages.paymentsFees.blocks.section22ReserveRetention")}</h2>
+      <p>{t("legal.pages.paymentsFees.blocks.mundpayReservesTheRightToRetainFundsFrom")}</p>
+      <p>{t("legal.pages.paymentsFees.blocks.theRetentionPeriodMayBeFurtherExtendedWhen")}</p>
+      <h2>{t("legal.pages.paymentsFees.blocks.section23PreventiveMeasures")}</h2>
+      <p>{t("legal.pages.paymentsFees.blocks.whenEvidenceOfSuspiciousFraudulentOrHighRisk")}</p>
+      <p>{t("legal.pages.paymentsFees.blocks.aChargebackRateBelow1OnePercentOf")}</p>
+      <h2>{t("legal.pages.paymentsFees.blocks.section24DisputeDefenseProcess")}</h2>
+      <p>{t("legal.pages.paymentsFees.blocks.onceAChargebackIsFormallyReportedByThe")}</p>
+      <p>{t("legal.pages.paymentsFees.blocks.failureToSubmitDocumentationWithinTheStipulatedPeriod")}</p>
+      <h2>{t("legal.pages.paymentsFees.blocks.section25EthocaVerifiAlertServices")}</h2>
+      <p>{t("legal.pages.paymentsFees.blocks.mundpayParticipatesInTheEthocaAndVerifiAlert")}</p>
+      <h2>{t("legal.pages.paymentsFees.blocks.section26PreChargeback")}</h2>
+      <p>{t("legal.pages.paymentsFees.blocks.mundpayMayApplyAPreChargebackMechanismWhich")}</p>
+      <p>{t("legal.pages.paymentsFees.blocks.uponIdentificationOfARiskAlertMundpayMay")}</p>
+      <h2>{t("legal.pages.paymentsFees.blocks.section3PlatformFeesInternalRateAdjustments")}</h2>
+      <h2>{t("legal.pages.paymentsFees.blocks.section31FeeStructureAccess")}</h2>
+      <p>{t("legal.pages.paymentsFees.blocks.mundpayChargesProcessingFeesOnEachTransactionCompleted")}</p>
+      <h2>{t("legal.pages.paymentsFees.blocks.section32InternalRateAdjustments")}</h2>
+      <p>{t("legal.pages.paymentsFees.blocks.theUserAcknowledgesAndAgreesThatTheFees")}</p>
+      <p>{t("legal.pages.paymentsFees.blocks.feeChangesWillAlwaysBeCommunicatedInAdvance")}</p>
+      <p>{t("legal.pages.paymentsFees.blocks.anyChangeToTheStandardPlatformFeeSchedule")}</p>
+      <h2>{t("legal.pages.paymentsFees.blocks.section33CurrencyExchangeFxVariations")}</h2>
+      <p>{t("legal.pages.paymentsFees.blocks.forCrossBorderAndInternationalTransactionsFeesSettlements")}</p>
+      <p>{t("legal.pages.paymentsFees.blocks.supplierSellerOperatingAcrossMultipleCurrenciesExpresslyAcknowledge")}</p>
+      <h2>{t("legal.pages.paymentsFees.blocks.section34ReservesHolds")}</h2>
+      <p>{t("legal.pages.paymentsFees.blocks.inAdditionToChargebackRelatedReservesDescribedIn")}</p>
+      <h2>{t("legal.pages.paymentsFees.blocks.section4AccountSuspensionBlockingRelatedMeasures")}</h2>
+      <p>{t("legal.pages.paymentsFees.blocks.penaltiesArisingFromMisuseOfThePlatformViolation")}</p>
+      <p>{t("legal.pages.paymentsFees.blocks.suspensionIsAPreventiveAndTemporaryMeasureThat")}</p>
+      <h2>{t("legal.pages.paymentsFees.blocks.section5MinimumAccountWithdrawalPolicy")}</h2>
+      <p>{t("legal.pages.paymentsFees.blocks.withdrawalsOnThePlatformAreSubjectToMinimum")}</p>
+      <p>{t("legal.pages.paymentsFees.blocks.forAccountsOperatingInLocalCurrencyBrazilianReal")}</p>
+      <p>{t("legal.pages.paymentsFees.blocks.mundpayReservesTheRightToReviewModifyOr")}</p>
+      <h2>{t("legal.pages.paymentsFees.blocks.section6Privacy")}</h2>
+      <p>{t("legal.pages.paymentsFees.blocks.allPersonalAndTransactionalDataCollectedInConnection")}</p>
+      <h2>{t("legal.pages.paymentsFees.blocks.section7PolicyUpdates")}</h2>
+      <p>{t("legal.pages.paymentsFees.blocks.mundpayMayUpdateThisPolicyAtAnyTime")}</p>
+    </>
+  );
+}
+
+function PortugueseLegalContent() {
+  const { t } = useTranslation();
+
+  return (
+    <>
+      <h1>
+        {t("legal.pages.paymentsFees.blocks.pagamentosETaxas")}
+        <br />
+        {t("legal.pages.paymentsFees.blocks.daMundpay")}
+      </h1>
+      <p>{t("legal.pages.paymentsFees.blocks.estaPoliticaRegulaAGestaoDeChargebacksE")}</p>
+      <p>{t("legal.pages.paymentsFees.blocks.aMundpayOperaPorMeioDeEntidadesJuridicas")}</p>
+      <p>{t("legal.pages.paymentsFees.blocks.oAcompanhamentoDePedidosOCancelamentoDeAssinaturas")}</p>
+      <h2>{t("legal.pages.paymentsFees.blocks.section2PoliticaDeChargeback")}</h2>
+      <h2>{t("legal.pages.paymentsFees.blocks.section21Definicao")}</h2>
+      <p>{t("legal.pages.paymentsFees.blocks.oChargebackOuDisputaOcorreQuandoUmTitular")}</p>
+      <p>{t("legal.pages.paymentsFees.blocks.comoParticipanteDoEcossistemaDeArranjosDePagamento")}</p>
+      <h2>{t("legal.pages.paymentsFees.blocks.section22ReservaERetencaoDeFundos")}</h2>
+      <p>{t("legal.pages.paymentsFees.blocks.aMundpayReservaSeODireitoDeReter")}</p>
+      <p>{t("legal.pages.paymentsFees.blocks.oPrazoDeRetencaoPodeSerAdicionalmenteEstendido")}</p>
+      <h2>{t("legal.pages.paymentsFees.blocks.section23MedidasPreventivas")}</h2>
+      <p>{t("legal.pages.paymentsFees.blocks.quandoIdentificadaEvidenciaDeTransacoesSuspeitasFraudulentasOu")}</p>
+      <p>{t("legal.pages.paymentsFees.blocks.umaTaxaDeChargebackInferiorA1Um")}</p>
+      <h2>{t("legal.pages.paymentsFees.blocks.section24ProcessoDeDefesa")}</h2>
+      <p>{t("legal.pages.paymentsFees.blocks.umaVezQueOChargebackSejaFormalmenteReportado")}</p>
+      <p>{t("legal.pages.paymentsFees.blocks.aNaoApresentacaoDeDocumentacaoDentroDoPrazo")}</p>
+      <h2>{t("legal.pages.paymentsFees.blocks.section25ServicosEthocaVerifi")}</h2>
+      <p>{t("legal.pages.paymentsFees.blocks.aMundpayParticipaDosServicosDeAlertaEthoca")}</p>
+      <h2>{t("legal.pages.paymentsFees.blocks.section26PreChargeback")}</h2>
+      <p>{t("legal.pages.paymentsFees.blocks.aMundpayPoderaAplicarMecanismoDePreChargeback")}</p>
+      <p>{t("legal.pages.paymentsFees.blocks.umaVezIdentificadoOAlertaDeRiscoA")}</p>
+      <h2>{t("legal.pages.paymentsFees.blocks.section3TaxasDaPlataformaEAjustesInternos")}</h2>
+      <h2>{t("legal.pages.paymentsFees.blocks.section31EstruturaDeTaxasEAcesso")}</h2>
+      <p>{t("legal.pages.paymentsFees.blocks.aMundpayAplicaTaxasDeProcessamentoSobreCada")}</p>
+      <p>{t("legal.pages.paymentsFees.blocks.nesseContextoAsTaxasAbrangemConformeAplicavelA")}</p>
+      <p>{t("legal.pages.paymentsFees.blocks.aTituloMeramenteReferencialTaisEncargosPoderaoAtingir")}</p>
+      <h2>{t("legal.pages.paymentsFees.blocks.section32AjustesInternosDeTaxas")}</h2>
+      <p>{t("legal.pages.paymentsFees.blocks.asTaxasEncargosEDemaisValoresCobradosPela")}</p>
+      <p>{t("legal.pages.paymentsFees.blocks.asAlteracoesNasTaxasSeraoSempreComunicadasPreviamente")}</p>
+      <p>{t("legal.pages.paymentsFees.blocks.qualquerAlteracaoNaTabelaPadraoDeTaxasDa")}</p>
+      <h2>{t("legal.pages.paymentsFees.blocks.section33CambioEVariacaoCambialFx")}</h2>
+      <p>{t("legal.pages.paymentsFees.blocks.paraTransacoesInternacionaisETransfronteiricasAsTaxasLiquidacoes")}</p>
+      <p>{t("legal.pages.paymentsFees.blocks.osVendedoresProdutoresQueOperamEmMultiplasMoedas")}</p>
+      <h2>{t("legal.pages.paymentsFees.blocks.section34ReservasEBloqueios")}</h2>
+      <p>{t("legal.pages.paymentsFees.blocks.alemDasReservasRelacionadasAChargebacksDescritasNa")}</p>
+      <h2>{t("legal.pages.paymentsFees.blocks.section4SuspensaoBloqueioEEncerramentoDeConta")}</h2>
+      <p>{t("legal.pages.paymentsFees.blocks.asPenalidadesDecorrentesDoUsoIndevidoDaPlataforma")}</p>
+      <p>{t("legal.pages.paymentsFees.blocks.aSuspensaoEUmaMedidaPreventivaETemporaria")}</p>
+      <h2>{t("legal.pages.paymentsFees.blocks.section5LimiteMinimoParaSolicitacaoDeSaques")}</h2>
+      <p>{t("legal.pages.paymentsFees.blocks.aRealizacaoDeSaquesNaPlataformaEstaCondicionada")}</p>
+      <p>{t("legal.pages.paymentsFees.blocks.paraContasOperandoEmMoedaNacionalRealBrl")}</p>
+      <p>{t("legal.pages.paymentsFees.blocks.osValoresEfetivamenteAplicaveisEstaraoDevidamenteDiscriminadosNo")}</p>
+      <p>{t("legal.pages.paymentsFees.blocks.aMundpayReservaSeODireitoDeRevisar")}</p>
+      <h2>{t("legal.pages.paymentsFees.blocks.section6Privacidade")}</h2>
+      <p>{t("legal.pages.paymentsFees.blocks.todosOsDadosPessoaisETransacionaisColetadosEm")}</p>
+      <p>{t("legal.pages.paymentsFees.blocks.emObservanciaAoPrincipioDaFinalidadeTaisDados")}</p>
+      <p>{t("legal.pages.paymentsFees.blocks.informacoesCompletasAcercaDasFinalidadesDoTratamentoDas")}</p>
+      <h2>{t("legal.pages.paymentsFees.blocks.section7AtualizacoesDestaPolitica")}</h2>
+      <p>{t("legal.pages.paymentsFees.blocks.aMundpayPodeAtualizarEstaPoliticaAQualquer")}</p>
+    </>
+  );
+}
+
 export function PaymentsFeesPage() {
+  const { i18n } = useTranslation();
+  const isPortuguese = i18n.resolvedLanguage?.toLowerCase().startsWith("pt");
+
   return (
     <LegalLayout>
       <LegalDocument>
-        <h1>Payments and Fees</h1>
-        <h2>Payments</h2>
-        <p>
-          MundPay offers a variety of payment methods, including credit cards,
-          debit cards, and bank transfers, to provide the best possible
-          experience for our users. However, the availability of specific
-          payment methods may vary depending on some factors, such as your
-          location or the nature of the transaction.
-        </p>
-        <h2>Transaction Fees</h2>
-        <p>
-          To fund the provision of our services, MundPay charges transaction
-          fees detailed in our fee policy. Please note that these fees are
-          applied to each transaction made on our platform and are automatically
-          deducted from the transaction amount.
-        </p>
-        <h2>Refund Policy</h2>
-        <p>
-          MundPay understands that circumstances may change and, in certain
-          cases, a refund may be necessary. Our refund policy is designed to be
-          fair to both you and the info producers. However, the right to request
-          a refund may be limited or excluded under certain circumstances.
-        </p>
-        <h2>Payment Disputes</h2>
-        <p>
-          If you have any issues with a transaction, MundPay offers a dispute
-          process to help you resolve the issue. However, by using our platform,
-          you agree to first contact us to try to resolve the dispute before
-          reaching out to your payment provider or bank.
-        </p>
-        <h2>Contact Us</h2>
-        <p>
-          If you have any questions, suggestions, or need more information about
-          our Payments and Fees terms, please do not hesitate to contact us at
-          support@mundpay.com. We are always ready to assist you.
-        </p>
+        {isPortuguese ? <PortugueseLegalContent /> : <EnglishLegalContent />}
       </LegalDocument>
     </LegalLayout>
   );

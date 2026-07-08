@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { Link, useLocation } from 'react-router-dom'
 import { twMerge } from 'tailwind-merge'
 import { mundpayAssets } from '../../assets/mundpayAssets'
+import { LanguageSwitcher } from '../../components/home/LanguageSwitcher'
 import { LegalFooter } from './LegalFooter'
 import { legalSidebarRoutes, type LegalRoute } from './legalRoutes'
 
@@ -65,6 +66,7 @@ export function LegalLayout({ children }: LegalLayoutProps) {
           </nav>
 
           <div className="flex min-h-14 shrink-0 items-center gap-1 rounded-[32px] border border-white/[0.04] bg-[linear-gradient(180deg,rgb(11,11,14)_0%,#050700_100%)] p-1.5 font-space-grotesk text-[13px] font-bold uppercase leading-none tracking-[-0.03em] shadow-[0_8px_16px_rgba(0,0,0,0.1)] sm:text-[16px]">
+            <LanguageSwitcher isLight={false} />
             <a
               href="https://app.mundpay.com/login"
               target="_blank"

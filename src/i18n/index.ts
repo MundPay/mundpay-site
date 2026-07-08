@@ -8,13 +8,35 @@ import {
 } from './resources'
 
 const languageStorageKey = 'mundpay-language'
-const initialLanguage = getStoredLanguage()
+const queryLanguageKey = 'lang'
+const initialLanguage = getInitialLanguage()
 
 function isSupportedLanguage(language: string): language is SupportedLanguage {
   return supportedLanguages.includes(language as SupportedLanguage)
 }
 
-function getStoredLanguage() {
+function normalizeLanguage(language: string | null | undefined): SupportedLanguage | null {
+  if (!language) return null
+
+  const normalizedLanguage = language.toLowerCase()
+
+  if (normalizedLanguage === 'en') return 'en'
+  if (normalizedLanguage === 'pt-br') return 'pt-BR'
+
+  return null
+}
+
+function getQueryLanguage(): SupportedLanguage | null {
+  try {
+    return normalizeLanguage(
+      new URLSearchParams(globalThis.location?.search).get(queryLanguageKey),
+    )
+  } catch {
+    return null
+  }
+}
+
+function getStoredLanguage(): SupportedLanguage | null {
   try {
     const storedLanguage = globalThis.localStorage?.getItem(languageStorageKey)
 
@@ -22,10 +44,34 @@ function getStoredLanguage() {
       return storedLanguage
     }
   } catch {
-    return defaultLanguage
+    return null
   }
 
-  return defaultLanguage
+  return null
+}
+
+function getDomainLanguage(): SupportedLanguage | null {
+  try {
+    const hostname = globalThis.location?.hostname?.toLowerCase()
+
+    if (!hostname) return null
+
+    if (hostname.endsWith('.com.br')) return 'pt-BR'
+    if (hostname.endsWith('.com')) return 'en'
+  } catch {
+    return null
+  }
+
+  return null
+}
+
+function getInitialLanguage() {
+  return (
+    getQueryLanguage() ??
+    getDomainLanguage() ??
+    getStoredLanguage() ??
+    defaultLanguage
+  )
 }
 
 i18next.use(initReactI18next).init({

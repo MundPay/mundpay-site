@@ -1,122 +1,101 @@
+import { useTranslation } from "react-i18next";
 import { LegalDocument } from "../LegalDocument";
 import { LegalLayout } from "../LegalLayout";
 
 export function GeneralComplianceProgramPage() {
+  const { t } = useTranslation();
+
   return (
     <LegalLayout>
       <LegalDocument>
-        <h1>MundPay General Compliance Program</h1>
-        <h2>1. Appointment of a Compliance Officer (CO)</h2>
+        <h1>{t("legal.pages.generalComplianceProgram.title")}</h1>
+        <h2>{t("legal.pages.generalComplianceProgram.sections.appointment.title")}</h2>
         <ul>
           <li>
             <p>
-              The Compliance Officer will be responsible for overseeing all
-              activities related to compliance and ethics.
+              {t("legal.pages.generalComplianceProgram.sections.appointment.items.responsibility")}
             </p>
           </li>
         </ul>
         <ul>
           <li>
             <p>
-              The CO will be tasked with developing compliance policies and
-              procedures, as well as ensuring their effective implementation
-              across the organization.
+              {t("legal.pages.generalComplianceProgram.sections.appointment.items.policies")}
             </p>
           </li>
           <li>
             <p>
-              He will serve as the focal point for compliance and ethics issues,
-              providing guidance and support to employees.
+              {t("legal.pages.generalComplianceProgram.sections.appointment.items.focalPoint")}
             </p>
           </li>
         </ul>
-        <h2>2. Compliance Training and Education</h2>
+        <h2>{t("legal.pages.generalComplianceProgram.sections.training.title")}</h2>
         <ul>
           <li>
             <p>
-              All employees will undergo regular training on compliance issues
-              relevant to their specific functions.
+              {t("legal.pages.generalComplianceProgram.sections.training.items.regularTraining")}
             </p>
           </li>
           <li>
             <p>
-              The training programs will cover topics such as anti-money
-              laundering, data protection, business ethics, and compliance with
-              financial regulations.
+              {t("legal.pages.generalComplianceProgram.sections.training.items.topics")}
             </p>
           </li>
         </ul>
-        <h2>3. Compliance Monitoring and Auditing</h2>
+        <h2>{t("legal.pages.generalComplianceProgram.sections.monitoring.title")}</h2>
         <ul>
           <li>
             <p>
-              MundPay will conduct regular audits to assess compliance with
-              internal policies, external regulations, and ethical standards.
+              {t("legal.pages.generalComplianceProgram.sections.monitoring.items.audits")}
             </p>
           </li>
           <li>
             <p>
-              The results of the audits will be reviewed by the Compliance
-              Officer and senior management to identify areas for improvement
-              and implement corrective actions.
+              {t("legal.pages.generalComplianceProgram.sections.monitoring.items.results")}
             </p>
           </li>
         </ul>
-        <h2>4. Reporting Channels and Confidentiality</h2>
+        <h2>{t("legal.pages.generalComplianceProgram.sections.reporting.title")}</h2>
         <ul>
           <li>
             <p>
-              Secure and confidential channels will be established for employees
-              to report irregularities, ethical violations, or compliance
-              concerns.
+              {t("legal.pages.generalComplianceProgram.sections.reporting.items.channels")}
             </p>
           </li>
           <li>
             <p>
-              Employees will be encouraged to promptly report any issues through
-              these channels, ensuring protection against retaliation or
-              reprisal.
+              {t("legal.pages.generalComplianceProgram.sections.reporting.items.protection")}
             </p>
           </li>
         </ul>
-        <h2>5. Investigation and Response to Violations</h2>
+        <h2>{t("legal.pages.generalComplianceProgram.sections.investigation.title")}</h2>
         <ul>
           <li>
             <p>
-              The Compliance Officer will be responsible for investigating all
-              reports received and ensuring they are addressed fairly and
-              impartially.
+              {t("legal.pages.generalComplianceProgram.sections.investigation.items.reports")}
             </p>
           </li>
           <li>
             <p>
-              In the case of proven violations, appropriate disciplinary
-              measures will be taken, which may include warnings, suspensions,
-              or termination of contract, depending on the severity of the
-              violation.
+              {t("legal.pages.generalComplianceProgram.sections.investigation.items.measures")}
             </p>
           </li>
         </ul>
-        <h2>6. Periodic Review and Update of the Program</h2>
+        <h2>{t("legal.pages.generalComplianceProgram.sections.review.title")}</h2>
         <ul>
           <li>
             <p>
-              The Compliance Program will be reviewed and updated regularly to
-              ensure its ongoing effectiveness in light of changes in laws,
-              regulations, and industry best practices.
+              {t("legal.pages.generalComplianceProgram.sections.review.items.updates")}
             </p>
           </li>
           <li>
             <p>
-              Feedback from employees, audit results, and compliance trends will
-              be considered in the review and improvement of the program.
+              {t("legal.pages.generalComplianceProgram.sections.review.items.feedback")}
             </p>
           </li>
         </ul>
         <p>
-          This General Compliance Program reflects MundPay's commitment to
-          maintaining the highest standards of integrity, transparency, and
-          accountability in all its operations.
+          {t("legal.pages.generalComplianceProgram.closing")}
         </p>
       </LegalDocument>
     </LegalLayout>
