@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { motion } from "motion/react";
+import { motion, useScroll, useSpring, useTransform } from "motion/react";
 import { useTranslation } from "react-i18next";
 import mobileDashboardPreview from "../../../assets/image/4f77ba2cb7-hMeehyqPXp5lo8i2VTcjrOiy1k.png";
 import { CalendarIcon } from "../../icons/CalendarIcon";
@@ -20,10 +20,28 @@ const dashboardBaseSize = {
   height: 640,
 };
 
+const dashboardItemsEntryTransition = {
+  duration: 0.46,
+  delay: 0.18,
+  ease: [0.16, 1, 0.3, 1],
+} as const;
+
 export function DashboardPreview() {
   const { t } = useTranslation();
   const previewRef = useRef<HTMLDivElement>(null);
   const [dashboardScale, setDashboardScale] = useState(1);
+  const { scrollYProgress } = useScroll({
+    target: previewRef,
+    offset: ["start 45%", "end start"],
+  });
+  const dashboardScroll = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 24,
+    mass: 0.25,
+  });
+  const sidebarX = useTransform(dashboardScroll, [0, 0.45, 1], [0, 0, -220]);
+  const contentX = useTransform(dashboardScroll, [0, 0.45, 1], [0, 0, 220]);
+  const dashboardContentOpacity = useTransform(dashboardScroll, [0, 0.45, 0.58, 1], [1, 1, 0, 0]);
 
   useEffect(() => {
     const preview = previewRef.current;
@@ -56,9 +74,6 @@ export function DashboardPreview() {
         data-dashboard-preview
         className="relative z-10 mx-auto mt-10 hidden w-full max-w-300 overflow-visible min-[811px]:block"
         style={{ height: dashboardBaseSize.height * dashboardScale }}
-        initial={{ opacity: 0, y: 42 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.22, ease: "easeOut" }}
       >
         <div
           className="relative h-[640px] w-[1200px] origin-top-left overflow-visible border-x border-t border-mundpay-cream/[0.05] bg-mundpay-ink shadow-[0_20px_120px_rgba(0,0,0,0.62)]"
@@ -68,49 +83,64 @@ export function DashboardPreview() {
             <div className="absolute inset-0 overflow-visible bg-mundpay-lime backdrop-blur-[2px] [mask:radial-gradient(53%_50%_at_50%_0%,rgba(0,0,0,0.5)_0%,transparent_100%)] [-webkit-mask:radial-gradient(53%_50%_at_50%_0%,rgba(0,0,0,0.5)_0%,transparent_100%)]" />
           </div>
           <div className="relative z-[2] m-[10px_10px_0] flex h-[calc(100%-10px)] overflow-hidden bg-mundpay-panel">
-            <DashboardSidebar />
-            <section className="min-w-0 flex-1">
-              <div className="flex h-16 items-center justify-between border-b border-mundpay-border bg-mundpay-panel px-6">
-                <div className="flex items-center gap-5">
-                  <GridIcon className="size-4 text-white/70" />
-                  <span className="h-5 w-px bg-mundpay-border" />
-                  <span className="font-space-grotesk text-[14px] font-medium leading-5 text-[#FAFAFA]">
-                    {t('home.dashboard.title')}
+            <motion.div className="flex h-full shrink-0" style={{ x: sidebarX, opacity: dashboardContentOpacity }}>
+              <motion.div
+                className="flex h-full shrink-0"
+                initial={{ x: -220, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={dashboardItemsEntryTransition}
+              >
+                <DashboardSidebar />
+              </motion.div>
+            </motion.div>
+            <motion.section className="min-w-0 flex-1" style={{ x: contentX, opacity: dashboardContentOpacity }}>
+              <motion.div
+                initial={{ x: 220, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={dashboardItemsEntryTransition}
+              >
+                <div className="flex h-16 items-center justify-between border-b border-mundpay-border bg-mundpay-panel px-6">
+                  <div className="flex items-center gap-5">
+                    <GridIcon className="size-4 text-white/70" />
+                    <span className="h-5 w-px bg-mundpay-border" />
+                    <span className="font-space-grotesk text-[14px] font-medium leading-5 text-[#FAFAFA]">
+                      {t('home.dashboard.title')}
+                    </span>
+                  </div>
+                  <span className="grid size-9 place-items-center rounded-full bg-mundpay-border text-sm font-black text-white/55">
+                    J
                   </span>
                 </div>
-                <span className="grid size-9 place-items-center rounded-full bg-mundpay-border text-sm font-black text-white/55">
-                  J
-                </span>
-              </div>
 
-              <div className="p-6">
-                <div className="flex items-center justify-between gap-4">
-                  <h2 className="text-balance font-space-grotesk text-[20px] font-semibold leading-[1.5] tracking-[-0.02em] text-mundpay-cream/75">
-                    {t('home.dashboard.greeting')}
-                  </h2>
-                  <button className="flex h-10 items-center gap-2 rounded-lg border border-mundpay-border bg-mundpay-panel px-4 font-space-grotesk text-[14px] font-normal leading-[1.5] tracking-[-0.02em] text-mundpay-cream/75">
-                    <CalendarIcon className="size-4" />
-                    {t('home.dashboard.periodToday')}
-                  </button>
-                </div>
+                <div className="p-6">
+                  <div className="flex items-center justify-between gap-4">
+                    <h2 className="text-balance font-space-grotesk text-[20px] font-semibold leading-[1.5] tracking-[-0.02em] text-mundpay-cream/75">
+                      {t('home.dashboard.greeting')}
+                    </h2>
+                    <button className="flex h-10 items-center gap-2 rounded-lg border border-mundpay-border bg-mundpay-panel px-4 font-space-grotesk text-[14px] font-normal leading-[1.5] tracking-[-0.02em] text-mundpay-cream/75">
+                      <CalendarIcon className="size-4" />
+                      {t('home.dashboard.periodToday')}
+                    </button>
+                  </div>
 
-                <div className="mt-7 grid grid-cols-[repeat(3,297px)] gap-4">
-                  {metrics.map((metric) => (
-                    <MetricCard
-                      key={metric.translationKey}
-                      accent={metric.accent}
-                      label={t(`home.dashboard.metrics.${metric.translationKey}`)}
-                      value={metric.value}
-                    />
-                  ))}
-                </div>
+                  <div className="mt-7 grid grid-cols-[repeat(3,297px)] gap-4">
+                    {metrics.map((metric) => (
+                      <MetricCard
+                        key={metric.translationKey}
+                        accent={metric.accent}
+                        label={t(`home.dashboard.metrics.${metric.translationKey}`)}
+                        value={metric.value}
+                      />
+                    ))}
+                  </div>
 
-                <div className="mt-6 grid grid-cols-[553px_255.89px] items-start gap-12">
-                  <SalesChart />
-                  <RewardCard />
+                  <div className="mt-6 grid grid-cols-[553px_255.89px] items-start gap-12">
+                    <SalesChart />
+                    <RewardCard />
+                  </div>
                 </div>
-              </div>
-            </section>
+              </motion.div>
+            </motion.section>
           </div>
         </div>
       </motion.div>

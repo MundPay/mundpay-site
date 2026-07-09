@@ -78,6 +78,78 @@ src/
 
 Cada arquivo deve possuir uma única responsabilidade.
 
+## Como componentizar
+
+Componentes devem ter responsabilidade clara, nome direto e arquivo próprio.
+
+Regra geral:
+
+- Um componente reutilizável deve ficar em seu próprio arquivo.
+- O nome do arquivo deve ser igual ao nome do componente.
+- Evitar declarar componentes dentro de outros componentes.
+- Componentes internos só são aceitáveis em casos raros: quando são muito pequenos, não possuem reutilização, não carregam regra de domínio, não recebem props relevantes e melhoram claramente a leitura local.
+- Se um bloco visual for usado mais de uma vez, inclusive dentro do mesmo arquivo, ele deve virar componente.
+- Antes de criar um componente novo, verificar se já existe componente equivalente no projeto.
+
+Nomes devem ser específicos e curtos.
+
+Preferir:
+
+```txt
+FooterLink.tsx
+FooterLink
+
+FooterStoreButton.tsx
+FooterStoreButton
+
+PricingCard.tsx
+PricingCard
+```
+
+Evitar nomes longos, genéricos ou presos ao detalhe de implementação:
+
+```txt
+FooterColumnNavigationExternalInternalLink.tsx
+FooterColumnLink
+GenericLinkRenderer
+ReusableTextItem
+```
+
+Errado:
+
+```tsx
+export function FooterColumns() {
+  function FooterColumnLink() {
+    return <a href="/me-ajuda">Ajuda</a>;
+  }
+
+  return <FooterColumnLink />;
+}
+```
+
+Correto:
+
+```tsx
+// FooterLink.tsx
+type FooterLinkProps = {
+  href: string;
+  children: React.ReactNode;
+};
+
+export function FooterLink({ href, children }: FooterLinkProps) {
+  return <a href={href}>{children}</a>;
+}
+```
+
+```tsx
+// FooterColumns.tsx
+import { FooterLink } from "./FooterLink";
+
+export function FooterColumns() {
+  return <FooterLink href="/me-ajuda">Ajuda</FooterLink>;
+}
+```
+
 ---
 
 # 3. Limite de responsabilidade por arquivo

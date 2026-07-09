@@ -1,22 +1,22 @@
 export const startNowModal = {
-  closeLabel: 'Close',
-  title: 'We want to know you better!',
-  description: 'Tell us which profile best describes you right now:',
+  closeLabel: "Close",
+  title: "We'd love to get to know you better!",
+  description: "Which of these profiles best describes you right now?",
   options: {
     buyer: {
-      title: 'I made a purchase',
+      title: "I made a purchase",
       description:
-        'If you are a customer who bought a product through Mundpay and need help, click here.',
+        "If you purchased a product through Mundpay and need help, click here.",
     },
     seller: {
-      title: 'I am a producer and want to sell',
+      title: "I'm a creator (I want to sell)",
       description:
-        'If you already have a product and want to open a Mundpay account, click here.',
+        "If you already have a digital product and want to open an account with Mundpay, click here.",
     },
     affiliate: {
-      title: 'I am an affiliate',
+      title: "I'm an affiliate",
       description:
-        'I do not have my own product yet, but I want to sell other products and earn commissions.',
+        "I don't have a product yet, but I want to promote other products and earn commissions.",
     },
   },
-}
+};

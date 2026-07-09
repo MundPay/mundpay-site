@@ -1,22 +1,7 @@
 import { useTranslation } from 'react-i18next'
-import { ArrowRightIcon } from '../../icons/ArrowRightIcon'
-import { pricingCopy } from './pricingData'
+import { PrimaryCtaLink } from '../../layout/PrimaryCtaLink'
 import { PricingPortrait } from './PricingPortrait'
 import { PricingTable } from './PricingTable'
-
-const pricingCtaClassName =
-  'group mt-[28px] inline-flex h-[56px] min-w-[178px] cursor-pointer items-center justify-between rounded-full bg-[#050700] px-[24px] font-space-grotesk text-[14px] font-bold uppercase leading-none tracking-[-0.03em] text-white shadow-[0_8px_24px_rgba(5,7,0,0.14)] transition-transform duration-200 hover:scale-[1.02]'
-
-function PricingCtaButton() {
-  const { t } = useTranslation()
-
-  return (
-    <a href={pricingCopy.ctaHref} className={pricingCtaClassName}>
-      {t('home.pricing.ctaLabel')}
-      <ArrowRightIcon className="ml-5 size-5 text-white" />
-    </a>
-  )
-}
 
 export function PricingSection() {
   const { t } = useTranslation()
@@ -33,7 +18,13 @@ export function PricingSection() {
               <p className="mt-[10px] max-w-[720px] font-space-grotesk text-[16px] font-medium leading-[1.35] tracking-[-0.03em] text-[#29282C]/55 min-[1201px]:text-[18px]">
                 {t('home.pricing.subtitle')}
               </p>
-              <PricingCtaButton />
+              <PrimaryCtaLink
+                href="https://my.mundpay.com/register"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t('home.pricing.ctaLabel')}
+              </PrimaryCtaLink>
             </div>
 
             <PricingTable />

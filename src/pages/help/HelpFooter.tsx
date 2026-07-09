@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import footerBackgroundLogo from '../../assets/image/68eef8a3d3-tzjzM5myUA2OJRfcZIQ43LjdT88.svg'
 import { mundpayAssets } from '../../assets/mundpayAssets'
@@ -7,6 +7,7 @@ import { InstagramIcon } from '../../components/icons/InstagramIcon'
 import { EuropeanUnionFlagIcon } from '../../components/icons/EuropeanUnionFlagIcon'
 import { UnitedStatesFlagIcon } from '../../components/icons/UnitedStatesFlagIcon'
 import { YoutubeIcon } from '../../components/icons/YoutubeIcon'
+import { getPathLanguagePrefix, withLanguagePrefix } from '../../i18n/languageRouting'
 import { helpFooterColumns, helpOffices, helpSocialLinks, helpStoreLinks } from './helpData'
 import { HelpStoreButton } from './HelpStoreButton'
 
@@ -18,6 +19,11 @@ const socialIconByType = {
 
 export function HelpFooter() {
   const { t } = useTranslation()
+  const { pathname } = useLocation()
+  const pathLanguagePrefix = getPathLanguagePrefix(pathname)
+  const homeHref = withLanguagePrefix('/', pathLanguagePrefix, {
+    includeDefaultPrefix: true,
+  })
 
   return (
     <footer className="relative min-h-[603px] overflow-hidden bg-black px-6 pb-10 pt-[168px] font-space-grotesk text-[#EAEEE4] min-[811px]:px-10 min-[1201px]:h-[603px] min-[1201px]:px-0">
@@ -34,7 +40,7 @@ export function HelpFooter() {
 
       <div className="relative z-[2] mx-auto grid w-full max-w-[1128px] grid-cols-1 items-start gap-12 min-[811px]:grid-cols-[minmax(260px,430px)_1fr] min-[811px]:gap-10 min-[1201px]:grid-cols-[580px_1fr] min-[1201px]:gap-0">
         <div className="flex flex-col items-center min-[811px]:items-start">
-          <Link to="/" className="block w-fit" aria-label={t('help.footer.homeLabel')}>
+          <Link to={homeHref} className="block w-fit" aria-label={t('help.footer.homeLabel')}>
             <img src={mundpayAssets.logoWhite} alt="mundpay" className="h-[30px] w-auto" />
           </Link>
 
@@ -77,17 +83,23 @@ export function HelpFooter() {
                 {t(`help.footer.columns.${column.key}.title`)}
               </h2>
               <div className="mt-6 flex flex-col gap-6 min-[1201px]:mt-[28px] min-[1201px]:gap-[28px]">
-                {column.links.map((item) => (
-                  <a
-                    key={item.key}
-                    href={item.href}
-                    target={item.href.startsWith('http') ? '_blank' : undefined}
-                    rel={item.href.startsWith('http') ? 'noopener' : undefined}
-                    className="text-[14px] font-semibold leading-none text-[#EAEEE4]/65 transition hover:text-[#EAEEE4]"
-                  >
-                    {t(`help.footer.columns.${column.key}.links.${item.key}`)}
-                  </a>
-                ))}
+                {column.links.map((item) => {
+                  const href = withLanguagePrefix(item.href, pathLanguagePrefix, {
+                    includeDefaultPrefix: true,
+                  })
+
+                  return (
+                    <a
+                      key={item.key}
+                      href={href}
+                      target={item.href.startsWith('http') ? '_blank' : undefined}
+                      rel={item.href.startsWith('http') ? 'noopener' : undefined}
+                      className="text-[14px] font-semibold leading-none text-[#EAEEE4]/65 transition hover:text-[#EAEEE4]"
+                    >
+                      {t(`help.footer.columns.${column.key}.links.${item.key}`)}
+                    </a>
+                  )
+                })}
               </div>
 
               {column.key === 'site' ? (

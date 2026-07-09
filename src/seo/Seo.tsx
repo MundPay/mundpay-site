@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import { stripLanguagePrefix } from '../i18n/languageRouting'
 import { defaultSeo, notFoundSeo, routeSeoByPath, siteUrl } from './routeSeo'
 
 const managedMetaAttribute = 'data-seo-managed'
@@ -37,7 +38,8 @@ export function Seo() {
   const { pathname } = useLocation()
 
   useEffect(() => {
-    const seo = routeSeoByPath[pathname] ?? notFoundSeo
+    const seoPathname = stripLanguagePrefix(pathname)
+    const seo = routeSeoByPath[seoPathname] ?? notFoundSeo
     const canonicalUrl = `${siteUrl}${seo.path}`
     const robots = seo.robots ?? defaultSeo.robots ?? 'index, follow'
 
@@ -75,4 +77,3 @@ export function Seo() {
 
   return null
 }
-

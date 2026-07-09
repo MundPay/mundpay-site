@@ -1,11 +1,9 @@
 import type { CSSProperties } from 'react'
 import { useTranslation } from 'react-i18next'
-import { FeatureClosingLines } from './FeatureClosingLines'
 import { FeatureContent } from './FeatureContent'
 import { FeatureStackItem } from './FeatureStackItem'
 import { features } from './featuresData'
 import { FeatureTabs } from './FeatureTabs'
-import { PatternStrip } from './PatternStrip'
 import { useFeatureScroll } from './useFeatureScroll'
 
 const eyebrowStyle = {
@@ -25,8 +23,6 @@ export function FeaturesSection() {
     >
       <div className="relative z-[3] flex w-full max-w-[1200px] flex-col">
         <header className="relative flex min-h-[288px] w-full flex-col items-start justify-end gap-2 overflow-hidden border-x border-b border-[#0507001A] bg-[#EAEEE4] px-4 pb-10 pt-20 min-[811px]:flex-row min-[811px]:items-end min-[811px]:gap-2 min-[811px]:px-8 min-[811px]:pb-16 min-[811px]:pt-24 min-[1201px]:px-10 min-[1201px]:pb-20 min-[1201px]:pt-28">
-          <PatternStrip />
-          <PatternStrip side="right" />
           <div className="relative z-[2] flex min-w-0 flex-1 flex-col items-start gap-2 overflow-hidden">
             <p
               className="font-instrument-serif text-[18px] font-normal italic leading-[1.1] tracking-[0.01em] text-[#050700]"
@@ -68,8 +64,6 @@ export function FeaturesSection() {
             <FeatureStackItem key={feature.id} feature={feature} />
           ))}
         </div>
-
-        <FeatureClosingLines />
       </div>
     </section>
   )

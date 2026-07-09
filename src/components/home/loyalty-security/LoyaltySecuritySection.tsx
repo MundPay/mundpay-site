@@ -18,12 +18,12 @@ export function LoyaltySecuritySection() {
 
   return (
     <section className="relative z-[2] flex w-full justify-center bg-[#EAEEE4] text-[#050700]">
-      <div className="relative z-[3] w-full max-w-[1200px] pb-20">
+      <div className="relative z-[3] w-full max-w-[1200px] pb-20 border-t border-[#0507001A]">
         <LoyaltySecurityPatternStrip />
         <LoyaltySecurityPatternStrip side="right" />
 
         <div className="relative z-[2] mx-4 flex flex-col items-center sm:mx-8 lg:mx-10">
-          <header className="flex min-h-[260px] flex-col items-center justify-end px-4 pb-12 pt-20 text-center sm:px-8 lg:min-h-[300px] lg:px-10 lg:pb-[60px] lg:pt-24">
+          <header className="flex min-h-[260px] flex-col items-center justify-end px-4 pb-12 pt-14 text-center sm:px-8 lg:min-h-[300px] lg:px-10 lg:pb-[60px] lg:pt-14">
             <p
               className="font-instrument-serif text-[18px] font-normal italic leading-[1.1] tracking-[0.01em] text-[#050700]"
               style={eyebrowStyle}

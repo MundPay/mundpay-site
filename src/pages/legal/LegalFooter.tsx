@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { mundpayAssets } from "../../assets/mundpayAssets";
 import { AppleIcon } from "../../components/icons/AppleIcon";
@@ -8,6 +8,7 @@ import { InstagramIcon } from "../../components/icons/InstagramIcon";
 import { PlayStoreIcon } from "../../components/icons/PlayStoreIcon";
 import { UnitedStatesFlagIcon } from "../../components/icons/UnitedStatesFlagIcon";
 import { YoutubeIcon } from "../../components/icons/YoutubeIcon";
+import { getPathLanguagePrefix, withLanguagePrefix } from "../../i18n/languageRouting";
 
 const legalLinks = [
   [
@@ -74,11 +75,16 @@ function StoreButton({
 
 export function LegalFooter() {
   const { t } = useTranslation();
+  const { pathname } = useLocation();
+  const pathLanguagePrefix = getPathLanguagePrefix(pathname);
+  const homeHref = withLanguagePrefix("/", pathLanguagePrefix, {
+    includeDefaultPrefix: true,
+  });
 
   return (
     <footer className="w-full max-w-[910px] border-t border-mundpay-cream/[0.05] px-6 py-14 font-space-grotesk text-mundpay-cream md:px-10">
       <div className="flex flex-col gap-10 md:flex-row md:items-center md:justify-between">
-        <Link to="/" aria-label="Mundpay home" className="block w-fit">
+        <Link to={homeHref} aria-label="Mundpay home" className="block w-fit">
           <img
             src={mundpayAssets.logoWhite}
             alt="mundpay"
@@ -122,7 +128,9 @@ export function LegalFooter() {
                 {column.map((item) => (
                   <Link
                     key={item.translationKey}
-                    to={item.href}
+                    to={withLanguagePrefix(item.href, pathLanguagePrefix, {
+                      includeDefaultPrefix: true,
+                    })}
                     className="text-[15px] font-medium leading-none text-mundpay-cream/85 transition hover:text-mundpay-cream"
                   >
                     {t(`legal.routes.${item.translationKey}`)}
@@ -141,7 +149,9 @@ export function LegalFooter() {
             {contactLinks.map((item) => (
               <a
                 key={item.translationKey}
-                href={item.href}
+                href={withLanguagePrefix(item.href, pathLanguagePrefix, {
+                  includeDefaultPrefix: true,
+                })}
                 className="text-[15px] font-medium leading-none text-mundpay-cream/85 transition hover:text-mundpay-cream"
               >
                 {t(`home.footer.columns.contact.links.${item.translationKey}`)}
@@ -158,7 +168,13 @@ export function LegalFooter() {
             {siteLinks.map((item) => (
               <a
                 key={item.translationKey}
-                href={item.href}
+                href={
+                  item.translationKey === "blog"
+                    ? item.href
+                    : withLanguagePrefix(item.href, pathLanguagePrefix, {
+                        includeDefaultPrefix: true,
+                      })
+                }
                 className="text-[15px] font-medium leading-none text-mundpay-cream/85 transition hover:text-mundpay-cream"
               >
                 {t(`home.footer.columns.site.links.${item.translationKey}`)}

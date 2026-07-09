@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { mundpayAssets } from "../../../assets/mundpayAssets";
+import { PatternStrip } from "../../layout/PatternStrip";
 import { ChevronLeftIcon } from "../../icons/ChevronLeftIcon";
 import { ChevronRightIcon } from "../../icons/ChevronRightIcon";
-import { CustomerStoriesPatternEdge } from "./CustomerStoriesPatternEdge";
 import { CustomerStoryCard } from "./CustomerStoryCard";
 import {
   customerStories,
@@ -51,11 +51,21 @@ export function CustomerStoriesSection() {
 
   return (
     <section className="relative z-[2] w-full overflow-hidden bg-[#050700] py-16 text-[#EAEEE4] min-[811px]:py-20 min-[1201px]:h-[632px] min-[1201px]:py-0">
-      <div className="relative mx-auto w-full max-w-[1120px] border-x border-[#EAEEE4]/10">
-        <CustomerStoriesPatternEdge side="left" />
-        <CustomerStoriesPatternEdge side="right" />
+      <div className="relative mx-auto w-full max-w-[1120px] overflow-hidden">
+        <PatternStrip
+          side="left"
+          className="w-[20px]"
+          lineClassName="text-[#A2D035]"
+          opacity={0.12}
+        />
+        <PatternStrip
+          side="right"
+          className="w-[20px]"
+          lineClassName="text-[#A2D035]"
+          opacity={0.12}
+        />
 
-        <div className="mx-auto flex w-full flex-col px-4 min-[811px]:px-8 min-[1201px]:h-full min-[1201px]:w-[1080px] min-[1201px]:px-0 min-[1201px]:pt-[88px]">
+        <div className="relative mt-9 mb-6 z-[2] mx-auto flex w-full flex-col border border-[#EAEEE4]/10 px-4 min-[811px]:px-8 min-[1201px]:h-full min-[1201px]:w-[1080px] min-[1201px]:px-0 min-[1201px]:pt-[88px]">
           <h2 className="mx-auto text-center font-rethink-sans text-[28px] font-bold leading-[1.1] tracking-[-0.045em] text-[#EAEEE4] min-[811px]:text-[31px] min-[1201px]:text-[34px]">
             {t("home.customerStories.title")}
           </h2>

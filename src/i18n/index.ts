@@ -6,6 +6,7 @@ import {
   supportedLanguages,
   type SupportedLanguage,
 } from './resources'
+import { getPathLanguage, normalizeLanguage } from './languageRouting'
 
 const languageStorageKey = 'mundpay-language'
 const queryLanguageKey = 'lang'
@@ -13,17 +14,6 @@ const initialLanguage = getInitialLanguage()
 
 function isSupportedLanguage(language: string): language is SupportedLanguage {
   return supportedLanguages.includes(language as SupportedLanguage)
-}
-
-function normalizeLanguage(language: string | null | undefined): SupportedLanguage | null {
-  if (!language) return null
-
-  const normalizedLanguage = language.toLowerCase()
-
-  if (normalizedLanguage === 'en') return 'en'
-  if (normalizedLanguage === 'pt-br') return 'pt-BR'
-
-  return null
 }
 
 function getQueryLanguage(): SupportedLanguage | null {
@@ -65,8 +55,17 @@ function getDomainLanguage(): SupportedLanguage | null {
   return null
 }
 
+function getRouteLanguage(): SupportedLanguage | null {
+  try {
+    return getPathLanguage(globalThis.location?.pathname ?? '')
+  } catch {
+    return null
+  }
+}
+
 function getInitialLanguage() {
   return (
+    getRouteLanguage() ??
     getQueryLanguage() ??
     getDomainLanguage() ??
     getStoredLanguage() ??

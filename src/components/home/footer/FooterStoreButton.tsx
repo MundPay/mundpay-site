@@ -15,7 +15,7 @@ export function FooterStoreButton({ href, label, icon }: FooterStoreButtonProps)
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex h-[38px] w-fit items-center gap-2 rounded-full bg-[#EAEEE4]/[0.05] px-[15px] text-[14px] font-semibold leading-none text-[#EAEEE4]/75 transition-colors duration-300 hover:bg-[#A2D035]/20 hover:text-[#EAEEE4]"
+      className="group flex h-[38px] w-fit items-center gap-2 rounded-full bg-[#EAEEE4]/[0.05] px-[15px] text-[14px] font-normal leading-none text-[#EAEEE4]/75 transition-colors duration-300 hover:bg-[#A2D035]/20 hover:text-[#EAEEE4]"
     >
       <Icon className="size-[18px]" />
       <span>{label}</span>

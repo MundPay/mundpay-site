@@ -1,17 +1,26 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { mundpayAssets } from '../../assets/mundpayAssets'
 import { LanguageSwitcher } from '../../components/home/LanguageSwitcher'
+import { getPathLanguagePrefix, withLanguagePrefix } from '../../i18n/languageRouting'
 import { helpNavbarLinks } from './helpData'
 
 export function HelpNavbar() {
   const { t } = useTranslation()
+  const { pathname } = useLocation()
+  const pathLanguagePrefix = getPathLanguagePrefix(pathname)
+  const helpHref = withLanguagePrefix(helpNavbarLinks.help, pathLanguagePrefix, {
+    includeDefaultPrefix: true,
+  })
+  const homeHref = withLanguagePrefix(helpNavbarLinks.home, pathLanguagePrefix, {
+    includeDefaultPrefix: true,
+  })
 
   return (
     <header className="sticky top-0 z-30 bg-mundpay-ink/95 backdrop-blur-md">
       <div className="mx-auto flex w-full max-w-[1175px] items-center justify-between gap-3 px-5 py-2 md:px-0">
         <nav className="flex min-h-14 min-w-0 items-center rounded-[32px] border border-white/[0.04] bg-[linear-gradient(180deg,rgb(11,11,14)_0%,#050700_100%)] px-4 py-2 shadow-[0_8px_16px_rgba(0,0,0,0.1)]">
-          <Link to={helpNavbarLinks.help} aria-label="Mundpay help" className="flex shrink-0 items-center">
+          <Link to={helpHref} aria-label="Mundpay help" className="flex shrink-0 items-center">
             <img src={mundpayAssets.logoWhite} alt="mundpay" className="h-6 w-auto max-w-[124px] sm:max-w-none" />
           </Link>
           <span className="mx-4 hidden h-4 w-px shrink-0 bg-mundpay-cream/10 sm:block" />
@@ -20,7 +29,7 @@ export function HelpNavbar() {
           </span>
           <span className="mx-5 hidden h-4 w-px shrink-0 bg-mundpay-cream/10 md:block" />
           <Link
-            to={helpNavbarLinks.home}
+            to={homeHref}
             className="hidden h-10 items-center rounded-full px-3 font-space-grotesk text-[16px] font-medium leading-none tracking-[-0.02em] text-mundpay-cream/75 transition hover:text-mundpay-cream md:flex"
           >
             {t('home.nav.knowMundpay')}
