@@ -2,6 +2,8 @@ import { motion } from 'motion/react'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { twMerge } from 'tailwind-merge'
+import { normalizeLanguage, withLanguagePrefix } from '../../i18n/languageRouting'
+import { defaultLanguage } from '../../i18n/resources'
 import { Logo } from '../brand/Logo'
 import { HeaderAuthLinks } from './header-nav/HeaderAuthLinks'
 import { HeaderMenuLink } from './header-nav/HeaderMenuLink'
@@ -21,8 +23,9 @@ type HeaderNavProps = {
 }
 
 export function HeaderNav({ onStartNow }: HeaderNavProps) {
-  const { t } = useTranslation()
+  const { i18n, t } = useTranslation()
   const [isLight, setIsLight] = useState(false)
+  const currentLanguage = normalizeLanguage(i18n.resolvedLanguage) ?? defaultLanguage
 
   useEffect(() => {
     const updateNavTheme = () => {
@@ -88,7 +91,11 @@ export function HeaderNav({ onStartNow }: HeaderNavProps) {
             {navItems.map((item) => (
               <HeaderMenuLink
                 key={item.key}
-                href={item.href}
+                href={
+                  item.key === 'help'
+                    ? withLanguagePrefix(item.href, currentLanguage)
+                    : item.href
+                }
                 isLight={isLight}
                 label={t(`home.nav.items.${item.key}`)}
               />

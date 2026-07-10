@@ -18,7 +18,7 @@ export function LoyaltySecuritySection() {
 
   return (
     <section className="relative z-[2] flex w-full justify-center bg-[#EAEEE4] text-[#050700]">
-      <div className="relative z-[3] w-full max-w-[1200px] pb-20 border-t border-[#0507001A]">
+      <div className="relative z-[3] w-full max-w-[1200px] max-h-[918px] pb-14 border-t border-[#0507001A]">
         <LoyaltySecurityPatternStrip />
         <LoyaltySecurityPatternStrip side="right" />
 
@@ -38,7 +38,7 @@ export function LoyaltySecuritySection() {
             </p>
           </header>
 
-          <div className="relative h-auto w-full max-w-[1120px] overflow-hidden border border-[#0507001A] bg-[#EAEEE4] min-[1201px]:h-[566px]">
+          <div className="relative h-auto w-full max-w-[1120px] overflow-hidden border border-[#0507001A] bg-[#EAEEE4] min-[1201px]:h-[564px]">
             <LoyaltySecurityTabs
               activeIndex={activeIndex}
               onTabClick={setActiveIndex}

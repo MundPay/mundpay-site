@@ -8,6 +8,11 @@ import { InstagramIcon } from "../../components/icons/InstagramIcon";
 import { PlayStoreIcon } from "../../components/icons/PlayStoreIcon";
 import { UnitedStatesFlagIcon } from "../../components/icons/UnitedStatesFlagIcon";
 import { YoutubeIcon } from "../../components/icons/YoutubeIcon";
+import {
+  appStoreHref,
+  playStoreHref,
+  socialLinks,
+} from "../../components/home/footer/footerData";
 import { getPathLanguagePrefix, withLanguagePrefix } from "../../i18n/languageRouting";
 
 const legalLinks = [
@@ -44,7 +49,7 @@ const siteLinks = [
   { translationKey: "home", href: "/" },
   { translationKey: "globalSales", href: "/#global" },
   { translationKey: "taxes", href: "/#taxas" },
-  { translationKey: "blog", href: "/blog" },
+  { translationKey: "blog", href: "https://mundpay.com/blog" },
 ];
 
 function StoreButton({
@@ -93,27 +98,29 @@ export function LegalFooter() {
         </Link>
 
         <div className="flex items-center gap-4">
-          {(["instagram", "facebook", "youtube"] as const).map((type) => (
+          {socialLinks.map((social) => (
             <a
-              key={type}
-              href="#"
-              aria-label={type}
+              key={social.icon}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={social.label}
               className="flex size-9 items-center justify-center rounded-full bg-[#EAEEE4]/5 text-[#EAEEE4]/55 transition hover:text-[#EAEEE4]"
             >
-              {type === "instagram" ? <InstagramIcon className="size-4" /> : null}
-              {type === "facebook" ? <FacebookIcon className="size-4" /> : null}
-              {type === "youtube" ? <YoutubeIcon className="h-4 w-5" /> : null}
+              {social.icon === "instagram" ? <InstagramIcon className="size-4" /> : null}
+              {social.icon === "facebook" ? <FacebookIcon className="size-4" /> : null}
+              {social.icon === "youtube" ? <YoutubeIcon className="h-4 w-5" /> : null}
             </a>
           ))}
         </div>
 
         <div className="flex flex-wrap gap-3">
           <StoreButton
-            href="https://apps.apple.com/br/app/mundpay-mobile/id6744820317"
+            href={appStoreHref}
             label="App Store"
             type="apple"
           />
-          <StoreButton href="#" label="Play Store" type="play" />
+          <StoreButton href={playStoreHref} label="Play Store" type="play" />
         </div>
       </div>
 

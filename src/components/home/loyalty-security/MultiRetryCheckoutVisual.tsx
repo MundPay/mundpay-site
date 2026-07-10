@@ -36,16 +36,7 @@ function CheckoutSkeleton({ loopTransition }: MultiRetryCheckoutVisualProps) {
     <div className="absolute left-1/2 top-[135px] h-[320px] w-[610px] -translate-x-1/2 overflow-hidden rounded-[14px] border border-[#E4E4E7] bg-[#FAFAFA] shadow-[0_1px_2px_rgba(16,24,40,0.04)]">
       <motion.div
         className="absolute inset-x-0 top-0 h-px bg-[#A2D035]"
-        animate={{ opacity: [0, 0, 1, 1, 0] }}
-        transition={loopTransition}
-      />
-
-      <motion.div
-        className="absolute -top-16 left-1/2 size-48 -translate-x-1/2 rounded-full bg-[#A2D035] blur-[44px]"
-        animate={{
-          opacity: [0.05, 0.08, 0.18, 0.24, 0.08],
-          scale: [0.9, 1, 1.12, 1.04, 0.9],
-        }}
+        animate={{ opacity: [0, 0, 1, 1, 1, 0] }}
         transition={loopTransition}
       />
 
@@ -96,8 +87,8 @@ function PurchaseSummary({ loopTransition }: MultiRetryCheckoutVisualProps) {
     <motion.div
       className="absolute left-1/2 top-[340px] z-20 w-[340px] -translate-x-1/2 rounded-md bg-[#FAFAFA] p-4 shadow-[0_4px_16px_rgba(0,0,0,0.06)]"
       animate={{
-        y: [0, 0, -5, -5, 0],
-        scale: [1, 1, 1.01, 1.01, 1],
+        y: [0, 0, -5, -5, -5, 0],
+        scale: [1, 1, 1.01, 1.01, 1.01, 1],
       }}
       transition={loopTransition}
     >
@@ -124,12 +115,22 @@ function PurchaseSummary({ loopTransition }: MultiRetryCheckoutVisualProps) {
       <motion.div
         className="flex h-8 items-center justify-center gap-2 rounded-md bg-[#059669] font-space-grotesk text-[10.5px] font-semibold text-white shadow-[0_1px_2px_rgba(0,0,0,0.12)]"
         animate={{
-          backgroundColor: ["#059669", "#059669", "#059669", "#059669", "#059669"],
+          backgroundColor: [
+            "#059669",
+            "#059669",
+            "#059669",
+            "#059669",
+            "#059669",
+            "#059669",
+          ],
         }}
         transition={loopTransition}
       >
         <motion.span
-          animate={{ opacity: [1, 1, 0, 0, 1], width: [14, 14, 0, 0, 14] }}
+          animate={{
+            opacity: [1, 1, 0, 0, 0, 1],
+            width: [14, 14, 0, 0, 0, 14],
+          }}
           transition={loopTransition}
           className="overflow-hidden"
         >
@@ -137,20 +138,26 @@ function PurchaseSummary({ loopTransition }: MultiRetryCheckoutVisualProps) {
         </motion.span>
 
         <motion.span
-          animate={{ opacity: [0, 0, 1, 1, 0], width: [0, 0, 14, 14, 0] }}
+          animate={{
+            opacity: [0, 0, 1, 1, 1, 0],
+            width: [0, 0, 14, 14, 14, 0],
+          }}
           transition={loopTransition}
           className="overflow-hidden text-white"
         >
           <CheckMarkIcon className="size-3.5" />
         </motion.span>
 
-        <motion.span animate={{ opacity: [1, 1, 0, 0, 1] }} transition={loopTransition}>
+        <motion.span
+          animate={{ opacity: [1, 1, 0, 0, 0, 1] }}
+          transition={loopTransition}
+        >
           Processing
         </motion.span>
 
         <motion.span
           className="absolute"
-          animate={{ opacity: [0, 0, 1, 1, 0] }}
+          animate={{ opacity: [0, 0, 1, 1, 1, 0] }}
           transition={loopTransition}
         >
           <span className="ml-6">Payment Approved!</span>
@@ -165,9 +172,9 @@ function Cursor({ loopTransition }: MultiRetryCheckoutVisualProps) {
     <motion.div
       className="absolute z-30"
       animate={{
-        x: [470, 470, 150, 150, 150],
-        y: [42, 42, 88, 88, 88],
-        opacity: [0, 1, 1, 0, 0],
+        x: [470, 470, 150, 150, 150, 150],
+        y: [42, 42, 88, 88, 88, 88],
+        opacity: [0, 1, 1, 0, 0, 0],
       }}
       transition={loopTransition}
     >
@@ -186,12 +193,14 @@ function AnimatedBorder({ loopTransition }: MultiRetryCheckoutVisualProps) {
           "rgba(208,53,53,1)",
           "rgba(208,53,53,1)",
           "rgba(162,208,53,1)",
+          "rgba(162,208,53,1)",
           "rgba(228,228,231,1)",
         ],
         boxShadow: [
           "0 0 0 rgba(0,0,0,0)",
           "0 0 0 rgba(208,53,53,0)",
           "0 0 0 rgba(208,53,53,0)",
+          "0 0 0 rgba(162,208,53,0)",
           "0 0 0 rgba(162,208,53,0)",
           "0 0 0 rgba(0,0,0,0)",
         ],

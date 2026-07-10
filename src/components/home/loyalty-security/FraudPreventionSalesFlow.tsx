@@ -6,10 +6,12 @@ import { XMarkIcon } from "../../icons/XMarkIcon";
 type SaleState = "active" | "dim" | "declined" | "approved";
 
 type FraudPreventionSalesFlowProps = {
+  analyzingFirstSaleOpacity: number[];
+  analyzingNextSaleOpacity: number[];
   approvedOpacity: number[];
-  analyzingOpacity: number[];
   frameTransition: Transition;
   rejectedOpacity: number[];
+  statusTransition: Transition;
 };
 
 function SaleIcon({ state }: { state: SaleState }) {
@@ -62,7 +64,17 @@ function SaleItem({
       </div>
 
       <div>
-        <p className="font-space-grotesk text-[10px] leading-[1.2] tracking-[-0.02em] text-[#70707B]">
+        <p
+          className={[
+            "font-space-grotesk text-[10px] leading-[1.2] tracking-[-0.02em]",
+            isDeclined && "text-[#D03535]",
+            isApproved && "text-[#859933]",
+            isDim && "text-[#70707B]",
+            !isDeclined && !isApproved && !isDim && "text-[#27272A]",
+          ]
+            .filter(Boolean)
+            .join(" ")}
+        >
           {title}
         </p>
 
@@ -86,7 +98,7 @@ function SaleItem({
 function SaleGroup({
   variant,
 }: {
-  variant: "analyzing" | "rejected" | "approved";
+  variant: "analyzing" | "analyzingNextSale" | "rejected" | "approved";
 }) {
   const sales = [
     {
@@ -99,7 +111,12 @@ function SaleGroup({
       title: "Sale #2",
       price: "R$ 145,50",
       top: 68,
-      state: variant === "approved" ? "approved" : "dim",
+      state:
+        variant === "approved"
+          ? "approved"
+          : variant === "analyzingNextSale"
+            ? "active"
+            : "dim",
     },
     { title: "Sale #3", price: "R$ 167,80", top: 113, state: "dim" },
     { title: "Sale #4", price: "R$ 199,90", top: 158, state: "dim" },
@@ -121,19 +138,24 @@ function SaleGroup({
 }
 
 export function FraudPreventionSalesFlow({
+  analyzingFirstSaleOpacity,
+  analyzingNextSaleOpacity,
   approvedOpacity,
-  analyzingOpacity,
   frameTransition,
   rejectedOpacity,
+  statusTransition,
 }: FraudPreventionSalesFlowProps) {
   return (
     <>
-      <FraudFlowLinesIcon frameTransition={frameTransition} />
+      <FraudFlowLinesIcon
+        frameTransition={frameTransition}
+        statusTransition={statusTransition}
+      />
 
       <motion.div
         className="absolute inset-0"
-        animate={{ opacity: analyzingOpacity }}
-        transition={frameTransition}
+        animate={{ opacity: analyzingFirstSaleOpacity }}
+        transition={statusTransition}
       >
         <SaleGroup variant="analyzing" />
       </motion.div>
@@ -141,15 +163,23 @@ export function FraudPreventionSalesFlow({
       <motion.div
         className="absolute inset-0"
         animate={{ opacity: rejectedOpacity }}
-        transition={frameTransition}
+        transition={statusTransition}
       >
         <SaleGroup variant="rejected" />
       </motion.div>
 
       <motion.div
         className="absolute inset-0"
+        animate={{ opacity: analyzingNextSaleOpacity }}
+        transition={statusTransition}
+      >
+        <SaleGroup variant="analyzingNextSale" />
+      </motion.div>
+
+      <motion.div
+        className="absolute inset-0"
         animate={{ opacity: approvedOpacity }}
-        transition={frameTransition}
+        transition={statusTransition}
       >
         <SaleGroup variant="approved" />
       </motion.div>

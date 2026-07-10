@@ -1,6 +1,9 @@
 import { motion } from "motion/react";
 import { ShieldLockIcon } from "../../icons/ShieldLockIcon";
-import { frameTransition } from "./fraudPreventionAnimationConfig";
+import {
+  frameTransition,
+  statusTransition,
+} from "./fraudPreventionAnimationConfig";
 import { FraudDecisionStatusCard } from "./FraudDecisionStatusCard";
 
 function SecurityChip() {
@@ -14,14 +17,15 @@ function SecurityChip() {
           "#D4D4D8",
           "#D03535",
           "#D03535",
+          "#D4D4D8",
+          "#D4D4D8",
           "#A2D035",
           "#A2D035",
           "#D4D4D8",
           "#D4D4D8",
         ],
-        scale: [1, 1, 1.02, 1, 1.02, 1, 1, 1],
       }}
-      transition={frameTransition}
+      transition={statusTransition}
     >
       <motion.div
         className="relative flex size-full items-center justify-center overflow-hidden rounded-xl border"
@@ -32,6 +36,8 @@ function SecurityChip() {
             "#FFFFFF",
             "#D03535",
             "#D03535",
+            "#FFFFFF",
+            "#FFFFFF",
             "#A2D035",
             "#A2D035",
             "#FFFFFF",
@@ -42,13 +48,18 @@ function SecurityChip() {
             "#E4E4E7",
             "rgba(255,255,255,0.6)",
             "rgba(255,255,255,0.6)",
+            "#E4E4E7",
+            "#E4E4E7",
             "rgba(255,255,255,0.6)",
             "rgba(255,255,255,0.6)",
             "#E4E4E7",
             "#E4E4E7",
           ],
         }}
-        transition={frameTransition}
+        transition={{
+          backgroundColor: statusTransition,
+          borderColor: statusTransition,
+        }}
       >
         <motion.div
           className="absolute inset-2 rounded-lg"
@@ -58,9 +69,9 @@ function SecurityChip() {
             backgroundSize: "7px 7px",
           }}
           animate={{
-            opacity: [0.08, 0.08, 0.42, 0.42, 0.42, 0.42, 0.08, 0.08],
+            opacity: [0.08, 0.08, 0.42, 0.42, 0.08, 0.08, 0.42, 0.42, 0.08, 0.08],
           }}
-          transition={frameTransition}
+          transition={statusTransition}
         />
 
         <motion.div
@@ -72,13 +83,15 @@ function SecurityChip() {
               "#D4D4D8",
               "#FFFFFF",
               "#FFFFFF",
+              "#D4D4D8",
+              "#D4D4D8",
               "#FFFFFF",
               "#FFFFFF",
               "#D4D4D8",
               "#D4D4D8",
             ],
           }}
-          transition={frameTransition}
+          transition={statusTransition}
         >
           <ShieldLockIcon className="size-[26px]" />
         </motion.div>
@@ -93,9 +106,9 @@ function SignalConnector() {
       className="absolute left-[422px] top-[111px] z-10 flex h-9 w-5 flex-col justify-center gap-[3px]"
       initial={false}
       animate={{
-        opacity: [0.45, 0.45, 1, 1, 1, 1, 0.45, 0.45],
+        opacity: [0.45, 0.45, 1, 1, 0.45, 0.45, 1, 1, 0.45, 0.45],
       }}
-      transition={frameTransition}
+      transition={statusTransition}
     >
       {Array.from({ length: 8 }).map((_, index) => (
         <motion.span
@@ -108,6 +121,8 @@ function SignalConnector() {
               "#D4D4D8",
               "#D03535",
               "#D03535",
+              "#D4D4D8",
+              "#D4D4D8",
               "#A2D035",
               "#A2D035",
               "#D4D4D8",
@@ -115,7 +130,10 @@ function SignalConnector() {
             ],
             width: index % 2 === 0 ? 14 : 10,
           }}
-          transition={frameTransition}
+          transition={{
+            backgroundColor: statusTransition,
+            width: frameTransition,
+          }}
         />
       ))}
     </motion.div>

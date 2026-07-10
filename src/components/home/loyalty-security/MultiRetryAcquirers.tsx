@@ -121,6 +121,7 @@ export function StepAcquirers() {
           "declined",
           "declined",
           "declined",
+          "declined",
           "analyzing",
         ]}
       />
@@ -130,6 +131,7 @@ export function StepAcquirers() {
         statusFrames={[
           "analyzing",
           "analyzing",
+          "declined",
           "declined",
           "declined",
           "analyzing",
@@ -142,6 +144,7 @@ export function StepAcquirers() {
           "analyzing",
           "analyzing",
           "analyzing",
+          "approved",
           "approved",
           "analyzing",
         ]}
@@ -158,7 +161,7 @@ function AnimatedAcquirer({
   statusFrames: AcquirerStatus[];
 }) {
   return (
-    <motion.div animate={{ opacity: [1, 1, 1, 1, 1] }} transition={loopTransition}>
+    <motion.div animate={{ opacity: [1, 1, 1, 1, 1, 1] }} transition={loopTransition}>
       <DynamicAcquirer name={name} statusFrames={statusFrames} />
     </motion.div>
   );

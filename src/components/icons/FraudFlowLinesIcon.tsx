@@ -2,6 +2,7 @@ import { motion, type Transition } from 'motion/react'
 
 type FraudFlowLinesIconProps = {
   frameTransition: Transition
+  statusTransition: Transition
 }
 
 const flowPaths = {
@@ -12,7 +13,10 @@ const flowPaths = {
   sale5: 'M 112 222 L 205 222 C 258 222 250 148 346 148',
 }
 
-export function FraudFlowLinesIcon({ frameTransition }: FraudFlowLinesIconProps) {
+export function FraudFlowLinesIcon({
+  frameTransition,
+  statusTransition,
+}: FraudFlowLinesIconProps) {
   return (
     <svg
       viewBox="0 0 660 260"
@@ -32,15 +36,44 @@ export function FraudFlowLinesIcon({ frameTransition }: FraudFlowLinesIconProps)
 
       <motion.path
         d={flowPaths.sale1}
+        stroke="#27272A"
+        strokeWidth="1.15"
+        strokeLinecap="round"
+        initial={false}
+        animate={{
+          opacity: [1, 1, 0, 0, 0, 0, 0, 0, 1, 1],
+          pathLength: [1, 1, 1, 1, 0, 0, 0, 0, 1, 1],
+        }}
+        transition={statusTransition}
+      />
+
+      <motion.path
+        d={flowPaths.sale1}
         stroke="#D03535"
         strokeWidth="1.15"
         strokeLinecap="round"
         initial={false}
         animate={{
-          opacity: [0, 0, 1, 1, 1, 1, 0, 0],
+          opacity: [0, 0, 1, 1, 0, 0, 0, 0, 0, 0],
           pathLength: [0, 0, 1, 1, 1, 1, 0, 0],
         }}
-        transition={frameTransition}
+        transition={{
+          opacity: statusTransition,
+          pathLength: frameTransition,
+        }}
+      />
+
+      <motion.path
+        d={flowPaths.sale2}
+        stroke="#27272A"
+        strokeWidth="1.15"
+        strokeLinecap="round"
+        initial={false}
+        animate={{
+          opacity: [0, 0, 0, 0, 1, 1, 0, 0, 0, 0],
+          pathLength: [0, 0, 0, 0, 1, 1, 0, 0, 0, 0],
+        }}
+        transition={statusTransition}
       />
 
       <motion.path
@@ -50,10 +83,10 @@ export function FraudFlowLinesIcon({ frameTransition }: FraudFlowLinesIconProps)
         strokeLinecap="round"
         initial={false}
         animate={{
-          opacity: [0, 0, 0, 0, 1, 1, 0, 0],
-          pathLength: [0, 0, 0, 0, 1, 1, 0, 0],
+          opacity: [0, 0, 0, 0, 0, 0, 1, 1, 0, 0],
+          pathLength: [0, 0, 0, 0, 0, 0, 1, 1, 0, 0],
         }}
-        transition={frameTransition}
+        transition={statusTransition}
       />
     </svg>
   )

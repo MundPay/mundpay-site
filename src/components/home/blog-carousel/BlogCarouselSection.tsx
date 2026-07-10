@@ -9,7 +9,7 @@ export function BlogCarouselSection() {
   const { t } = useTranslation()
   const { autoplayDelay, dragThreshold, gap } = blogCarouselConfig
   const [visibleCards, setVisibleCards] = useState<number>(blogCarouselConfig.visibleCards)
-  const { activeIndex, dragOffset, finishDrag, goTo, handlePointerDown, handlePointerMove, isDragging } =
+  const { activeIndex, dragOffset, finishDrag, goTo, handleClickCapture, handlePointerDown, handlePointerMove, isDragging } =
     useBlogCarousel({
       autoplayDelay,
       dragThreshold,
@@ -59,6 +59,7 @@ export function BlogCarouselSection() {
           onPointerUp={finishDrag}
           onPointerCancel={finishDrag}
           onPointerLeave={finishDrag}
+          onClickCapture={handleClickCapture}
         >
           <div
             className="flex h-full cursor-grab touch-pan-y gap-[10px] active:cursor-grabbing"
