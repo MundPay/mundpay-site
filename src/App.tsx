@@ -1,5 +1,6 @@
 import type { ReactElement } from 'react'
 import { Route, Routes } from 'react-router-dom'
+import { CrispChat } from './components/support/CrispChat'
 import { useLenis } from './hooks/useLenis'
 import { LanguageRouteSync } from './i18n/LanguageRouteSync'
 import { languageRoutePrefixes } from './i18n/languageRouting'
@@ -53,6 +54,7 @@ function App() {
 
   return (
     <>
+      <CrispChat />
       <Seo />
       <LanguageRouteSync />
       <Routes>
