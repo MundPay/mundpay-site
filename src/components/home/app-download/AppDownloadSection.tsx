@@ -6,7 +6,7 @@ export function AppDownloadSection() {
   return (
     <section
       id="app"
-      className="relative z-[2] w-full overflow-hidden border-y border-[#EAEEE4]/10 bg-[#050700] py-12 text-[#EAEEE4] min-[811px]:py-16 min-[1201px]:h-[560px] min-[1201px]:py-0"
+      className="relative z-[2] w-full overflow-hidden border-b border-[#EAEEE4]/10 bg-[#050700] py-12 text-[#EAEEE4] min-[811px]:py-16 min-[1201px]:h-[560px] min-[1201px]:py-0"
     >
       <div className="mx-auto flex w-full max-w-[1200px] items-center px-4 min-[811px]:px-8 min-[1201px]:h-full min-[1201px]:px-0">
         <div className="grid w-full grid-cols-1 border border-[#EAEEE4]/10 min-[811px]:h-[420px] min-[811px]:grid-cols-2 min-[1201px]:h-[464px]">

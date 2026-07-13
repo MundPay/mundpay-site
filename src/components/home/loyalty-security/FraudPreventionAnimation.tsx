@@ -1,9 +1,11 @@
 import { motion } from "motion/react";
 import {
   approvedOpacity,
-  analyzingOpacity,
+  analyzingFirstSaleOpacity,
+  analyzingNextSaleOpacity,
   frameTransition,
   rejectedOpacity,
+  statusTransition,
 } from "./fraudPreventionAnimationConfig";
 import {
   FraudPreventionDecision,
@@ -23,10 +25,12 @@ export function FraudPreventionAnimation() {
         transition={{ duration: 0.35, ease: "easeOut" }}
       >
         <FraudPreventionSalesFlow
+          analyzingFirstSaleOpacity={analyzingFirstSaleOpacity}
+          analyzingNextSaleOpacity={analyzingNextSaleOpacity}
           approvedOpacity={approvedOpacity}
-          analyzingOpacity={analyzingOpacity}
           frameTransition={frameTransition}
           rejectedOpacity={rejectedOpacity}
+          statusTransition={statusTransition}
         />
 
         <FraudPreventionDecision />

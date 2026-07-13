@@ -15,7 +15,7 @@ export function MultiRetryAnimation() {
       <motion.div
         className="absolute inset-0"
         animate={{
-          opacity: [1, 1, 1, 1, 1],
+          opacity: [1, 1, 1, 1, 1, 1],
         }}
         transition={loopTransition}
       >
@@ -24,7 +24,7 @@ export function MultiRetryAnimation() {
         <motion.div
           className="absolute left-1/2 top-[95px] flex -translate-x-1/2 items-start"
           animate={{
-            opacity: [1, 1, 1, 1, 1],
+            opacity: [1, 1, 1, 1, 1, 1],
           }}
           transition={loopTransition}
         >

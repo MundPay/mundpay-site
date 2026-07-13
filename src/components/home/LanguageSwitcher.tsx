@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { twMerge } from 'tailwind-merge'
 import brazilFlag from '../../assets/image/e1d425d910-MwQ1uNop6fB9tCS9BuqD3t0PXYQ.png'
 import unitedStatesFlag from '../../assets/image/c4a9921e72-gFEkeGlHOODB9yVcObGjUek8.png'
 import { LanguageChevronIcon } from '../icons/LanguageChevronIcon'
 import type { SupportedLanguage } from '../../i18n/resources'
+import { withLanguagePrefix } from '../../i18n/languageRouting'
 
 type LanguageSwitcherProps = {
   isLight: boolean
@@ -25,6 +27,8 @@ function getCurrentLanguage(language?: string): SupportedLanguage {
 
 export function LanguageSwitcher({ isLight }: LanguageSwitcherProps) {
   const { i18n, t } = useTranslation()
+  const navigate = useNavigate()
+  const { hash, pathname, search } = useLocation()
   const [isOpen, setIsOpen] = useState(false)
   const switcherRef = useRef<HTMLDivElement>(null)
   const currentLanguage = getCurrentLanguage(i18n.resolvedLanguage)
@@ -59,6 +63,12 @@ export function LanguageSwitcher({ isLight }: LanguageSwitcherProps) {
   const handleLanguageChange = (language: SupportedLanguage) => {
     setIsOpen(false)
     void i18n.changeLanguage(language)
+
+    const nextPath = withLanguagePrefix(`${pathname}${search}${hash}`, language)
+
+    if (nextPath !== `${pathname}${search}${hash}`) {
+      navigate(nextPath)
+    }
   }
 
   return (

@@ -1,6 +1,5 @@
-import { EuropeanUnionFlagIcon } from "../../icons/EuropeanUnionFlagIcon";
-import { UnitedStatesFlagIcon } from "../../icons/UnitedStatesFlagIcon";
 import { offices } from "./footerData";
+import { FooterOffice } from "./FooterOffice";
 
 export function FooterOffices() {
   return (
@@ -8,14 +7,7 @@ export function FooterOffices() {
       <div data-footer-divider className="h-px w-full bg-[#A2D035]/35" />
       <div data-footer-offices className="mt-7 grid grid-cols-1 gap-4 min-[811px]:grid-cols-3 min-[811px]:gap-6 min-[1201px]:grid-cols-[345px_345px_1fr] min-[1201px]:gap-[38px]">
         {offices.map((office) => (
-          <div key={office.text} className="flex items-start gap-[10px] text-[10px] font-semibold leading-[1.35] text-[#EAEEE4]/65">
-            {office.flag === "us" ? (
-              <UnitedStatesFlagIcon className="size-5 flex-none" />
-            ) : (
-              <EuropeanUnionFlagIcon className="size-5 flex-none" />
-            )}
-            <p>{office.text}</p>
-          </div>
+          <FooterOffice key={office.text} flag={office.flag} text={office.text} />
         ))}
       </div>
     </div>

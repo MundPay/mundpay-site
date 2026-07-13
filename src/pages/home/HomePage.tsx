@@ -18,20 +18,22 @@ import { SiteShell } from "../../components/layout/SiteShell";
 export function HomePage() {
   return (
     <SiteShell>
-      <AnnouncementBar />
-      <HeroSection />
-      <BenefitsSection />
-      <FeaturesSection />
-      <LoyaltySecuritySection />
-      <EarningsCtaSection />
-      <GlobalSalesSection />
-      <PricingSection />
-      <AwardsSection />
-      <SuccessPlatformSection />
-      <IntegrationsSection />
-      <CustomerStoriesSection />
-      <AppDownloadSection />
-      <BlogCarouselSection />
+      <div className="relative z-10 bg-[#050700]">
+        <AnnouncementBar />
+        <HeroSection />
+        <BenefitsSection />
+        <FeaturesSection />
+        <LoyaltySecuritySection />
+        <EarningsCtaSection />
+        <GlobalSalesSection />
+        <PricingSection />
+        <AwardsSection />
+        <SuccessPlatformSection />
+        <IntegrationsSection />
+        <CustomerStoriesSection />
+        <AppDownloadSection />
+        <BlogCarouselSection />
+      </div>
       <FooterSection />
     </SiteShell>
   );

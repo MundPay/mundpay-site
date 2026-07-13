@@ -1,7 +1,9 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { AwardsCarousel } from './AwardsCarousel'
 import { awardSlides } from './awardsData'
+
+export type AwardSlideDirection = -1 | 1
 
 function getPreviousSlideIndex(current: number) {
   return current === 0 ? awardSlides.length - 1 : current - 1
@@ -14,14 +16,28 @@ function getNextSlideIndex(current: number) {
 export function AwardsSection() {
   const { t } = useTranslation()
   const [activeSlide, setActiveSlide] = useState(0)
+  const [slideDirection, setSlideDirection] = useState<AwardSlideDirection>(1)
 
   const goToPrevious = () => {
+    setSlideDirection(-1)
     setActiveSlide(getPreviousSlideIndex)
   }
 
   const goToNext = () => {
+    setSlideDirection(1)
     setActiveSlide(getNextSlideIndex)
   }
+
+  useEffect(() => {
+    const autoplayTimer = window.setInterval(() => {
+      setSlideDirection(1)
+      setActiveSlide(getNextSlideIndex)
+    }, 4000)
+
+    return () => {
+      window.clearInterval(autoplayTimer)
+    }
+  }, [])
 
   return (
     <section
@@ -44,6 +60,7 @@ export function AwardsSection() {
 
           <AwardsCarousel
             activeSlide={activeSlide}
+            direction={slideDirection}
             onNext={goToNext}
             onPrevious={goToPrevious}
           />
