@@ -1,108 +1,109 @@
+import { useTranslation } from "react-i18next";
 import { LegalDocument } from "../LegalDocument";
 import { LegalLayout } from "../LegalLayout";
 
 export function ReportingChannelPage() {
+  const { t } = useTranslation();
+
   return (
     <LegalLayout>
       <LegalDocument>
-        <h1>Report Channel</h1>
-        <h2>Reports</h2>
+        <h1>{t("legal.pages.reportingChannel.title")}</h1>
+        <h2>{t("legal.pages.reportingChannel.reports.title")}</h2>
         <p>
-          If you found a product being sold on the Mundpay platform that should
-          not be for sale, report it! Our team will analyze the situation and
-          take the necessary actions as soon as possible.
+          {t("legal.pages.reportingChannel.reports.description")}
         </p>
-        <h2>Plagiarism or Piracy</h2>
+        <h2>{t("legal.pages.reportingChannel.plagiarism.title")}</h2>
         <p>
-          To report cases of plagiarism or piracy, send an email to
-          denuncias@mundpay.com with the following information:
+          {t("legal.pages.reportingChannel.plagiarism.description")}
         </p>
-        <h3>About you:</h3>
+        <h3>{t("legal.pages.reportingChannel.plagiarism.aboutYouTitle")}</h3>
         <ul>
           <li>
-            <p>Name</p>
+            <p>{t("legal.pages.reportingChannel.plagiarism.aboutYouItems.name")}</p>
           </li>
           <li>
-            <p>Email</p>
-          </li>
-          <li>
-            <p>Platform where the original product is being sold</p>
-          </li>
-          <li>
-            <p>Since when the product has been available for sale</p>
+            <p>{t("legal.pages.reportingChannel.plagiarism.aboutYouItems.email")}</p>
           </li>
           <li>
             <p>
-              Link to the website and the checkout page of the original product
-            </p>
-          </li>
-          <li>
-            <p>Proof of ownership of the product, if any</p>
-          </li>
-          <li>
-            <p>
-              Screenshots of previous sales (if it has been sold on another
-              platform)
+              {t("legal.pages.reportingChannel.plagiarism.aboutYouItems.originalPlatform")}
             </p>
           </li>
           <li>
             <p>
-              Comparative material that proves the plagiarism (e.g., screenshots
-              of the original content)
+              {t("legal.pages.reportingChannel.plagiarism.aboutYouItems.availableSince")}
+            </p>
+          </li>
+          <li>
+            <p>
+              {t("legal.pages.reportingChannel.plagiarism.aboutYouItems.originalLinks")}
+            </p>
+          </li>
+          <li>
+            <p>
+              {t("legal.pages.reportingChannel.plagiarism.aboutYouItems.ownershipProof")}
+            </p>
+          </li>
+          <li>
+            <p>
+              {t("legal.pages.reportingChannel.plagiarism.aboutYouItems.previousSales")}
+            </p>
+          </li>
+          <li>
+            <p>
+              {t("legal.pages.reportingChannel.plagiarism.aboutYouItems.comparativeMaterial")}
             </p>
           </li>
         </ul>
-        <h3>About the copied or pirate product:</h3>
+        <h3>{t("legal.pages.reportingChannel.plagiarism.copiedProductTitle")}</h3>
         <ul>
           <li>
-            <p>Link to the website where the product is being sold illegally</p>
-          </li>
-          <li>
-            <p>Link to the checkout of the plagiarized or pirated product</p>
+            <p>
+              {t("legal.pages.reportingChannel.plagiarism.copiedProductItems.illegalWebsite")}
+            </p>
           </li>
           <li>
             <p>
-              Screenshots or any other material that proves the plagiarism or
-              piracy
+              {t("legal.pages.reportingChannel.plagiarism.copiedProductItems.plagiarizedCheckout")}
+            </p>
+          </li>
+          <li>
+            <p>
+              {t("legal.pages.reportingChannel.plagiarism.copiedProductItems.proof")}
             </p>
           </li>
         </ul>
         <p>
-          The more details you can provide, the faster we can evaluate and take
-          the necessary actions.
+          {t("legal.pages.reportingChannel.plagiarism.details")}
         </p>
         <p>
-          Our reporting team operates from Monday to Friday and is committed to
-          investigating and resolving the issue within 24 business hours.
+          {t("legal.pages.reportingChannel.plagiarism.deadline")}
         </p>
-        <h2>Prohibited or Fraudulent Product</h2>
+        <h2>{t("legal.pages.reportingChannel.prohibitedProduct.title")}</h2>
         <p>
-          If you identified a prohibited or fraudulent product being sold on
-          Mundpay, send an email to denuncias@mundpay.com with the following
-          information:
+          {t("legal.pages.reportingChannel.prohibitedProduct.description")}
         </p>
-        <h2>About the prohibited or fraudulent product:</h2>
+        <h2>{t("legal.pages.reportingChannel.prohibitedProduct.productTitle")}</h2>
         <ul>
           <li>
-            <p>Link to the website where the product is being sold</p>
+            <p>{t("legal.pages.reportingChannel.prohibitedProduct.items.website")}</p>
           </li>
           <li>
-            <p>Link to the checkout</p>
+            <p>{t("legal.pages.reportingChannel.prohibitedProduct.items.checkout")}</p>
           </li>
           <li>
-            <p>Reason why you consider this product prohibited or fraudulent</p>
+            <p>{t("legal.pages.reportingChannel.prohibitedProduct.items.reason")}</p>
           </li>
           <li>
-            <p>Screenshots or any material that proves the irregularity</p>
+            <p>{t("legal.pages.reportingChannel.prohibitedProduct.items.proof")}</p>
           </li>
         </ul>
         <p>
-          We need as much information as possible to expedite the analysis and
-          solution of the problem.
+          {t("legal.pages.reportingChannel.prohibitedProduct.details")}
         </p>
         <p>
-          Our reporting team works from Monday to Friday and will do its best to
-          investigate and resolve the report within 24 business h
+          {t("legal.pages.reportingChannel.prohibitedProduct.deadline")}
         </p>
       </LegalDocument>
     </LegalLayout>

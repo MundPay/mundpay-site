@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState, type PointerEvent } from 'react'
+import { useCallback, useEffect, useRef, useState, type MouseEvent, type PointerEvent } from 'react'
 
 type UseBlogCarouselOptions = {
   autoplayDelay: number
@@ -13,6 +13,7 @@ export function useBlogCarousel({ autoplayDelay, dragThreshold, itemCount }: Use
   const dragStartX = useRef(0)
   const dragOffsetRef = useRef(0)
   const autoplayPaused = useRef(false)
+  const suppressNextClick = useRef(false)
 
   const goTo = useCallback((index: number) => {
     setActiveIndex((index + itemCount) % itemCount)
@@ -34,8 +35,6 @@ export function useBlogCarousel({ autoplayDelay, dragThreshold, itemCount }: Use
     dragOffsetRef.current = 0
     setIsDragging(true)
     setDragOffset(0)
-    event.currentTarget.setPointerCapture(event.pointerId)
-    event.preventDefault()
   }
 
   const handlePointerMove = (event: PointerEvent<HTMLDivElement>) => {
@@ -61,6 +60,7 @@ export function useBlogCarousel({ autoplayDelay, dragThreshold, itemCount }: Use
       goTo(activeIndex - 1)
     }
 
+    suppressNextClick.current = Math.abs(finalOffset) > 6
     setIsDragging(false)
     dragOffsetRef.current = 0
     setDragOffset(0)
@@ -69,11 +69,22 @@ export function useBlogCarousel({ autoplayDelay, dragThreshold, itemCount }: Use
     }, 900)
   }
 
+  const handleClickCapture = (event: MouseEvent<HTMLDivElement>) => {
+    if (!suppressNextClick.current) {
+      return
+    }
+
+    event.preventDefault()
+    event.stopPropagation()
+    suppressNextClick.current = false
+  }
+
   return {
     activeIndex,
     dragOffset,
     finishDrag,
     goTo,
+    handleClickCapture,
     handlePointerDown,
     handlePointerMove,
     isDragging,

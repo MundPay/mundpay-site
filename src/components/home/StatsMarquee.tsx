@@ -19,7 +19,7 @@ const marqueeItems = [...stats, ...stats, ...stats]
 
 export function StatsMarquee() {
   return (
-    <section className="relative z-10 mx-auto h-32 w-full max-w-300 bg-[#050700] before:absolute before:inset-y-0 before:left-1/2 before:z-0 before:w-screen before:-translate-x-1/2 before:bg-[#050700] after:pointer-events-none after:absolute after:inset-x-1/2 after:bottom-0 after:z-20 after:h-px after:w-screen after:-translate-x-1/2 after:bg-[#EAEEE40D]">
+    <section className="relative z-10 mx-auto h-[164px] w-full max-w-300 bg-[#050700] before:absolute before:inset-y-0 before:left-1/2 before:z-0 before:w-screen before:-translate-x-1/2 before:bg-[#050700] after:pointer-events-none after:absolute after:inset-x-1/2 after:bottom-0 after:z-20 after:h-px after:w-screen after:-translate-x-1/2 after:bg-[#EAEEE40D]">
       <span className="pointer-events-none absolute inset-x-1/2 top-0 z-20 h-px w-screen -translate-x-1/2 bg-[#EAEEE40D]" />
       <span className="pointer-events-none absolute left-0 top-0 z-20 h-full w-px bg-[#EAEEE40D]" />
       <span className="pointer-events-none absolute right-0 top-0 z-20 h-full w-px bg-[#EAEEE40D]" />

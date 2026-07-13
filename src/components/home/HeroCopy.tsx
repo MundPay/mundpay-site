@@ -1,6 +1,6 @@
 import { motion } from 'motion/react'
 import { useTranslation } from 'react-i18next'
-import heroCtaArrow from '../../assets/image/881e1cc716-zeybPPuqmikW1tRr9OARiAHIVfM.svg'
+import { PrimaryCtaButton } from '../layout/PrimaryCtaButton'
 
 type HeroCopyProps = {
   onStartNow: () => void
@@ -11,9 +11,6 @@ const heroCopyMotion = {
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.55, delay: 0.1, ease: 'easeOut' },
 } as const
-
-const ctaButtonClassName =
-  'group relative mx-auto mt-7 inline-flex h-[58px] min-w-[182px] cursor-pointer items-center justify-between rounded-full bg-[rgba(162,209,52,0.2)] p-px font-space-grotesk text-[16px] font-bold uppercase leading-none tracking-[-0.03em] text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.15),0_1px_1px_rgba(0,0,0,0.25),0_0_0_0_rgba(162,208,53,0.2)] transition-all duration-200 hover:bg-[#A2D035] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.15),0_1px_1px_rgba(0,0,0,0.25),0_0_0_8px_rgba(162,208,53,0.2)]'
 
 export function HeroCopy({ onStartNow }: HeroCopyProps) {
   const { t } = useTranslation()
@@ -47,16 +44,9 @@ export function HeroCopy({ onStartNow }: HeroCopyProps) {
           </span>
         ))}
       </p>
-      <button
-        type="button"
-        onClick={onStartNow}
-        className={ctaButtonClassName}
-      >
-        <span className="flex h-full w-full items-center justify-between gap-8 whitespace-nowrap rounded-full bg-[linear-gradient(180deg,rgb(11,11,14)_0%,#050700_100%)] px-6">
-          {t('home.hero.ctaLabel')}
-          <img src={heroCtaArrow} alt="" className="size-6 shrink-0" />
-        </span>
-      </button>
+      <PrimaryCtaButton onClick={onStartNow}>
+        {t('home.hero.ctaLabel')}
+      </PrimaryCtaButton>
     </motion.div>
   )
 }

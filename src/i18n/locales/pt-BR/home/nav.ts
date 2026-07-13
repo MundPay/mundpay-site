@@ -9,7 +9,7 @@ export const nav = {
   legalAreaLabel: 'Legal e Compliance',
   knowMundpay: 'Conheça a Mundpay',
   languageSelectLabel: 'Selecionar idioma',
-  findOrder: 'Busque meu pedido',
+  findOrder: 'Comprei na Mundpay',
   signUp: 'Começar',
   logIn: 'Entrar',
 }

@@ -17,7 +17,7 @@ export function HeroSection() {
   return (
     <section className="relative mx-auto w-full max-w-300">
       <HeroBackground />
-      <HeaderNav />
+      <HeaderNav onStartNow={openStartNowModal} />
       <HeroCopy onStartNow={openStartNowModal} />
       <DashboardPreview />
       <StatsMarquee />

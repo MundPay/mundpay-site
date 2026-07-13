@@ -57,7 +57,7 @@ export const helpFooterColumns = [
 export const helpSocialLinks = [
   { label: 'Instagram', href: 'https://www.instagram.com/mundpay/', icon: 'instagram' },
   { label: 'Facebook', href: 'https://www.facebook.com/mundpay', icon: 'facebook' },
-  { label: 'YouTube', href: 'https://www.youtube.com/@MundPay', icon: 'youtube' },
+  { label: 'YouTube', href: 'https://www.youtube.com/@mundpaybr', icon: 'youtube' },
 ] as const
 
 export const helpStoreLinks = [

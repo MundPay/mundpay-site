@@ -4,6 +4,12 @@ import { useTranslation } from 'react-i18next'
 import { Link, useLocation } from 'react-router-dom'
 import { twMerge } from 'tailwind-merge'
 import { mundpayAssets } from '../../assets/mundpayAssets'
+import { LanguageSwitcher } from '../../components/home/LanguageSwitcher'
+import {
+  getPathLanguagePrefix,
+  stripLanguagePrefix,
+  withLanguagePrefix,
+} from '../../i18n/languageRouting'
 import { LegalFooter } from './LegalFooter'
 import { legalSidebarRoutes, type LegalRoute } from './legalRoutes'
 
@@ -15,7 +21,11 @@ function LegalSidebarLink({ item }: { item: LegalRoute }) {
   const linkRef = useRef<HTMLAnchorElement>(null)
   const { pathname } = useLocation()
   const { t } = useTranslation()
-  const isActive = pathname === `/${item.path}`
+  const pathLanguagePrefix = getPathLanguagePrefix(pathname)
+  const isActive = stripLanguagePrefix(pathname) === `/${item.path}`
+  const href = withLanguagePrefix(`/${item.path}`, pathLanguagePrefix, {
+    includeDefaultPrefix: true,
+  })
 
   useEffect(() => {
     if (isActive && window.innerWidth < 768) {
@@ -26,7 +36,7 @@ function LegalSidebarLink({ item }: { item: LegalRoute }) {
   return (
     <Link
       ref={linkRef}
-      to={`/${item.path}`}
+      to={href}
       aria-current={isActive ? 'page' : undefined}
       className={twMerge(
         'flex h-13 shrink-0 items-center whitespace-nowrap border-l px-5 font-space-grotesk text-[14px] font-bold leading-none tracking-[-0.025em] transition sm:text-[15px] md:w-full',
@@ -42,13 +52,18 @@ function LegalSidebarLink({ item }: { item: LegalRoute }) {
 
 export function LegalLayout({ children }: LegalLayoutProps) {
   const { t } = useTranslation()
+  const { pathname } = useLocation()
+  const pathLanguagePrefix = getPathLanguagePrefix(pathname)
+  const homeHref = withLanguagePrefix('/', pathLanguagePrefix, {
+    includeDefaultPrefix: true,
+  })
 
   return (
     <main className="min-h-screen bg-mundpay-ink text-mundpay-cream">
       <header className="sticky top-0 z-30 border-b border-mundpay-cream/[0.03] bg-mundpay-ink/95 backdrop-blur-md">
         <div className="mx-auto flex w-full max-w-[1175px] items-center justify-between gap-3 px-5 py-5 md:px-0">
           <nav className="flex min-h-14 min-w-0 items-center rounded-[32px] border border-white/[0.04] bg-[linear-gradient(180deg,rgb(11,11,14)_0%,#050700_100%)] px-4 py-2 shadow-[0_8px_16px_rgba(0,0,0,0.1)]">
-            <Link to="/" aria-label="Mundpay home" className="flex shrink-0 items-center">
+            <Link to={homeHref} aria-label="Mundpay home" className="flex shrink-0 items-center">
               <img src={mundpayAssets.logoWhite} alt="mundpay" className="h-6 w-auto max-w-[124px] sm:max-w-none" />
             </Link>
             <span className="mx-4 hidden h-4 w-px shrink-0 bg-mundpay-cream/10 sm:block" />
@@ -57,7 +72,7 @@ export function LegalLayout({ children }: LegalLayoutProps) {
             </span>
             <span className="mx-5 hidden h-4 w-px shrink-0 bg-mundpay-cream/10 md:block" />
             <Link
-              to="/"
+              to={homeHref}
               className="hidden h-10 items-center rounded-full px-3 font-space-grotesk text-[16px] font-medium leading-none tracking-[-0.02em] text-mundpay-cream/75 transition hover:text-mundpay-cream md:flex"
             >
               {t('home.nav.knowMundpay')}
@@ -65,6 +80,7 @@ export function LegalLayout({ children }: LegalLayoutProps) {
           </nav>
 
           <div className="flex min-h-14 shrink-0 items-center gap-1 rounded-[32px] border border-white/[0.04] bg-[linear-gradient(180deg,rgb(11,11,14)_0%,#050700_100%)] p-1.5 font-space-grotesk text-[13px] font-bold uppercase leading-none tracking-[-0.03em] shadow-[0_8px_16px_rgba(0,0,0,0.1)] sm:text-[16px]">
+            <LanguageSwitcher isLight={false} />
             <a
               href="https://app.mundpay.com/login"
               target="_blank"

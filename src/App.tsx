@@ -1,6 +1,8 @@
 import type { ReactElement } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { useLenis } from './hooks/useLenis'
+import { LanguageRouteSync } from './i18n/LanguageRouteSync'
+import { languageRoutePrefixes } from './i18n/languageRouting'
 import { HelpPage } from './pages/help/HelpPage'
 import { HomePage } from './pages/home/HomePage'
 import { legalRoutes } from './pages/legal/legalRoutes'
@@ -34,21 +36,40 @@ const legalPageByPath: Record<string, ReactElement> = {
   'canal-de-denuncias': <ReportingChannelPage />,
 }
 
+const homeRoutePaths = [
+  '/',
+  ...languageRoutePrefixes.map((prefix) => `/${prefix}`),
+]
+
+function getLanguageRoutePaths(path: string) {
+  return [
+    path,
+    ...languageRoutePrefixes.map((prefix) => `${prefix}/${path}`),
+  ]
+}
+
 function App() {
   useLenis()
 
   return (
     <>
       <Seo />
+      <LanguageRouteSync />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/me-ajuda" element={<HelpPage />} />
+        {homeRoutePaths.map((path) => (
+          <Route key={path} path={path} element={<HomePage />} />
+        ))}
+        {getLanguageRoutePaths('me-ajuda').map((path) => (
+          <Route key={path} path={path} element={<HelpPage />} />
+        ))}
         {legalRoutes.map((route) => (
-          <Route
-            key={route.path}
-            path={route.path}
-            element={legalPageByPath[route.path]}
-          />
+          getLanguageRoutePaths(route.path).map((path) => (
+            <Route
+              key={path}
+              path={path}
+              element={legalPageByPath[route.path]}
+            />
+          ))
         ))}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

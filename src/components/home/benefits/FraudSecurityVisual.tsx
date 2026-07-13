@@ -8,6 +8,10 @@ const sequence: Status[] = ["analyzing", "approved", "analyzing", "declined"];
 const CARD_WIDTH = 186;
 const GAP = 16;
 const STEP = CARD_WIDTH + GAP;
+const TRACK_CARD_COUNT = 96;
+const TRACK_START_INDEX = 42;
+const TRACK_LOOP_STEPS = 18;
+const FOCUS_OFFSET_X = 16;
 
 const statusConfig = {
   analyzing: {
@@ -62,6 +66,8 @@ export function FraudSecurityVisual() {
   const status = sequence[statusIndex];
   const config = statusConfig[status];
   const isAnalyzing = status === "analyzing";
+  const visualCardIndex = cardIndex % TRACK_LOOP_STEPS;
+  const isTrackResetFrame = cardIndex > 0 && visualCardIndex === 0;
 
   useEffect(() => {
     const timeout = window.setTimeout(
@@ -88,17 +94,20 @@ export function FraudSecurityVisual() {
           <PlaceholderCard />
         </div>
 
-        <div className="absolute left-1/2 top-[116px] h-[104px] w-[590px] -translate-x-1/2 overflow-hidden">
+        <div
+          className="absolute top-[116px] h-[104px] w-[590px] -translate-x-1/2 overflow-hidden"
+          style={{ left: `calc(50% + ${FOCUS_OFFSET_X}px)` }}
+        >
           <motion.div
             className="flex gap-4"
-            animate={{ x: cardIndex * STEP }}
+            animate={{ x: visualCardIndex * STEP }}
             transition={{
-              duration: isAnalyzing ? 3.2 : 0.8,
+              duration: isTrackResetFrame ? 0 : isAnalyzing ? 3.2 : 0.8,
               ease: [0.45, 0, 0.15, 1],
             }}
-            style={{ marginLeft: -STEP * 24 }}
+            style={{ marginLeft: -STEP * TRACK_START_INDEX }}
           >
-            {Array.from({ length: 60 }).map((_, index) => (
+            {Array.from({ length: TRACK_CARD_COUNT }).map((_, index) => (
               <PlaceholderCard key={index} />
             ))}
           </motion.div>
@@ -112,10 +121,11 @@ export function FraudSecurityVisual() {
         </div>
 
         <motion.div
-          className="absolute left-1/2 top-[116px] h-[104px] w-[186px] -translate-x-1/2 rounded-xl"
+          className="absolute top-[116px] h-[104px] w-[186px] -translate-x-1/2 rounded-xl"
           animate={{ borderColor: config.border }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
           style={{
+            left: `calc(50% + ${FOCUS_OFFSET_X}px)`,
             borderWidth: 1,
             borderStyle: config.borderStyle,
             boxShadow:
@@ -128,9 +138,10 @@ export function FraudSecurityVisual() {
         />
 
         <motion.div
-          className="absolute left-1/2 top-[198px] flex -translate-x-1/2 items-center gap-2 rounded-md border bg-[#0a0c05] px-3 py-2 shadow-[0_0_14px_rgba(162,208,53,0.08)]"
+          className="absolute top-[198px] flex -translate-x-1/2 items-center gap-2 rounded-md border bg-[#0a0c05] px-3 py-2 shadow-[0_0_14px_rgba(162,208,53,0.08)]"
           animate={{ borderColor: config.border }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
+          style={{ left: `calc(50% + ${FOCUS_OFFSET_X}px)` }}
         >
           <div
             className="flex size-4 items-center justify-center rounded-sm"
@@ -154,10 +165,10 @@ export function FraudSecurityVisual() {
         animate={{ opacity: isAnalyzing ? 1 : 0.6 }}
         transition={{ duration: 0.7, ease: "easeInOut" }}
       >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_38%,transparent_0%,transparent_18%,rgba(5,7,0,0.18)_40%,rgba(5,7,0,0.55)_70%,#050700_90%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_64%_38%,transparent_0%,transparent_21%,rgba(5,7,0,0.14)_42%,rgba(5,7,0,0.52)_72%,#050700_91%)]" />
 
         <motion.div
-          className="absolute inset-0 backdrop-blur-[1.5px] [mask-image:radial-gradient(circle_at_50%_38%,transparent_0%,transparent_22%,black_42%)] [-webkit-mask-image:radial-gradient(circle_at_50%_38%,transparent_0%,transparent_22%,black_42%)]"
+          className="absolute inset-0 backdrop-blur-[1.5px] [mask-image:radial-gradient(circle_at_64%_38%,transparent_0%,transparent_24%,black_44%)] [-webkit-mask-image:radial-gradient(circle_at_64%_38%,transparent_0%,transparent_24%,black_44%)]"
           animate={{ opacity: isAnalyzing ? 1 : 0.25 }}
           transition={{ duration: 0.7, ease: "easeInOut" }}
         />
