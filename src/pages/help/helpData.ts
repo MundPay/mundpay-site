@@ -5,10 +5,6 @@ export const helpNavbarLinks = {
   register: 'https://app.mundpay.com/register',
 }
 
-export const helpHeroCopy = {
-  chatHref: 'https://my.mundpay.com/register',
-}
-
 export const helpContacts = [
   {
     labelKey: 'email',
