@@ -1,7 +1,8 @@
 import { useTranslation } from 'react-i18next'
 import { mundpayAssets } from '../../assets/mundpayAssets'
 import { HelpArrowRightIcon } from '../../components/icons/HelpArrowRightIcon'
-import { helpContacts, helpHeroCopy } from './helpData'
+import { openCrispChat } from '../../components/support/crispApi'
+import { helpContacts } from './helpData'
 
 export function HelpHero() {
   const { t } = useTranslation()
@@ -45,11 +46,10 @@ export function HelpHero() {
           ))}
         </div>
 
-        <a
-          href={helpHeroCopy.chatHref}
-          target="_blank"
-          rel="noopener"
-          className="group relative mt-8 inline-flex h-[56px] w-[196px] items-center overflow-hidden rounded-full bg-[#A2D035] px-6 font-space-grotesk text-[14px] font-bold uppercase leading-none tracking-[-0.03em] text-[#050700] shadow-[inset_0_1px_1px_rgba(255,255,255,0.16),0_1px_1px_rgba(0,0,0,0.25),0_0_0_0_rgba(162,208,53,0.2)] transition-[box-shadow] duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.16),0_1px_1px_rgba(0,0,0,0.25),0_0_0_8px_rgba(162,208,53,0.22)]"
+        <button
+          type="button"
+          onClick={openCrispChat}
+          className="group relative mt-8 inline-flex h-[56px] w-[196px] cursor-pointer items-center overflow-hidden rounded-full bg-[#A2D035] px-6 font-space-grotesk text-[14px] font-bold uppercase leading-none tracking-[-0.03em] text-[#050700] shadow-[inset_0_1px_1px_rgba(255,255,255,0.16),0_1px_1px_rgba(0,0,0,0.25),0_0_0_0_rgba(162,208,53,0.2)] transition-[box-shadow] duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.16),0_1px_1px_rgba(0,0,0,0.25),0_0_0_8px_rgba(162,208,53,0.22)]"
         >
           <span
             aria-hidden="true"
@@ -61,7 +61,7 @@ export function HelpHero() {
           <span className="absolute right-1 top-1/2 z-[1] flex size-12 -translate-y-1/2 items-center justify-center text-[#050700] transition-colors duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:text-[#EAEEE4]">
             <HelpArrowRightIcon className="size-5" />
           </span>
-        </a>
+        </button>
       </div>
 
       <div className="hidden border-[10px] border-[#A2D035] md:block">
