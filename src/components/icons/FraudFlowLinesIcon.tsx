@@ -1,6 +1,7 @@
 import { motion, type Transition } from 'motion/react'
 
 type FraudFlowLinesIconProps = {
+  failedSaleOpacity: number[]
   frameTransition: Transition
   statusTransition: Transition
 }
@@ -14,6 +15,7 @@ const flowPaths = {
 }
 
 export function FraudFlowLinesIcon({
+  failedSaleOpacity,
   frameTransition,
   statusTransition,
 }: FraudFlowLinesIconProps) {
@@ -41,10 +43,10 @@ export function FraudFlowLinesIcon({
         strokeLinecap="round"
         initial={false}
         animate={{
-          opacity: [1, 1, 0, 0, 0, 0, 0, 0, 1, 1],
-          pathLength: [1, 1, 1, 1, 0, 0, 0, 0, 1, 1],
+          opacity: [0, 0, 1, 1, 0, 0, 0, 0],
+          pathLength: [0, 0, 1, 1, 1, 1, 0, 0],
         }}
-        transition={statusTransition}
+        transition={frameTransition}
       />
 
       <motion.path
@@ -54,13 +56,10 @@ export function FraudFlowLinesIcon({
         strokeLinecap="round"
         initial={false}
         animate={{
-          opacity: [0, 0, 1, 1, 0, 0, 0, 0, 0, 0],
-          pathLength: [0, 0, 1, 1, 1, 1, 0, 0],
+          opacity: failedSaleOpacity,
+          pathLength: failedSaleOpacity,
         }}
-        transition={{
-          opacity: statusTransition,
-          pathLength: frameTransition,
-        }}
+        transition={statusTransition}
       />
 
       <motion.path

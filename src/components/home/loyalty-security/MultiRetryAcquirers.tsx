@@ -118,10 +118,20 @@ export function StepAcquirers() {
         name="Acquirer A"
         statusFrames={[
           "analyzing",
+          "analyzing",
+          "analyzing",
+          "analyzing",
+          "analyzing",
           "declined",
           "declined",
           "declined",
           "declined",
+          "declined",
+          "declined",
+          "declined",
+          "declined",
+          "declined",
+          "analyzing",
           "analyzing",
         ]}
       />
@@ -131,9 +141,19 @@ export function StepAcquirers() {
         statusFrames={[
           "analyzing",
           "analyzing",
+          "analyzing",
+          "analyzing",
+          "analyzing",
+          "analyzing",
+          "analyzing",
+          "analyzing",
           "declined",
           "declined",
           "declined",
+          "declined",
+          "declined",
+          "declined",
+          "analyzing",
           "analyzing",
         ]}
       />
@@ -144,8 +164,18 @@ export function StepAcquirers() {
           "analyzing",
           "analyzing",
           "analyzing",
+          "analyzing",
+          "analyzing",
+          "analyzing",
+          "analyzing",
+          "analyzing",
+          "analyzing",
+          "analyzing",
+          "analyzing",
           "approved",
           "approved",
+          "approved",
+          "analyzing",
           "analyzing",
         ]}
       />

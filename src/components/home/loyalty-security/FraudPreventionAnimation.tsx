@@ -3,6 +3,7 @@ import {
   approvedOpacity,
   analyzingFirstSaleOpacity,
   analyzingNextSaleOpacity,
+  failedSaleOpacity,
   frameTransition,
   rejectedOpacity,
   statusTransition,
@@ -28,6 +29,7 @@ export function FraudPreventionAnimation() {
           analyzingFirstSaleOpacity={analyzingFirstSaleOpacity}
           analyzingNextSaleOpacity={analyzingNextSaleOpacity}
           approvedOpacity={approvedOpacity}
+          failedSaleOpacity={failedSaleOpacity}
           frameTransition={frameTransition}
           rejectedOpacity={rejectedOpacity}
           statusTransition={statusTransition}
