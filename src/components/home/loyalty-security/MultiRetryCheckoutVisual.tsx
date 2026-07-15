@@ -8,10 +8,16 @@ import { TagOutlineIcon } from "../../icons/TagOutlineIcon";
 type MultiRetryCheckoutVisualProps = {
   loopTransition: {
     readonly duration: number;
+    readonly delay: number;
+    readonly times: number[];
     readonly repeat: number;
-    readonly ease: "easeInOut";
+    readonly ease: "linear";
   };
 };
+
+const completeOrderOpacity = [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1];
+const processingOpacity = [0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0];
+const approvedOpacity = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0];
 
 function SpinnerIcon() {
   return (
@@ -36,7 +42,7 @@ function CheckoutSkeleton({ loopTransition }: MultiRetryCheckoutVisualProps) {
     <div className="absolute left-1/2 top-[135px] h-[320px] w-[610px] -translate-x-1/2 overflow-hidden rounded-[14px] border border-[#E4E4E7] bg-[#FAFAFA] shadow-[0_1px_2px_rgba(16,24,40,0.04)]">
       <motion.div
         className="absolute inset-x-0 top-0 h-px bg-[#A2D035]"
-        animate={{ opacity: [0, 0, 1, 1, 1, 0] }}
+        animate={{ opacity: approvedOpacity }}
         transition={loopTransition}
       />
 
@@ -86,11 +92,9 @@ function PurchaseSummary({ loopTransition }: MultiRetryCheckoutVisualProps) {
   return (
     <motion.div
       className="absolute left-1/2 top-[340px] z-20 w-[340px] -translate-x-1/2 rounded-md bg-[#FAFAFA] p-4 shadow-[0_4px_16px_rgba(0,0,0,0.06)]"
-      animate={{
-        y: [0, 0, -5, -5, -5, 0],
-        scale: [1, 1, 1.01, 1.01, 1.01, 1],
-      }}
-      transition={loopTransition}
+      initial={{ opacity: 0, y: 46 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1.15, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
     >
       <div className="mb-5 flex items-center gap-2">
         <div className="flex size-5 items-center justify-center rounded-full bg-[#E4E4E7]">
@@ -113,54 +117,36 @@ function PurchaseSummary({ loopTransition }: MultiRetryCheckoutVisualProps) {
       </div>
 
       <motion.div
-        className="flex h-8 items-center justify-center gap-2 rounded-md bg-[#059669] font-space-grotesk text-[10.5px] font-semibold text-white shadow-[0_1px_2px_rgba(0,0,0,0.12)]"
+        className="relative flex h-8 items-center justify-center rounded-md bg-[#059669] font-space-grotesk text-[10.5px] font-semibold text-white shadow-[0_1px_2px_rgba(0,0,0,0.12)]"
         animate={{
-          backgroundColor: [
-            "#059669",
-            "#059669",
-            "#059669",
-            "#059669",
-            "#059669",
-            "#059669",
-          ],
+          scale: [1, 1, 0.975, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
         }}
         transition={loopTransition}
       >
         <motion.span
-          animate={{
-            opacity: [1, 1, 0, 0, 0, 1],
-            width: [14, 14, 0, 0, 0, 14],
-          }}
+          className="absolute inset-0 flex items-center justify-center"
+          animate={{ opacity: completeOrderOpacity }}
           transition={loopTransition}
-          className="overflow-hidden"
+        >
+          Complete Order
+        </motion.span>
+
+        <motion.span
+          className="absolute inset-0 flex items-center justify-center gap-2"
+          animate={{ opacity: processingOpacity }}
+          transition={loopTransition}
         >
           <SpinnerIcon />
-        </motion.span>
-
-        <motion.span
-          animate={{
-            opacity: [0, 0, 1, 1, 1, 0],
-            width: [0, 0, 14, 14, 14, 0],
-          }}
-          transition={loopTransition}
-          className="overflow-hidden text-white"
-        >
-          <CheckMarkIcon className="size-3.5" />
-        </motion.span>
-
-        <motion.span
-          animate={{ opacity: [1, 1, 0, 0, 0, 1] }}
-          transition={loopTransition}
-        >
           Processing
         </motion.span>
 
         <motion.span
-          className="absolute"
-          animate={{ opacity: [0, 0, 1, 1, 1, 0] }}
+          className="absolute inset-0 flex items-center justify-center gap-2"
+          animate={{ opacity: approvedOpacity }}
           transition={loopTransition}
         >
-          <span className="ml-6">Payment Approved!</span>
+          <CheckMarkIcon className="size-3.5" />
+          Payment Approved!
         </motion.span>
       </motion.div>
     </motion.div>
@@ -172,9 +158,10 @@ function Cursor({ loopTransition }: MultiRetryCheckoutVisualProps) {
     <motion.div
       className="absolute z-30"
       animate={{
-        x: [470, 470, 150, 150, 150, 150],
-        y: [42, 42, 88, 88, 88, 88],
-        opacity: [0, 1, 1, 0, 0, 0],
+        x: [455, 430, 430, 430, 430, 430, 430, 430, 430, 430, 430, 430, 430, 430, 455, 455],
+        y: [500, 438, 438, 438, 438, 438, 438, 438, 438, 438, 438, 438, 438, 438, 500, 500],
+        opacity: [0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        scale: [1, 1, 0.82, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
       }}
       transition={loopTransition}
     >
@@ -190,19 +177,21 @@ function AnimatedBorder({ loopTransition }: MultiRetryCheckoutVisualProps) {
       animate={{
         borderColor: [
           "rgba(228,228,231,1)",
+          "rgba(228,228,231,1)",
+          "rgba(228,228,231,1)",
+          "rgba(228,228,231,1)",
+          "rgba(228,228,231,1)",
           "rgba(208,53,53,1)",
           "rgba(208,53,53,1)",
+          "rgba(208,53,53,1)",
+          "rgba(208,53,53,1)",
+          "rgba(208,53,53,1)",
+          "rgba(208,53,53,1)",
+          "rgba(162,208,53,1)",
           "rgba(162,208,53,1)",
           "rgba(162,208,53,1)",
           "rgba(228,228,231,1)",
-        ],
-        boxShadow: [
-          "0 0 0 rgba(0,0,0,0)",
-          "0 0 0 rgba(208,53,53,0)",
-          "0 0 0 rgba(208,53,53,0)",
-          "0 0 0 rgba(162,208,53,0)",
-          "0 0 0 rgba(162,208,53,0)",
-          "0 0 0 rgba(0,0,0,0)",
+          "rgba(228,228,231,1)",
         ],
       }}
       transition={loopTransition}

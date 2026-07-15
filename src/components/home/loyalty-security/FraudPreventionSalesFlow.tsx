@@ -9,6 +9,7 @@ type FraudPreventionSalesFlowProps = {
   analyzingFirstSaleOpacity: number[];
   analyzingNextSaleOpacity: number[];
   approvedOpacity: number[];
+  failedSaleOpacity: number[];
   frameTransition: Transition;
   rejectedOpacity: number[];
   statusTransition: Transition;
@@ -141,6 +142,7 @@ export function FraudPreventionSalesFlow({
   analyzingFirstSaleOpacity,
   analyzingNextSaleOpacity,
   approvedOpacity,
+  failedSaleOpacity,
   frameTransition,
   rejectedOpacity,
   statusTransition,
@@ -148,6 +150,7 @@ export function FraudPreventionSalesFlow({
   return (
     <>
       <FraudFlowLinesIcon
+        failedSaleOpacity={failedSaleOpacity}
         frameTransition={frameTransition}
         statusTransition={statusTransition}
       />
