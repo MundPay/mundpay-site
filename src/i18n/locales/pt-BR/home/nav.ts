@@ -12,4 +12,9 @@ export const nav = {
   findOrder: 'Comprei na Mundpay',
   signUp: 'Começar',
   logIn: 'Entrar',
+  startNow: 'Começar agora',
+  myAccount: 'Minha conta',
+  mobileMenuLabel: 'Menu principal',
+  openMenu: 'Abrir menu principal',
+  closeMenu: 'Fechar menu principal',
 }

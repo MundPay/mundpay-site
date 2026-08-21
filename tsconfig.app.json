@@ -11,6 +11,9 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "allowImportingTsExtensions": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    },
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
     "noEmit": true,

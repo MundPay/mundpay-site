@@ -19,7 +19,7 @@ export function PricingSection() {
                 {t('home.pricing.subtitle')}
               </p>
               <PrimaryCtaLink
-                href="https://my.mundpay.com/register"
+                href="https://login.mundpay.com/register"
                 target="_blank"
                 rel="noopener noreferrer"
               >

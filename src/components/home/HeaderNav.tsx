@@ -5,10 +5,13 @@ import { twMerge } from 'tailwind-merge'
 import { normalizeLanguage, withLanguagePrefix } from '../../i18n/languageRouting'
 import { defaultLanguage } from '../../i18n/resources'
 import { Logo } from '../brand/Logo'
+import type { HomeVariant } from './HomeVariant'
 import { HeaderAuthLinks } from './header-nav/HeaderAuthLinks'
 import { HeaderMenuLink } from './header-nav/HeaderMenuLink'
 import { getNavSurfaceClassName } from './header-nav/headerNavStyles'
+import { LpHeaderContent } from './header-nav/LpHeaderContent'
 import { TrackOrderLink } from './header-nav/TrackOrderLink'
+import { MobileHeaderMenu } from './header-nav/MobileHeaderMenu'
 import { LanguageSwitcher } from './LanguageSwitcher'
 
 const navItems = [
@@ -20,15 +23,21 @@ const navItems = [
 
 type HeaderNavProps = {
   onStartNow: () => void
+  variant?: HomeVariant
 }
 
-export function HeaderNav({ onStartNow }: HeaderNavProps) {
+export function HeaderNav({ onStartNow, variant = 'default' }: HeaderNavProps) {
   const { i18n, t } = useTranslation()
   const [isLight, setIsLight] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const currentLanguage = normalizeLanguage(i18n.resolvedLanguage) ?? defaultLanguage
 
   useEffect(() => {
     const updateNavTheme = () => {
+      if (window.innerWidth >= 1280) {
+        setIsMobileMenuOpen(false)
+      }
+
       const featuresSection = document.getElementById('features1')
 
       if (!featuresSection) {
@@ -64,60 +73,89 @@ export function HeaderNav({ onStartNow }: HeaderNavProps) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45, ease: 'easeOut' }}
     >
-      <div className="mx-auto flex w-full max-w-300 items-center justify-between px-10 py-5">
-        <nav
-          className={getNavSurfaceClassName(
-            isLight,
-            'flex min-h-14 w-auto items-center gap-3 px-4 py-2 lg:min-w-[512.17px]',
-          )}
-        >
-          <Logo
-            dark={isLight}
-            className="shrink-0"
-            imageClassName="block h-6 w-36 min-w-36 max-w-none shrink-0 object-contain"
-          />
-          <span
-            className={twMerge(
-              'hidden h-4 w-px flex-none transition-colors duration-500 sm:block',
-              isLight ? 'bg-[#050700]/12' : 'bg-white/12',
-            )}
-          />
-          <div
-            className={twMerge(
-              'hidden items-center gap-1 font-space-grotesk text-[16px] font-normal leading-[1.5] tracking-[-0.02em] transition-colors duration-500 md:flex',
-              isLight ? 'text-[#050700]/75' : 'text-[#EAEEE4BF]',
-            )}
-          >
-            {navItems.map((item) => (
-              <HeaderMenuLink
-                key={item.key}
-                href={
-                  item.key === 'help'
-                    ? withLanguagePrefix(item.href, currentLanguage)
-                    : item.href
-                }
-                isLight={isLight}
-                label={t(`home.nav.items.${item.key}`)}
-              />
-            ))}
-          </div>
-        </nav>
-
-        <div
-          className={getNavSurfaceClassName(
-            isLight,
-            'flex min-h-14 w-auto items-center gap-1 p-1.5 font-space-grotesk text-[16px] font-bold uppercase leading-none tracking-[-0.03em] lg:min-w-[456px]',
-          )}
-        >
-          <LanguageSwitcher isLight={isLight} />
-          <TrackOrderLink label={t('home.nav.findOrder')} />
-          <HeaderAuthLinks
+      <div className="relative z-10 mx-auto flex w-full max-w-300 items-center justify-between px-4 py-3 xl:px-10 xl:py-5">
+        {variant === 'lp' ? (
+          <LpHeaderContent
+            ctaLabel={t('home.lp.headerCta')}
             isLight={isLight}
-            signUpLabel={t('home.nav.signUp')}
-            logInLabel={t('home.nav.logIn')}
-            onSignUp={onStartNow}
+            onStartNow={onStartNow}
           />
-        </div>
+        ) : (
+          <>
+            <div
+              className={getNavSurfaceClassName(
+                isLight,
+                'relative z-10 flex min-h-14 w-full items-center justify-between px-3 py-1.5 xl:hidden',
+              )}
+            >
+              <Logo
+                dark={isLight}
+                className="shrink-0 pl-1"
+                imageClassName="block h-6 w-36 max-w-full object-contain"
+              />
+              <MobileHeaderMenu
+                isLight={isLight}
+                isOpen={isMobileMenuOpen}
+                onOpenChange={setIsMobileMenuOpen}
+                onStartNow={onStartNow}
+              />
+            </div>
+
+            <nav
+              className={getNavSurfaceClassName(
+                isLight,
+                'hidden min-h-14 w-auto items-center gap-3 px-4 py-2 xl:flex xl:min-w-[512.17px]',
+              )}
+            >
+              <Logo
+                dark={isLight}
+                className="shrink-0"
+                imageClassName="block h-6 w-36 min-w-36 max-w-none shrink-0 object-contain"
+              />
+              <span
+                className={twMerge(
+                  'hidden h-4 w-px flex-none transition-colors duration-500 sm:block',
+                  isLight ? 'bg-[#050700]/12' : 'bg-white/12',
+                )}
+              />
+              <div
+                className={twMerge(
+                  'hidden items-center gap-1 font-space-grotesk text-[16px] font-normal leading-[1.5] tracking-[-0.02em] transition-colors duration-500 xl:flex',
+                  isLight ? 'text-[#050700]/75' : 'text-[#EAEEE4BF]',
+                )}
+              >
+                {navItems.map((item) => (
+                  <HeaderMenuLink
+                    key={item.key}
+                    href={
+                      item.key === 'help'
+                        ? withLanguagePrefix(item.href, currentLanguage)
+                        : item.href
+                    }
+                    isLight={isLight}
+                    label={t(`home.nav.items.${item.key}`)}
+                  />
+                ))}
+              </div>
+            </nav>
+
+            <div
+              className={getNavSurfaceClassName(
+                isLight,
+                'hidden min-h-14 w-auto items-center gap-1 p-1.5 font-space-grotesk text-[16px] font-bold uppercase leading-none tracking-[-0.03em] xl:flex xl:min-w-[456px]',
+              )}
+            >
+              <LanguageSwitcher isLight={isLight} />
+              <TrackOrderLink label={t('home.nav.findOrder')} />
+              <HeaderAuthLinks
+                isLight={isLight}
+                signUpLabel={t('home.nav.signUp')}
+                logInLabel={t('home.nav.logIn')}
+                onSignUp={onStartNow}
+              />
+            </div>
+          </>
+        )}
       </div>
     </motion.header>
   )
