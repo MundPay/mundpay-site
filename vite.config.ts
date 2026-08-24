@@ -13,5 +13,11 @@ export default defineConfig({
   },
   server: {
     allowedHosts: ['mundpay.local.com', 'mundpay.local.com.br'],
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+      },
+    },
   },
 })

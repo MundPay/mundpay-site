@@ -1,12 +1,17 @@
 import { useState, type FormEvent } from 'react'
+import { isPossiblePhoneNumber, type Value as PhoneValue } from 'react-phone-number-input'
+import enPhoneLabels from 'react-phone-number-input/locale/en.json'
+import ptBrPhoneLabels from 'react-phone-number-input/locale/pt-BR.json'
 import { useTranslation } from 'react-i18next'
 import { normalizeLanguage, withLanguagePrefix } from '../../i18n/languageRouting'
 import { defaultLanguage } from '../../i18n/resources'
+import { LeadSubmissionError, submitLead } from '../../libs/leadCaptureApi'
 import { CheckIcon } from '../icons/CheckIcon'
 import { AppButton } from '../shared/AppButton'
 import { AppField } from '../shared/AppField'
 import { AppFieldGroup } from '../shared/AppFieldGroup'
 import { AppInput } from '../shared/AppInput'
+import { AppPhoneInput } from '../shared/AppPhoneInput'
 import { AppSelect, type AppSelectOption } from '../shared/AppSelect'
 import { platformOptions, revenueOptions } from './leadCaptureData'
 
@@ -16,19 +21,32 @@ type LeadCaptureFormProps = {
   onClose: () => void
 }
 
-function normalizeWhatsapp(value: string) {
-  const hasInternationalPrefix = value.trim().startsWith('+')
-  const digits = value.replace(/\D/g, '')
+type FieldErrors = {
+  name?: string
+  whatsapp?: string
+}
 
-  return `${hasInternationalPrefix ? '+' : ''}${digits}`
+function getSubmissionErrorKey(error: unknown) {
+  if (!(error instanceof LeadSubmissionError)) return 'submission'
+
+  if (error.status === 400 || error.status === 413 || error.status === 415 || error.status === 422) {
+    return 'invalid'
+  }
+
+  if (error.status === 429) return 'rateLimit'
+  if (error.status === 502 || error.status === 503) return 'unavailable'
+
+  return error.status === undefined ? 'network' : 'submission'
 }
 
 export function LeadCaptureForm({ onClose }: LeadCaptureFormProps) {
   const { i18n, t } = useTranslation()
+  const [whatsapp, setWhatsapp] = useState<PhoneValue>()
   const [revenue, setRevenue] = useState('')
   const [platform, setPlatform] = useState('')
   const [status, setStatus] = useState<SubmissionStatus>('idle')
   const [formError, setFormError] = useState('')
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({})
 
   const revenueSelectOptions: AppSelectOption[] = revenueOptions.map((option) => ({
     value: option.value,
@@ -40,57 +58,58 @@ export function LeadCaptureForm({ onClose }: LeadCaptureFormProps) {
   }))
 
   const currentLanguage = normalizeLanguage(i18n.resolvedLanguage) ?? defaultLanguage
+  const phoneLabels = currentLanguage === 'en' ? enPhoneLabels : ptBrPhoneLabels
   const privacyHref = withLanguagePrefix('/politica-de-privacidade', currentLanguage)
   const termsHref = withLanguagePrefix('/termos-de-uso', currentLanguage)
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+
+    if (status === 'submitting') return
+
+    const form = event.currentTarget
+    const formData = new FormData(form)
+    const name = String(formData.get('name') ?? '').trim()
+    const email = String(formData.get('email') ?? '').trim()
+    const nextFieldErrors: FieldErrors = {}
+
+    if (!/^\S+(?:\s+\S+)+$/.test(name)) {
+      nextFieldErrors.name = t('home.lp.form.errors.name')
+    }
+
+    if (!whatsapp || !isPossiblePhoneNumber(whatsapp)) {
+      nextFieldErrors.whatsapp = t('home.lp.form.errors.whatsapp')
+    }
+
+    setFieldErrors(nextFieldErrors)
     setFormError('')
+    setStatus('idle')
 
-    const formData = new FormData(event.currentTarget)
-    const whatsapp = normalizeWhatsapp(String(formData.get('whatsapp') ?? ''))
-
-    if (!/^\+?[1-9]\d{7,14}$/.test(whatsapp)) {
-      setFormError(t('home.lp.form.errors.whatsapp'))
-      return
-    }
-
-    const endpoint = import.meta.env.VITE_LEAD_CAPTURE_ENDPOINT
-
-    if (!endpoint) {
-      setStatus('error')
-      setFormError(t('home.lp.form.errors.configuration'))
-      return
-    }
+    if (Object.keys(nextFieldErrors).length > 0) return
+    if (!whatsapp) return
 
     setStatus('submitting')
 
     const payload = {
-      name: String(formData.get('name') ?? ''),
-      email: String(formData.get('email') ?? ''),
+      name,
+      email,
       whatsapp,
       revenue,
       platform,
-      source: 'lp',
+      source: 'lp' as const,
       language: currentLanguage,
-      submittedAt: new Date().toISOString(),
     }
 
     try {
-      const response = await fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      })
-
-      if (!response.ok) {
-        throw new Error(`Lead capture failed with status ${response.status}`)
-      }
-
+      await submitLead(payload)
+      form.reset()
+      setWhatsapp(undefined)
+      setRevenue('')
+      setPlatform('')
       setStatus('success')
-    } catch {
+    } catch (error) {
       setStatus('error')
-      setFormError(t('home.lp.form.errors.submission'))
+      setFormError(t(`home.lp.form.errors.${getSubmissionErrorKey(error)}`))
     }
   }
 
@@ -118,12 +137,18 @@ export function LeadCaptureForm({ onClose }: LeadCaptureFormProps) {
   return (
     <form onSubmit={handleSubmit}>
       <AppFieldGroup>
-        <AppField htmlFor="lp-name" label={t('home.lp.form.name')} hideLabel>
+        <AppField
+          htmlFor="lp-name"
+          label={t('home.lp.form.name')}
+          error={fieldErrors.name}
+          hideLabel
+        >
           <AppInput
             id="lp-name"
             name="name"
             autoComplete="name"
             placeholder={t('home.lp.form.namePlaceholder')}
+            aria-invalid={Boolean(fieldErrors.name)}
             required
           />
         </AppField>
@@ -142,20 +167,33 @@ export function LeadCaptureForm({ onClose }: LeadCaptureFormProps) {
         <AppField
           htmlFor="lp-whatsapp"
           label={t('home.lp.form.whatsapp')}
-          error={formError && status !== 'error' ? formError : undefined}
+          error={fieldErrors.whatsapp}
           hideLabel
         >
-          <AppInput
+          <AppPhoneInput
             id="lp-whatsapp"
             name="whatsapp"
-            type="tel"
-            inputMode="tel"
             autoComplete="tel"
-            minLength={8}
-            maxLength={20}
-            pattern="[+0-9 ()-]{8,20}"
+            defaultCountry="BR"
+            labels={phoneLabels}
+            countrySelectProps={{
+              emptyMessage: t('home.lp.form.countryEmpty'),
+              searchPlaceholder: t('home.lp.form.countrySearchPlaceholder'),
+            }}
+            limitMaxLength
+            value={whatsapp}
+            onChange={(value) => {
+              setWhatsapp(value)
+
+              if (fieldErrors.whatsapp) {
+                setFieldErrors((currentErrors) => ({
+                  ...currentErrors,
+                  whatsapp: undefined,
+                }))
+              }
+            }}
             placeholder={t('home.lp.form.whatsappPlaceholder')}
-            aria-invalid={Boolean(formError && status !== 'error')}
+            aria-invalid={Boolean(fieldErrors.whatsapp)}
             required
           />
         </AppField>
