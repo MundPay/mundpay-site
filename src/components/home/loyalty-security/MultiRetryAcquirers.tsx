@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 import { BoltSpinnerIcon } from "../../icons/BoltSpinnerIcon";
 import { CheckMarkIcon } from "../../icons/CheckMarkIcon";
 import { ChevronRightIcon } from "../../icons/ChevronRightIcon";
@@ -49,11 +50,12 @@ function StatusIcon({ status }: { status: AcquirerStatus }) {
 }
 
 function AcquirerItem({ acquirer }: { acquirer: Acquirer }) {
+  const { t } = useTranslation();
   const statusLabel = {
-    idle: "Analyzing...",
-    analyzing: "Analyzing...",
-    declined: "Declined",
-    approved: "Approved",
+    idle: t("home.loyaltySecurity.animation.analyzing"),
+    analyzing: t("home.loyaltySecurity.animation.analyzing"),
+    declined: t("home.loyaltySecurity.animation.declined"),
+    approved: t("home.loyaltySecurity.animation.approved"),
   }[acquirer.status];
 
   const statusClassName = {
@@ -98,13 +100,15 @@ function Connector() {
 }
 
 export function MultiRetryHeader() {
+  const { t } = useTranslation();
+
   return (
     <div className="absolute left-1/2 top-6 flex h-12 -translate-x-1/2 items-center justify-center rounded-xl bg-[#EFEFF0] p-1 shadow-[inset_0_0_2px_rgba(0,0,0,0.05)]">
       <div className="flex h-10 items-center gap-2 rounded-lg border border-black/[0.06] bg-[#F4F4F5] px-4">
         <BoltIcon />
 
         <p className="font-space-grotesk text-xs font-medium tracking-[-0.02em] text-[#27272A]">
-          Sale status
+          {t("home.loyaltySecurity.animation.saleStatus")}
         </p>
       </div>
     </div>
@@ -112,10 +116,12 @@ export function MultiRetryHeader() {
 }
 
 export function StepAcquirers() {
+  const { t } = useTranslation();
+
   return (
     <>
       <AnimatedAcquirer
-        name="Acquirer A"
+        name={t("home.loyaltySecurity.animation.acquirer", { letter: "A" })}
         statusFrames={[
           "analyzing",
           "analyzing",
@@ -137,7 +143,7 @@ export function StepAcquirers() {
       />
       <Connector />
       <AnimatedAcquirer
-        name="Acquirer B"
+        name={t("home.loyaltySecurity.animation.acquirer", { letter: "B" })}
         statusFrames={[
           "analyzing",
           "analyzing",
@@ -159,7 +165,7 @@ export function StepAcquirers() {
       />
       <Connector />
       <AnimatedAcquirer
-        name="Acquirer C"
+        name={t("home.loyaltySecurity.animation.acquirer", { letter: "C" })}
         statusFrames={[
           "analyzing",
           "analyzing",

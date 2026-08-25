@@ -8,4 +8,18 @@ export const globalSales = {
     coins: '+130 coins',
     paymentMethods: '+300 payment methods',
   },
+  languageNames: {
+    portuguese: 'Portuguese',
+    english: 'English',
+    spanish: 'Spanish',
+    hindi: 'Hindi',
+    indian: 'Indian',
+    french: 'French',
+    italian: 'Italian',
+    arab: 'Arab',
+    arabic: 'Arabic',
+    german: 'German',
+    japanese: 'Japanese',
+    mandarin: 'Mandarin',
+  },
 }

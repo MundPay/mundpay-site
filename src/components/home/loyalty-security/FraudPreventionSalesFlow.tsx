@@ -1,4 +1,5 @@
 import { motion, type Transition } from "motion/react";
+import { useTranslation } from "react-i18next";
 import { CheckMarkIcon } from "../../icons/CheckMarkIcon";
 import { FraudFlowLinesIcon } from "../../icons/FraudFlowLinesIcon";
 import { XMarkIcon } from "../../icons/XMarkIcon";
@@ -101,16 +102,17 @@ function SaleGroup({
 }: {
   variant: "analyzing" | "analyzingNextSale" | "rejected" | "approved";
 }) {
+  const { t } = useTranslation();
   const sales = [
     {
-      title: "Sale #1",
-      price: "R$ 100,00",
+      title: t("home.loyaltySecurity.animation.sale", { number: 1 }),
+      price: t("home.loyaltySecurity.animation.salePrices.first"),
       top: 23,
       state: variant === "analyzing" ? "active" : "declined",
     },
     {
-      title: "Sale #2",
-      price: "R$ 145,50",
+      title: t("home.loyaltySecurity.animation.sale", { number: 2 }),
+      price: t("home.loyaltySecurity.animation.salePrices.second"),
       top: 68,
       state:
         variant === "approved"
@@ -119,9 +121,24 @@ function SaleGroup({
             ? "active"
             : "dim",
     },
-    { title: "Sale #3", price: "R$ 167,80", top: 113, state: "dim" },
-    { title: "Sale #4", price: "R$ 199,90", top: 158, state: "dim" },
-    { title: "Sale #5", price: "R$ 574,99", top: 203, state: "dim" },
+    {
+      title: t("home.loyaltySecurity.animation.sale", { number: 3 }),
+      price: t("home.loyaltySecurity.animation.salePrices.third"),
+      top: 113,
+      state: "dim",
+    },
+    {
+      title: t("home.loyaltySecurity.animation.sale", { number: 4 }),
+      price: t("home.loyaltySecurity.animation.salePrices.fourth"),
+      top: 158,
+      state: "dim",
+    },
+    {
+      title: t("home.loyaltySecurity.animation.sale", { number: 5 }),
+      price: t("home.loyaltySecurity.animation.salePrices.fifth"),
+      top: 203,
+      state: "dim",
+    },
   ] satisfies Array<{
     title: string;
     price: string;
