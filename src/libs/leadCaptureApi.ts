@@ -11,7 +11,6 @@ export type LeadPayload = {
 type LeadSuccessResponse = {
   success: true
   leadId: string
-  requestId: string
 }
 
 type LeadErrorResponse = {
@@ -47,8 +46,7 @@ function isLeadSuccessResponse(result: unknown): result is LeadSuccessResponse {
   return (
     isRecord(result) &&
     result.success === true &&
-    typeof result.leadId === 'string' &&
-    typeof result.requestId === 'string'
+    typeof result.leadId === 'string'
   )
 }
 

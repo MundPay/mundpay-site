@@ -1,0 +1,30 @@
+services:
+  crm-api:
+    build: .
+    restart: unless-stopped
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      ASSIGNMENT_STATE_PATH: /app/data/assignment-state.json
+      DATACRAZY_API_URL: ${DATACRAZY_API_URL:-}
+      DATACRAZY_API_TOKEN: ${DATACRAZY_API_TOKEN:-}
+      DATACRAZY_ALEX_ATTENDANT_ID: ${DATACRAZY_ALEX_ATTENDANT_ID:-mock-alex-attendant}
+      DATACRAZY_ALEX_STAGE_ID: ${DATACRAZY_ALEX_STAGE_ID:-mock-alex-stage}
+      DATACRAZY_BRENNO_ATTENDANT_ID: ${DATACRAZY_BRENNO_ATTENDANT_ID:-mock-brenno-attendant}
+      DATACRAZY_BRENNO_STAGE_ID: ${DATACRAZY_BRENNO_STAGE_ID:-mock-brenno-stage}
+      DATACRAZY_TIMEOUT_MS: ${DATACRAZY_TIMEOUT_MS:-10000}
+      DATACRAZY_MOCK: ${DATACRAZY_MOCK:-true}
+      RATE_LIMIT_WINDOW_MS: ${RATE_LIMIT_WINDOW_MS:-60000}
+      RATE_LIMIT_MAX_REQUESTS: ${RATE_LIMIT_MAX_REQUESTS:-10}
+      REQUEST_BODY_LIMIT: ${REQUEST_BODY_LIMIT:-20kb}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+    ports:
+      - "127.0.0.1:${PORT:-3000}:3000"
+    volumes:
+      - mundpay-crm-state:/app/data
+
+volumes:
+  mundpay-crm-state:
