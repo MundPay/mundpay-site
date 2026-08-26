@@ -58,11 +58,27 @@ export const routeSeoByPath: Record<string, RouteSeo> = {
     description: 'Read the terms and conditions for using Mundpay services.',
     path: '/termos-de-uso',
   },
+  '/terms-of-use': {
+    title: 'Terms of Use | Mundpay',
+    description: 'Read the terms and conditions for using Mundpay services.',
+    path: '/terms-of-use',
+  },
+  '/terms-of-service': {
+    title: 'Terms of Use | Mundpay',
+    description: 'Read the terms and conditions for using Mundpay services.',
+    path: '/terms-of-use',
+  },
   '/politica-de-privacidade': {
     title: 'Privacy Policy | Mundpay',
     description:
       'Learn how Mundpay collects, uses, stores, and protects personal data.',
     path: '/politica-de-privacidade',
+  },
+  '/privacy-policy': {
+    title: 'Privacy Policy | Mundpay',
+    description:
+      'Learn how Mundpay collects, uses, stores, and protects personal data.',
+    path: '/privacy-policy',
   },
   '/propriedade-e-conteudo': {
     title: 'User Content Ownership | Mundpay',
@@ -70,11 +86,23 @@ export const routeSeoByPath: Record<string, RouteSeo> = {
       'Read Mundpay guidelines for ownership and use of user-generated content.',
     path: '/propriedade-e-conteudo',
   },
+  '/user-content-ownership': {
+    title: 'User Content Ownership | Mundpay',
+    description:
+      'Read Mundpay guidelines for ownership and use of user-generated content.',
+    path: '/user-content-ownership',
+  },
   '/pagamentos-e-taxas': {
     title: 'Payments and Fees | Mundpay',
     description:
       'Review Mundpay payment terms, fees, and related commercial conditions.',
     path: '/pagamentos-e-taxas',
+  },
+  '/payments-and-fees': {
+    title: 'Payments and Fees | Mundpay',
+    description:
+      'Review Mundpay payment terms, fees, and related commercial conditions.',
+    path: '/payments-and-fees',
   },
   '/refund-policy': {
     title: 'Refund and Return Policy | Mundpay',
@@ -92,11 +120,22 @@ export const routeSeoByPath: Record<string, RouteSeo> = {
     description: 'Read Mundpay code of ethics and business conduct guidelines.',
     path: '/codigo-de-etica',
   },
+  '/code-of-ethics': {
+    title: 'Code of Ethics | Mundpay',
+    description: 'Read Mundpay code of ethics and business conduct guidelines.',
+    path: '/code-of-ethics',
+  },
   '/programa-geral-de-compliance': {
     title: 'General Compliance Program | Mundpay',
     description:
       'Learn about Mundpay compliance program and governance practices.',
     path: '/programa-geral-de-compliance',
+  },
+  '/general-compliance-program': {
+    title: 'General Compliance Program | Mundpay',
+    description:
+      'Learn about Mundpay compliance program and governance practices.',
+    path: '/general-compliance-program',
   },
   '/aup': {
     ...acceptableUseSeoContent,
@@ -116,11 +155,23 @@ export const routeSeoByPath: Record<string, RouteSeo> = {
       'Review Mundpay anti-money laundering and risk prevention policies.',
     path: '/politicas-de-prevencao-a-lavagem-de-dinheiro',
   },
+  '/anti-money-laundering-policies': {
+    title: 'AML Policies | Mundpay',
+    description:
+      'Review Mundpay anti-money laundering and risk prevention policies.',
+    path: '/anti-money-laundering-policies',
+  },
   '/canal-de-denuncias': {
     title: 'Reporting Channel | Mundpay',
     description:
       'Access Mundpay reporting channel for ethics, compliance, and conduct concerns.',
     path: '/canal-de-denuncias',
+  },
+  '/reporting-channel': {
+    title: 'Reporting Channel | Mundpay',
+    description:
+      'Access Mundpay reporting channel for ethics, compliance, and conduct concerns.',
+    path: '/reporting-channel',
   },
 }
 

@@ -16,7 +16,7 @@ const baseSchema = z.object({
   DATACRAZY_BRENNO_ATTENDANT_ID: z.string().default(''),
   DATACRAZY_BRENNO_STAGE_ID: z.string().default(''),
   DATACRAZY_TIMEOUT_MS: positiveInteger.default(10_000),
-  DATACRAZY_MOCK: booleanString.default(true),
+  DATACRAZY_MOCK: booleanString,
   RATE_LIMIT_WINDOW_MS: positiveInteger.default(60_000),
   RATE_LIMIT_MAX_REQUESTS: positiveInteger.default(10),
   REQUEST_BODY_LIMIT: z.string().regex(/^\d+(?:b|kb|mb)$/i, 'Invalid body-size limit').default('20kb'),
