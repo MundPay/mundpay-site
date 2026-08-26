@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { mundpayAssets } from '../../assets/mundpayAssets'
 import { AppDialog } from '../shared/AppDialog'
@@ -10,16 +11,23 @@ type LeadCaptureModalProps = {
 
 export function LeadCaptureModal({ isOpen, onClose }: LeadCaptureModalProps) {
   const { t } = useTranslation()
+  const [isSubmitted, setIsSubmitted] = useState(false)
+
+  const handleClose = () => {
+    setIsSubmitted(false)
+    onClose()
+  }
 
   return (
     <AppDialog
       open={isOpen}
       onOpenChange={(open) => {
-        if (!open) onClose()
+        if (!open) handleClose()
       }}
       closeLabel={t('home.lp.modal.closeLabel')}
       title={t('home.lp.modal.title')}
       description={t('home.lp.modal.description')}
+      hideIntro={isSubmitted}
       headerContent={
         <img
           src={mundpayAssets.logoWhite}
@@ -28,7 +36,10 @@ export function LeadCaptureModal({ isOpen, onClose }: LeadCaptureModalProps) {
         />
       }
     >
-      <LeadCaptureForm onClose={onClose} />
+      <LeadCaptureForm
+        onClose={handleClose}
+        onSuccess={() => setIsSubmitted(true)}
+      />
     </AppDialog>
   )
 }

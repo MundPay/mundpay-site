@@ -66,7 +66,7 @@ export function HeaderNav({ onStartNow, variant = 'default' }: HeaderNavProps) {
   return (
     <motion.header
       className={twMerge(
-        'fixed inset-x-0 top-9 z-40 w-full border-0 border-transparent transition-colors duration-500',
+        'fixed inset-x-0 top-9 z-40 w-full border-0 border-transparent transition-colors duration-500 max-[359px]:top-12',
         isLight ? 'bg-[#EAEEE4]' : 'bg-[#050700]',
       )}
       initial={{ opacity: 0, y: -12 }}

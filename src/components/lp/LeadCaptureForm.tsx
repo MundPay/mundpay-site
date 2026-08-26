@@ -19,6 +19,7 @@ type SubmissionStatus = 'idle' | 'submitting' | 'success' | 'error'
 
 type LeadCaptureFormProps = {
   onClose: () => void
+  onSuccess: () => void
 }
 
 type FieldErrors = {
@@ -39,7 +40,7 @@ function getSubmissionErrorKey(error: unknown) {
   return error.status === undefined ? 'network' : 'submission'
 }
 
-export function LeadCaptureForm({ onClose }: LeadCaptureFormProps) {
+export function LeadCaptureForm({ onClose, onSuccess }: LeadCaptureFormProps) {
   const { i18n, t } = useTranslation()
   const [whatsapp, setWhatsapp] = useState<PhoneValue>()
   const [revenue, setRevenue] = useState('')
@@ -107,6 +108,7 @@ export function LeadCaptureForm({ onClose }: LeadCaptureFormProps) {
       setRevenue('')
       setPlatform('')
       setStatus('success')
+      onSuccess()
     } catch (error) {
       setStatus('error')
       setFormError(t(`home.lp.form.errors.${getSubmissionErrorKey(error)}`))
