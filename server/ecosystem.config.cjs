@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: 'api-site',
-      script: './dist/index.js', // ou o arquivo principal compilado
+      script: './dist/server.js', // ou o arquivo principal compilado
       instances: 'max',
       exec_mode: 'cluster',
       env: {
