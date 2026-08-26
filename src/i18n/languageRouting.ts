@@ -19,8 +19,43 @@ const preferredProhibitedProductsRoutePathByLanguage = {
 } satisfies Record<SupportedLanguage, string>
 
 const preferredTermsRoutePathByLanguage = {
-  en: '/termos-de-uso',
+  en: '/terms-of-use',
   'pt-BR': '/termos-de-uso',
+} satisfies Record<SupportedLanguage, string>
+
+const preferredPrivacyPolicyRoutePathByLanguage = {
+  en: '/privacy-policy',
+  'pt-BR': '/politica-de-privacidade',
+} satisfies Record<SupportedLanguage, string>
+
+const preferredUserContentRoutePathByLanguage = {
+  en: '/user-content-ownership',
+  'pt-BR': '/propriedade-e-conteudo',
+} satisfies Record<SupportedLanguage, string>
+
+const preferredPaymentsFeesRoutePathByLanguage = {
+  en: '/payments-and-fees',
+  'pt-BR': '/pagamentos-e-taxas',
+} satisfies Record<SupportedLanguage, string>
+
+const preferredCodeOfEthicsRoutePathByLanguage = {
+  en: '/code-of-ethics',
+  'pt-BR': '/codigo-de-etica',
+} satisfies Record<SupportedLanguage, string>
+
+const preferredComplianceProgramRoutePathByLanguage = {
+  en: '/general-compliance-program',
+  'pt-BR': '/programa-geral-de-compliance',
+} satisfies Record<SupportedLanguage, string>
+
+const preferredAmlPoliciesRoutePathByLanguage = {
+  en: '/anti-money-laundering-policies',
+  'pt-BR': '/politicas-de-prevencao-a-lavagem-de-dinheiro',
+} satisfies Record<SupportedLanguage, string>
+
+const preferredReportingChannelRoutePathByLanguage = {
+  en: '/reporting-channel',
+  'pt-BR': '/canal-de-denuncias',
 } satisfies Record<SupportedLanguage, string>
 
 const localizedRoutePathsByPath: Record<
@@ -35,6 +70,22 @@ const localizedRoutePathsByPath: Record<
   '/prohibited-products': preferredProhibitedProductsRoutePathByLanguage,
   '/termos-de-uso': preferredTermsRoutePathByLanguage,
   '/termos-de-servicos': preferredTermsRoutePathByLanguage,
+  '/terms-of-use': preferredTermsRoutePathByLanguage,
+  '/terms-of-service': preferredTermsRoutePathByLanguage,
+  '/politica-de-privacidade': preferredPrivacyPolicyRoutePathByLanguage,
+  '/privacy-policy': preferredPrivacyPolicyRoutePathByLanguage,
+  '/propriedade-e-conteudo': preferredUserContentRoutePathByLanguage,
+  '/user-content-ownership': preferredUserContentRoutePathByLanguage,
+  '/pagamentos-e-taxas': preferredPaymentsFeesRoutePathByLanguage,
+  '/payments-and-fees': preferredPaymentsFeesRoutePathByLanguage,
+  '/codigo-de-etica': preferredCodeOfEthicsRoutePathByLanguage,
+  '/code-of-ethics': preferredCodeOfEthicsRoutePathByLanguage,
+  '/programa-geral-de-compliance': preferredComplianceProgramRoutePathByLanguage,
+  '/general-compliance-program': preferredComplianceProgramRoutePathByLanguage,
+  '/politicas-de-prevencao-a-lavagem-de-dinheiro': preferredAmlPoliciesRoutePathByLanguage,
+  '/anti-money-laundering-policies': preferredAmlPoliciesRoutePathByLanguage,
+  '/canal-de-denuncias': preferredReportingChannelRoutePathByLanguage,
+  '/reporting-channel': preferredReportingChannelRoutePathByLanguage,
 }
 
 export function normalizeLanguage(

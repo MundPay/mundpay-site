@@ -99,7 +99,7 @@ Consulte [`.env.example`](.env.example). As principais são:
 
 - `CORS_ALLOWED_ORIGINS`: origens adicionais separadas por vírgula, como as portas locais de cada dev; os domínios fixos ficam em `src/config/cors.ts` e `*` é recusado em produção;
 - `ASSIGNMENT_STATE_PATH`: caminho do único arquivo persistido;
-- `DATACRAZY_MOCK`: `true` habilita o cliente local sem rede;
+- `DATACRAZY_MOCK`: variável obrigatória; `true` habilita o cliente local sem rede e `false` habilita a integração real;
 - `DATACRAZY_*_ATTENDANT_ID`: ID do atendente CRM responsável (Alex ou Brenno);
 - `DATACRAZY_*_STAGE_ID`: ID da etapa inicial em que o negócio deve ser criado;
 - `DATACRAZY_TIMEOUT_MS`: futuro timeout do adapter oficial e limite usado pelo servidor;
@@ -115,6 +115,8 @@ Esta seção concentra toda a configuração necessária para publicar a API com
 
 Configure as variáveis descritas em [`.env.example`](.env.example), mantenha `DATACRAZY_MOCK=false` e forneça as credenciais reais por `.env` protegido ou pelo gerenciador de secrets do servidor. Nunca grave o `.env` na imagem.
 
+As variáveis `DATACRAZY_*` são carregadas diretamente de `server/.env` pelo Compose. Elas não devem ser repetidas na seção `environment`, pois essa seção tem precedência sobre `env_file` e pode sobrescrever o modo real com valores interpolados de outro ambiente.
+
 O build multi-stage compila o TypeScript, instala somente dependências de produção e executa como usuário `node`, não-root. O volume `mundpay-crm-state` mantém o estado do round-robin em `/app/data`.
 
 ### 2. Suba a API
@@ -122,7 +124,10 @@ O build multi-stage compila o TypeScript, instala somente dependências de produ
 ```bash
 docker compose up -d --build --force-recreate
 docker compose ps
+docker compose exec crm-api node -e "console.log({ DATACRAZY_MOCK: process.env.DATACRAZY_MOCK })"
 ```
+
+O último comando deve exibir `DATACRAZY_MOCK: 'false'`. O endpoint `/health` também deve responder com `crmMode: "real"` antes de testar o formulário.
 
 O Compose publica a API somente no loopback do servidor:
 

@@ -1,12 +1,8 @@
 import { mundpayAssets } from '../../assets/mundpayAssets'
 import { useTranslation } from 'react-i18next'
 
-const announcement = {
-  href: 'https://api.avanttocrm.com/widget/booking/mC0dSNXX0Ha89S3s0FlS',
-}
-
 const announcementBarClassName =
-  'group fixed inset-x-0 top-0 z-50 flex h-9 w-full items-center justify-center overflow-hidden bg-[#050700] py-3 text-center font-space-grotesk text-[12px] font-semibold uppercase leading-none tracking-[0.08em] text-[#EAEEE4] transition-[filter] duration-200 hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#A2D035]'
+  'group fixed inset-x-0 top-0 z-50 flex h-9 w-full cursor-pointer items-center justify-center overflow-hidden border-0 bg-[#050700] py-3 text-center font-space-grotesk text-[12px] font-semibold uppercase leading-none tracking-[0.08em] text-[#EAEEE4] transition-[filter] duration-200 hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#A2D035]'
 
 const maskStyle = {
   mask: `url(${mundpayAssets.announcementMask}) center bottom / cover no-repeat luminance`,
@@ -50,22 +46,25 @@ function AnnouncementBarBackground() {
   )
 }
 
-export function AnnouncementBar() {
+type AnnouncementBarProps = {
+  onClick: () => void
+}
+
+export function AnnouncementBar({ onClick }: AnnouncementBarProps) {
   const { t } = useTranslation()
   const announcementText = t('home.announcement.text')
 
   return (
-    <a
+    <button
+      type="button"
       className={announcementBarClassName}
-      href={announcement.href}
-      target="_blank"
-      rel="noopener"
+      onClick={onClick}
       aria-label={announcementText}
     >
       <span className="relative z-[5] whitespace-nowrap mix-blend-screen">
         {announcementText}
       </span>
       <AnnouncementBarBackground />
-    </a>
+    </button>
   )
 }

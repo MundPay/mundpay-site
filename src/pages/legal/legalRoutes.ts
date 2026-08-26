@@ -27,6 +27,41 @@ type LegalRouteAlias = {
 
 export const legalRouteAliases = [
   {
+    paths: ['terms-of-use', 'en/terms-of-use', 'terms-of-service', 'en/terms-of-service'],
+    targetPath: 'termos-de-uso',
+  },
+  {
+    paths: ['privacy-policy', 'en/privacy-policy'],
+    targetPath: 'politica-de-privacidade',
+  },
+  {
+    paths: ['user-content-ownership', 'en/user-content-ownership'],
+    targetPath: 'propriedade-e-conteudo',
+  },
+  {
+    paths: ['payments-and-fees', 'en/payments-and-fees'],
+    targetPath: 'pagamentos-e-taxas',
+  },
+  {
+    paths: ['code-of-ethics', 'en/code-of-ethics'],
+    targetPath: 'codigo-de-etica',
+  },
+  {
+    paths: ['general-compliance-program', 'en/general-compliance-program'],
+    targetPath: 'programa-geral-de-compliance',
+  },
+  {
+    paths: [
+      'anti-money-laundering-policies',
+      'en/anti-money-laundering-policies',
+    ],
+    targetPath: 'politicas-de-prevencao-a-lavagem-de-dinheiro',
+  },
+  {
+    paths: ['reporting-channel', 'en/reporting-channel'],
+    targetPath: 'canal-de-denuncias',
+  },
+  {
     paths: [
       'produtos-proibidos',
       'pt/produtos-proibidos',
