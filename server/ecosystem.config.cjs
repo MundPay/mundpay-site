@@ -3,14 +3,14 @@ module.exports = {
     {
       name: 'api-site',
       script: './dist/server.js', // ou o arquivo principal compilado
-      instances: 'max',
-      exec_mode: 'cluster',
+      instances: 1,
+      exec_mode: 'fork',
       env: {
         NODE_ENV: 'production',
         PORT: 3000
       },
-      error_file: '/var/log/api-site-error.log',
-      out_file: '/var/log/api-site-out.log',
+      error_file: './logs/api-site-error.log',
+      out_file: './logs/api-site-out.log',
       log_date_format: 'YYYY-MM-DD HH:mm:ss Z',
       merge_logs: true,
       autorestart: true,
