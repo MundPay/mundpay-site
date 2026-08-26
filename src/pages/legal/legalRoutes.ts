@@ -18,4 +18,27 @@ export const legalRoutes = [
   { path: 'canal-de-denuncias', label: 'Reporting Channel', translationKey: 'reportingChannel' },
 ] satisfies LegalRoute[]
 
+type LegalRoutePath = (typeof legalRoutes)[number]['path']
+
+type LegalRouteAlias = {
+  paths: readonly string[]
+  targetPath: LegalRoutePath
+}
+
+export const legalRouteAliases = [
+  {
+    paths: [
+      'produtos-proibidos',
+      'pt/produtos-proibidos',
+      'prohibited-products',
+      'en/prohibited-products',
+    ],
+    targetPath: 'aup',
+  },
+  {
+    paths: ['termos-de-servicos', 'pt/termos-de-servicos'],
+    targetPath: 'termos-de-uso',
+  },
+] satisfies LegalRouteAlias[]
+
 export const legalSidebarRoutes = legalRoutes

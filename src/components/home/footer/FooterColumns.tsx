@@ -38,7 +38,7 @@ export function FooterColumns() {
         </h3>
 
         <div className="mt-6 flex flex-col gap-6 min-[1201px]:mt-[28px] min-[1201px]:gap-[28px]">
-          <FooterLink href={withLanguagePrefix("/me-ajuda", currentLanguage)}>
+          <FooterLink href={withLanguagePrefix("/help", currentLanguage)}>
             {t("home.footer.columns.contact.links.help")}
           </FooterLink>
           <FooterLink href="https://api.whatsapp.com/send/?phone=%2B5521988294968&text&type=phone_number&app_absent=0">

@@ -32,6 +32,11 @@ export class LeadSubmissionError extends Error {
   }
 }
 
+const configuredApiBaseUrl = import.meta.env.VITE_API_URL ?? ""
+const apiBaseUrl = configuredApiBaseUrl.endsWith("/")
+  ? configuredApiBaseUrl.slice(0, -1)
+  : configuredApiBaseUrl
+
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null
 }
@@ -60,7 +65,7 @@ export async function submitLead(payload: LeadPayload) {
   let response: Response
 
   try {
-    response = await fetch('/api/leads', {
+    response = await fetch(`${apiBaseUrl}/api/leads`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

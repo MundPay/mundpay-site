@@ -37,7 +37,7 @@ const legalLinks = [
 ];
 
 const contactLinks = [
-  { translationKey: "help", href: "/me-ajuda" },
+  { translationKey: "help", href: "/help" },
   {
     translationKey: "whatsapp",
     href: "https://api.whatsapp.com/send/?phone=%2B5521988294968&text&type=phone_number&app_absent=0",
