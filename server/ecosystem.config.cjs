@@ -1,13 +1,29 @@
+const fs = require('fs');
+const path = require('path');
+
+// Ler .env
+const envPath = path.join(__dirname, '.env');
+const envContent = fs.readFileSync(envPath, 'utf8');
+
+// Parsear variáveis
+const env = {};
+envContent.split('\n').forEach(line => {
+  const [key, value] = line.split('=');
+  if (key && value) {
+    env[key.trim()] = value.trim();
+  }
+});
+
 module.exports = {
   apps: [
     {
       name: 'api-site',
-      script: './dist/server.js', // ou o arquivo principal compilado
+      script: './dist/server.js',
       instances: 1,
       exec_mode: 'fork',
       env: {
         NODE_ENV: 'production',
-        PORT: 3000
+        ...env  // ← Espalha todas as variáveis do .env
       },
       error_file: './logs/api-site-error.log',
       out_file: './logs/api-site-out.log',
