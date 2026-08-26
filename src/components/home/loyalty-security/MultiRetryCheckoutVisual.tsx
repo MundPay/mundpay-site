@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 import { CheckMarkIcon } from "../../icons/CheckMarkIcon";
 import { CursorPointerIcon } from "../../icons/CursorPointerIcon";
 import { ListLinesIcon } from "../../icons/ListLinesIcon";
@@ -89,6 +90,8 @@ function CheckoutSkeleton({ loopTransition }: MultiRetryCheckoutVisualProps) {
 }
 
 function PurchaseSummary({ loopTransition }: MultiRetryCheckoutVisualProps) {
+  const { t } = useTranslation();
+
   return (
     <motion.div
       className="absolute left-1/2 top-[340px] z-20 w-[340px] -translate-x-1/2 rounded-md bg-[#FAFAFA] p-4 shadow-[0_4px_16px_rgba(0,0,0,0.06)]"
@@ -102,17 +105,17 @@ function PurchaseSummary({ loopTransition }: MultiRetryCheckoutVisualProps) {
         </div>
 
         <p className="font-space-grotesk text-[10px] font-medium text-[#09090B]">
-          Purchase Summary
+          {t("home.loyaltySecurity.animation.purchaseSummary")}
         </p>
       </div>
 
       <div className="mb-3 flex items-center justify-between">
         <p className="font-space-grotesk text-[8px] text-[#71717A]">
-          Curso de Google Ads
+          {t("home.loyaltySecurity.animation.productName")}
         </p>
 
         <p className="font-space-grotesk text-[8px] font-medium text-[#09090B]">
-          12x de R$ 172,00*
+          {t("home.loyaltySecurity.animation.installmentPrice")}
         </p>
       </div>
 
@@ -128,7 +131,7 @@ function PurchaseSummary({ loopTransition }: MultiRetryCheckoutVisualProps) {
           animate={{ opacity: completeOrderOpacity }}
           transition={loopTransition}
         >
-          Complete Order
+          {t("home.loyaltySecurity.animation.completeOrder")}
         </motion.span>
 
         <motion.span
@@ -137,7 +140,7 @@ function PurchaseSummary({ loopTransition }: MultiRetryCheckoutVisualProps) {
           transition={loopTransition}
         >
           <SpinnerIcon />
-          Processing
+          {t("home.loyaltySecurity.animation.processing")}
         </motion.span>
 
         <motion.span
@@ -146,7 +149,7 @@ function PurchaseSummary({ loopTransition }: MultiRetryCheckoutVisualProps) {
           transition={loopTransition}
         >
           <CheckMarkIcon className="size-3.5" />
-          Payment Approved!
+          {t("home.loyaltySecurity.animation.paymentApproved")}
         </motion.span>
       </motion.div>
     </motion.div>

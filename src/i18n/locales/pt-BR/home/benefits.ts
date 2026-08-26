@@ -37,6 +37,11 @@ export const benefits = {
       title: 'Segurança máxima, sem perder vendas',
       description:
         'Nossa prevenção de fraude com IA aprova mais vendas legítimas e bloqueia fraudadores com precisão, protegendo seu dinheiro.',
+      animation: {
+        analyzing: 'Analisando',
+        approved: 'Venda aprovada',
+        declined: 'Venda recusada',
+      },
     },
   },
 }

@@ -37,6 +37,11 @@ export const benefits = {
       title: 'Maximum security, without losing sales',
       description:
         'Our AI fraud prevention approves more legitimate sales and blocks scammers with precision, protecting your money.',
+      animation: {
+        analyzing: 'Analyzing',
+        approved: 'Sale approved',
+        declined: 'Sale declined',
+      },
     },
   },
 }

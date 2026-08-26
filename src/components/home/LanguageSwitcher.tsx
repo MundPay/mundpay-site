@@ -9,6 +9,7 @@ import type { SupportedLanguage } from '../../i18n/resources'
 import { withLanguagePrefix } from '../../i18n/languageRouting'
 
 type LanguageSwitcherProps = {
+  compact?: boolean
   isLight: boolean
 }
 
@@ -25,7 +26,7 @@ function getCurrentLanguage(language?: string): SupportedLanguage {
   return language === 'pt-BR' ? 'pt-BR' : 'en'
 }
 
-export function LanguageSwitcher({ isLight }: LanguageSwitcherProps) {
+export function LanguageSwitcher({ compact = false, isLight }: LanguageSwitcherProps) {
   const { i18n, t } = useTranslation()
   const navigate = useNavigate()
   const { hash, pathname, search } = useLocation()
@@ -76,12 +77,14 @@ export function LanguageSwitcher({ isLight }: LanguageSwitcherProps) {
       ref={switcherRef}
       className={twMerge(
         'relative h-10 w-[78px] flex-none',
+        compact && 'w-11',
       )}
     >
       <button
         type="button"
         className={twMerge(
           'flex h-full w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-transparent px-3 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-mundpay-lime',
+          compact && 'gap-1 px-1.5',
           isLight
             ? 'text-mundpay-ink hover:bg-mundpay-ink/[0.025]'
             : 'text-mundpay-cream hover:bg-mundpay-cream/[0.035]',
@@ -111,6 +114,7 @@ export function LanguageSwitcher({ isLight }: LanguageSwitcherProps) {
           aria-label={t('home.nav.languageSelectLabel')}
           className={twMerge(
             'absolute left-0 top-[46px] z-50 w-full overflow-hidden rounded-[12px] border py-1 shadow-[0_14px_28px_rgba(0,0,0,0.24)]',
+            compact && 'w-[78px]',
             isLight
               ? 'border-mundpay-ink/10 bg-mundpay-cream text-mundpay-ink'
               : 'border-mundpay-cream/12 bg-mundpay-ink text-mundpay-cream',

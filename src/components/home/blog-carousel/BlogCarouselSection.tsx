@@ -40,7 +40,7 @@ export function BlogCarouselSection() {
               <br />
               {t('home.blogCarousel.title.lineTwo')}
             </h2>
-            <p className="mt-[10px] max-w-[520px] font-space-grotesk text-[18px] font-semibold leading-[1.45] tracking-[-0.04em] text-[#EAEEE4]/62 min-[811px]:max-w-[430px] min-[811px]:text-[21px] min-[1201px]:text-[24px]">
+            <p className="mt-[10px] max-w-[520px] font-space-grotesk text-[18px] font-normal leading-[1.45] tracking-[-0.04em] text-[#EAEEE4]/62 min-[811px]:max-w-[430px] min-[811px]:text-[21px] min-[1201px]:text-[24px]">
               {t('home.blogCarousel.description')}
             </p>
           </div>

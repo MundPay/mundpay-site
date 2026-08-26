@@ -5,8 +5,14 @@ import { HeroBackground } from "./HeroBackground";
 import { HeroCopy } from "./HeroCopy";
 import { StatsMarquee } from "./StatsMarquee";
 import { StartNowModal } from "./StartNowModal";
+import type { HomeVariant } from "./HomeVariant";
+import { LeadCaptureModal } from "../lp/LeadCaptureModal";
 
-export function HeroSection() {
+type HeroSectionProps = {
+  variant?: HomeVariant;
+};
+
+export function HeroSection({ variant = "default" }: HeroSectionProps) {
   const [isStartNowModalOpen, setIsStartNowModalOpen] = useState(false);
   const openStartNowModal = useCallback(() => setIsStartNowModalOpen(true), []);
   const closeStartNowModal = useCallback(
@@ -17,14 +23,21 @@ export function HeroSection() {
   return (
     <section className="relative mx-auto w-full max-w-300">
       <HeroBackground />
-      <HeaderNav onStartNow={openStartNowModal} />
+      <HeaderNav onStartNow={openStartNowModal} variant={variant} />
       <HeroCopy onStartNow={openStartNowModal} />
       <DashboardPreview />
       <StatsMarquee />
-      <StartNowModal
-        isOpen={isStartNowModalOpen}
-        onClose={closeStartNowModal}
-      />
+      {variant === "lp" ? (
+        <LeadCaptureModal
+          isOpen={isStartNowModalOpen}
+          onClose={closeStartNowModal}
+        />
+      ) : (
+        <StartNowModal
+          isOpen={isStartNowModalOpen}
+          onClose={closeStartNowModal}
+        />
+      )}
     </section>
   );
 }

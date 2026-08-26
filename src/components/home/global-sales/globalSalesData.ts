@@ -21,16 +21,16 @@ export const globalSalesLotties = {
 }
 
 export const languageChips = [
-  { label: 'Portuguese', flag: portugueseFlag },
-  { label: 'English', flag: englishFlag },
-  { label: 'Spanish', flag: spanishFlag },
-  { label: 'Hindi', alternateLabel: 'Indian', flag: hindiFlag },
-  { label: 'French', flag: frenchFlag },
-  { label: 'Italian', flag: italianFlag },
-  { label: 'Arab', alternateLabel: 'Arabic', flag: arabFlag },
-  { label: 'German', flag: germanFlag },
-  { label: 'Japanese', flag: japaneseFlag },
-  { label: 'Mandarin', flag: mandarinFlag },
+  { id: 'portuguese', flag: portugueseFlag },
+  { id: 'english', flag: englishFlag },
+  { id: 'spanish', flag: spanishFlag },
+  { id: 'hindi', alternateId: 'indian', flag: hindiFlag },
+  { id: 'french', flag: frenchFlag },
+  { id: 'italian', flag: italianFlag },
+  { id: 'arab', alternateId: 'arabic', flag: arabFlag },
+  { id: 'german', flag: germanFlag },
+  { id: 'japanese', flag: japaneseFlag },
+  { id: 'mandarin', flag: mandarinFlag },
 ]
 
 export const paymentLogoSlots = [

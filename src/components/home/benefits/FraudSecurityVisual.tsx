@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 
 type Status = "analyzing" | "approved" | "declined";
 
@@ -15,26 +16,26 @@ const FOCUS_OFFSET_X = 16;
 
 const statusConfig = {
   analyzing: {
-    label: "Analyzing",
+    labelKey: "home.benefits.cards.fraudSecurity.animation.analyzing",
     border: "rgba(236, 243, 223, 0.34)",
     borderStyle: "dashed",
     iconBg: "rgb(47, 50, 44)",
   },
   approved: {
-    label: "Sale Approved",
+    labelKey: "home.benefits.cards.fraudSecurity.animation.approved",
     border: "rgb(162, 208, 53)",
     borderStyle: "solid",
     iconBg: "rgb(162, 208, 53)",
   },
   declined: {
-    label: "Sale Declined",
+    labelKey: "home.benefits.cards.fraudSecurity.animation.declined",
     border: "rgb(208, 53, 53)",
     borderStyle: "solid",
     iconBg: "rgb(208, 53, 53)",
   },
 } satisfies Record<
   Status,
-  { label: string; border: string; borderStyle: string; iconBg: string }
+  { labelKey: string; border: string; borderStyle: string; iconBg: string }
 >;
 
 function PlaceholderCard() {
@@ -60,6 +61,7 @@ function PlaceholderCard() {
 }
 
 export function FraudSecurityVisual() {
+  const { t } = useTranslation();
   const [statusIndex, setStatusIndex] = useState(0);
   const [cardIndex, setCardIndex] = useState(0);
 
@@ -155,7 +157,7 @@ export function FraudSecurityVisual() {
           </div>
 
           <span className="whitespace-nowrap font-['Space_Grotesk'] text-xs font-medium leading-none tracking-[-0.02em] text-[#EAEDE4]">
-            {config.label}
+            {t(config.labelKey)}
           </span>
         </motion.div>
       </div>

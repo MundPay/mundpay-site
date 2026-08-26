@@ -61,6 +61,9 @@ function App() {
         {homeRoutePaths.map((path) => (
           <Route key={path} path={path} element={<HomePage />} />
         ))}
+        {getLanguageRoutePaths('lp').map((path) => (
+          <Route key={path} path={path} element={<HomePage variant="lp" />} />
+        ))}
         {getLanguageRoutePaths('me-ajuda').map((path) => (
           <Route key={path} path={path} element={<HelpPage />} />
         ))}

@@ -14,13 +14,18 @@ import { LoyaltySecuritySection } from "../../components/home/loyalty-security/L
 import { PricingSection } from "../../components/home/pricing/PricingSection";
 import { SuccessPlatformSection } from "../../components/home/success-platform/SuccessPlatformSection";
 import { SiteShell } from "../../components/layout/SiteShell";
+import type { HomeVariant } from "../../components/home/HomeVariant";
 
-export function HomePage() {
+type HomePageProps = {
+  variant?: HomeVariant;
+};
+
+export function HomePage({ variant = "default" }: HomePageProps) {
   return (
     <SiteShell>
       <div className="relative z-10 bg-[#050700]">
         <AnnouncementBar />
-        <HeroSection />
+        <HeroSection variant={variant} />
         <BenefitsSection />
         <FeaturesSection />
         <LoyaltySecuritySection />

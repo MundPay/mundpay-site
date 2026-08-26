@@ -18,6 +18,12 @@ export const defaultSeo: RouteSeo = {
 
 export const routeSeoByPath: Record<string, RouteSeo> = {
   '/': defaultSeo,
+  '/lp': {
+    title: 'Comece agora | Mundpay',
+    description:
+      'Cadastre-se para conhecer a plataforma da Mundpay e escalar seu negócio digital globalmente.',
+    path: '/lp',
+  },
   '/me-ajuda': {
     title: 'Help Center | Mundpay',
     description:
@@ -95,4 +101,3 @@ export const notFoundSeo: RouteSeo = {
   path: '/',
   robots: 'noindex, nofollow',
 }
-

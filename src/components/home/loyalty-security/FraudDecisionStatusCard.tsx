@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 import {
   approvedOpacity,
   analyzingOpacity,
@@ -21,6 +22,8 @@ function SpinnerIcon() {
 }
 
 export function FraudDecisionStatusCard() {
+  const { t } = useTranslation();
+
   return (
     <motion.div
       className="absolute left-[430px] top-[94px] z-20 flex h-[72px] w-[190px] items-center justify-center rounded-2xl border p-1 shadow-[0_4px_6px_rgba(0,0,0,0.12)]"
@@ -97,7 +100,7 @@ export function FraudDecisionStatusCard() {
           }}
         >
           <SpinnerIcon />
-          <span>Analyzing sale...</span>
+          <span>{t("home.loyaltySecurity.animation.analyzingSale")}</span>
         </motion.div>
 
         <motion.p
@@ -108,7 +111,7 @@ export function FraudDecisionStatusCard() {
             y: statusTransition,
           }}
         >
-          Venda Recusada
+          {t("home.loyaltySecurity.animation.saleDeclined")}
         </motion.p>
 
         <motion.p
@@ -119,7 +122,7 @@ export function FraudDecisionStatusCard() {
             y: statusTransition,
           }}
         >
-          Venda Aprovada
+          {t("home.loyaltySecurity.animation.saleApproved")}
         </motion.p>
       </motion.div>
     </motion.div>

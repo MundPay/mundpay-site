@@ -12,6 +12,7 @@ import { globalSales } from './globalSales'
 import { hero } from './hero'
 import { integrations } from './integrations'
 import { loyaltySecurity } from './loyaltySecurity'
+import { lp } from './lp'
 import { nav } from './nav'
 import { pricing } from './pricing'
 import { startNowModal } from './startNowModal'
@@ -32,6 +33,7 @@ export const home = {
   hero,
   integrations,
   loyaltySecurity,
+  lp,
   nav,
   pricing,
   startNowModal,
