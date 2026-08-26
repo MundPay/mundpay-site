@@ -2,7 +2,7 @@ import { mundpayAssets } from '../../assets/mundpayAssets'
 import { useTranslation } from 'react-i18next'
 
 const announcementBarClassName =
-  'group fixed inset-x-0 top-0 z-50 flex h-9 w-full cursor-pointer items-center justify-center overflow-hidden border-0 bg-[#050700] py-3 text-center font-space-grotesk text-[12px] font-semibold uppercase leading-none tracking-[0.08em] text-[#EAEEE4] transition-[filter] duration-200 hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#A2D035]'
+  'group fixed inset-x-0 top-0 z-50 flex h-9 w-full cursor-pointer items-center justify-center overflow-hidden border-0 bg-[#050700] px-2 text-center font-space-grotesk text-[clamp(8px,2.5vw,12px)] font-semibold uppercase leading-none tracking-[0.03em] text-[#EAEEE4] transition-[filter] duration-200 min-[480px]:tracking-[0.08em] hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#A2D035] max-[359px]:h-12 max-[359px]:py-2 max-[359px]:text-[9px] max-[359px]:leading-[1.25]'
 
 const maskStyle = {
   mask: `url(${mundpayAssets.announcementMask}) center bottom / cover no-repeat luminance`,
@@ -61,7 +61,7 @@ export function AnnouncementBar({ onClick }: AnnouncementBarProps) {
       onClick={onClick}
       aria-label={announcementText}
     >
-      <span className="relative z-[5] whitespace-nowrap mix-blend-screen">
+      <span className="relative z-[5] whitespace-nowrap mix-blend-screen max-[359px]:max-w-full max-[359px]:whitespace-normal">
         {announcementText}
       </span>
       <AnnouncementBarBackground />

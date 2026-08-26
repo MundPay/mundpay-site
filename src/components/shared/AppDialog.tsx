@@ -14,6 +14,7 @@ type AppDialogProps = {
   closeLabel: string
   description?: string
   headerContent?: ReactNode
+  hideIntro?: boolean
   onOpenChange: (open: boolean) => void
   open: boolean
   title: string
@@ -24,6 +25,7 @@ export function AppDialog({
   closeLabel,
   description,
   headerContent,
+  hideIntro = false,
   onOpenChange,
   open,
   title,
@@ -46,11 +48,23 @@ export function AppDialog({
 
         <DialogHeader className="items-center gap-3 px-8 text-center">
           {headerContent}
-          <DialogTitle className="font-rethink-sans text-[26px] font-bold uppercase leading-tight tracking-[-0.04em] text-[#EAEEE4]">
+          <DialogTitle
+            className={
+              hideIntro
+                ? 'sr-only'
+                : 'font-rethink-sans text-[26px] font-bold uppercase leading-tight tracking-[-0.04em] text-[#EAEEE4]'
+            }
+          >
             {title}
           </DialogTitle>
           {description ? (
-            <DialogDescription className="font-space-grotesk text-[14px] leading-normal text-[#EAEEE4]/65">
+            <DialogDescription
+              className={
+                hideIntro
+                  ? 'sr-only'
+                  : 'font-space-grotesk text-[14px] leading-normal text-[#EAEEE4]/65'
+              }
+            >
               {description}
             </DialogDescription>
           ) : null}
