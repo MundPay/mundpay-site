@@ -54,8 +54,9 @@ npm run preview
 - `src/main.tsx`: inicializa React, Router e i18n.
 - `src/App.tsx`: define as rotas principais.
 - `src/pages/home/HomePage.tsx`: compõe a home a partir das seções.
-- `src/pages/help/HelpPage.tsx`: página `/me-ajuda`.
+- `src/pages/help/HelpPage.tsx`: página de ajuda em `/help` (inglês), `/me-ajuda` (português) e no alias `/ajuda`.
 - `src/pages/legal/**`: documentos legais.
+- As páginas legais aceitam aliases históricos definidos em `src/pages/legal/legalRoutes.ts`.
 - `src/pages/not-found/**`: página 404.
 
 ### Home

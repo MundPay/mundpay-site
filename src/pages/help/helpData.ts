@@ -1,5 +1,5 @@
 export const helpNavbarLinks = {
-  help: '/me-ajuda',
+  help: '/help',
   home: '/',
   login: 'https://app.mundpay.com/login',
   register: 'https://app.mundpay.com/register',
@@ -31,7 +31,7 @@ export const helpFooterColumns = [
   {
     key: 'contact',
     links: [
-      { key: 'help', href: '/me-ajuda' },
+      { key: 'help', href: '/help' },
       {
         key: 'whatsapp',
         href: 'https://api.whatsapp.com/send/?phone=%2B5521988294968&text&type=phone_number&app_absent=0',

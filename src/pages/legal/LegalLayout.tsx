@@ -6,8 +6,8 @@ import { twMerge } from 'tailwind-merge'
 import { mundpayAssets } from '../../assets/mundpayAssets'
 import { LanguageSwitcher } from '../../components/home/LanguageSwitcher'
 import {
+  areRoutePathsEquivalent,
   getPathLanguagePrefix,
-  stripLanguagePrefix,
   withLanguagePrefix,
 } from '../../i18n/languageRouting'
 import { LegalFooter } from './LegalFooter'
@@ -22,7 +22,7 @@ function LegalSidebarLink({ item }: { item: LegalRoute }) {
   const { pathname } = useLocation()
   const { t } = useTranslation()
   const pathLanguagePrefix = getPathLanguagePrefix(pathname)
-  const isActive = stripLanguagePrefix(pathname) === `/${item.path}`
+  const isActive = areRoutePathsEquivalent(pathname, `/${item.path}`)
   const href = withLanguagePrefix(`/${item.path}`, pathLanguagePrefix, {
     includeDefaultPrefix: true,
   })

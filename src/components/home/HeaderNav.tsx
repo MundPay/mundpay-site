@@ -18,7 +18,7 @@ const navItems = [
   { key: 'about', href: '#benefits' },
   { key: 'globalSale', href: '#global' },
   { key: 'blog', href: 'https://mundpay.com/blog' },
-  { key: 'help', href: '/me-ajuda' },
+  { key: 'help', href: '/help' },
 ] as const
 
 type HeaderNavProps = {

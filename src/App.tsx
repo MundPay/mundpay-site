@@ -6,7 +6,7 @@ import { LanguageRouteSync } from './i18n/LanguageRouteSync'
 import { languageRoutePrefixes } from './i18n/languageRouting'
 import { HelpPage } from './pages/help/HelpPage'
 import { HomePage } from './pages/home/HomePage'
-import { legalRoutes } from './pages/legal/legalRoutes'
+import { legalRouteAliases, legalRoutes } from './pages/legal/legalRoutes'
 import {
   AcceptableUsePolicyPage,
   AmlPoliciesPage,
@@ -49,6 +49,16 @@ function getLanguageRoutePaths(path: string) {
   ]
 }
 
+const helpRoutePaths = [
+  'help',
+  'me-ajuda',
+  'ajuda',
+  'en/help',
+  'en/me-ajuda',
+  'pt/me-ajuda',
+  'pt/ajuda',
+]
+
 function App() {
   useLenis()
 
@@ -64,7 +74,7 @@ function App() {
         {getLanguageRoutePaths('lp').map((path) => (
           <Route key={path} path={path} element={<HomePage variant="lp" />} />
         ))}
-        {getLanguageRoutePaths('me-ajuda').map((path) => (
+        {helpRoutePaths.map((path) => (
           <Route key={path} path={path} element={<HelpPage />} />
         ))}
         {legalRoutes.map((route) => (
@@ -73,6 +83,15 @@ function App() {
               key={path}
               path={path}
               element={legalPageByPath[route.path]}
+            />
+          ))
+        ))}
+        {legalRouteAliases.flatMap(({ paths, targetPath }) => (
+          paths.map((path) => (
+            <Route
+              key={path}
+              path={path}
+              element={legalPageByPath[targetPath]}
             />
           ))
         ))}

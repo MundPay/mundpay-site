@@ -8,6 +8,35 @@ type WithLanguagePrefixOptions = {
   includeDefaultPrefix?: boolean
 }
 
+const preferredHelpRoutePathByLanguage = {
+  en: '/help',
+  'pt-BR': '/me-ajuda',
+} satisfies Record<SupportedLanguage, string>
+
+const preferredProhibitedProductsRoutePathByLanguage = {
+  en: '/prohibited-products',
+  'pt-BR': '/produtos-proibidos',
+} satisfies Record<SupportedLanguage, string>
+
+const preferredTermsRoutePathByLanguage = {
+  en: '/termos-de-uso',
+  'pt-BR': '/termos-de-uso',
+} satisfies Record<SupportedLanguage, string>
+
+const localizedRoutePathsByPath: Record<
+  string,
+  Record<SupportedLanguage, string>
+> = {
+  '/help': preferredHelpRoutePathByLanguage,
+  '/me-ajuda': preferredHelpRoutePathByLanguage,
+  '/ajuda': preferredHelpRoutePathByLanguage,
+  '/aup': preferredProhibitedProductsRoutePathByLanguage,
+  '/produtos-proibidos': preferredProhibitedProductsRoutePathByLanguage,
+  '/prohibited-products': preferredProhibitedProductsRoutePathByLanguage,
+  '/termos-de-uso': preferredTermsRoutePathByLanguage,
+  '/termos-de-servicos': preferredTermsRoutePathByLanguage,
+}
+
 export function normalizeLanguage(
   language: string | null | undefined,
 ): SupportedLanguage | null {
@@ -67,27 +96,46 @@ export function withLanguagePrefix(
   const shouldUsePrefix =
     options.includeDefaultPrefix || normalizedLanguage !== defaultLanguage
 
-  if (!shouldUsePrefix) return stripLanguagePrefixFromHref(href)
+  const { pathname, suffix } = splitHref(href)
+  const localizedPathname = localizeRoutePathname(pathname, normalizedLanguage)
+
+  if (!shouldUsePrefix) return `${localizedPathname}${suffix}`
 
   const prefix = getLanguageRoutePrefix(normalizedLanguage)
-  const { pathname, suffix } = splitHref(href)
-  const strippedPathname = stripLanguagePrefix(pathname)
 
-  if (strippedPathname === '/') {
+  if (localizedPathname === '/') {
     return `/${prefix}${suffix}`
   }
 
-  return `/${prefix}${strippedPathname}${suffix}`
+  return `/${prefix}${localizedPathname}${suffix}`
+}
+
+export function areRoutePathsEquivalent(firstPath: string, secondPath: string) {
+  const firstPathname = stripLanguagePrefix(firstPath)
+  const secondPathname = stripLanguagePrefix(secondPath)
+
+  if (firstPathname === secondPathname) return true
+
+  const firstLocalizedPaths = localizedRoutePathsByPath[firstPathname]
+  const secondLocalizedPaths = localizedRoutePathsByPath[secondPathname]
+
+  return Boolean(
+    firstLocalizedPaths && firstLocalizedPaths === secondLocalizedPaths,
+  )
 }
 
 function isExternalHref(href: string) {
   return /^(?:[a-z][a-z\d+\-.]*:)?\/\//i.test(href) || href.includes(':')
 }
 
-function stripLanguagePrefixFromHref(href: string) {
-  const { pathname, suffix } = splitHref(href)
+function localizeRoutePathname(
+  pathname: string,
+  language: SupportedLanguage,
+) {
+  const strippedPathname = stripLanguagePrefix(pathname)
+  const localizedPaths = localizedRoutePathsByPath[strippedPathname]
 
-  return `${stripLanguagePrefix(pathname)}${suffix}`
+  return localizedPaths?.[language] ?? strippedPathname
 }
 
 function splitHref(href: string) {

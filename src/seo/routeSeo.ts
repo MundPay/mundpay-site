@@ -16,6 +16,18 @@ export const defaultSeo: RouteSeo = {
   path: '/',
 }
 
+const helpSeoContent = {
+  title: 'Help Center | Mundpay',
+  description:
+    'Find Mundpay support channels and answers for creators, sellers, and digital businesses.',
+}
+
+const acceptableUseSeoContent = {
+  title: 'Acceptable Use Policy | Mundpay',
+  description:
+    'Read Mundpay acceptable use policy for products, sellers, and users.',
+}
+
 export const routeSeoByPath: Record<string, RouteSeo> = {
   '/': defaultSeo,
   '/lp': {
@@ -24,13 +36,24 @@ export const routeSeoByPath: Record<string, RouteSeo> = {
       'Cadastre-se para conhecer a plataforma da Mundpay e escalar seu negócio digital globalmente.',
     path: '/lp',
   },
+  '/help': {
+    ...helpSeoContent,
+    path: '/help',
+  },
   '/me-ajuda': {
-    title: 'Help Center | Mundpay',
-    description:
-      'Find Mundpay support channels and answers for creators, sellers, and digital businesses.',
+    ...helpSeoContent,
+    path: '/me-ajuda',
+  },
+  '/ajuda': {
+    ...helpSeoContent,
     path: '/me-ajuda',
   },
   '/termos-de-uso': {
+    title: 'Terms of Use | Mundpay',
+    description: 'Read the terms and conditions for using Mundpay services.',
+    path: '/termos-de-uso',
+  },
+  '/termos-de-servicos': {
     title: 'Terms of Use | Mundpay',
     description: 'Read the terms and conditions for using Mundpay services.',
     path: '/termos-de-uso',
@@ -76,10 +99,16 @@ export const routeSeoByPath: Record<string, RouteSeo> = {
     path: '/programa-geral-de-compliance',
   },
   '/aup': {
-    title: 'Acceptable Use Policy | Mundpay',
-    description:
-      'Read Mundpay acceptable use policy for products, sellers, and users.',
+    ...acceptableUseSeoContent,
     path: '/aup',
+  },
+  '/produtos-proibidos': {
+    ...acceptableUseSeoContent,
+    path: '/produtos-proibidos',
+  },
+  '/prohibited-products': {
+    ...acceptableUseSeoContent,
+    path: '/prohibited-products',
   },
   '/politicas-de-prevencao-a-lavagem-de-dinheiro': {
     title: 'AML Policies | Mundpay',
