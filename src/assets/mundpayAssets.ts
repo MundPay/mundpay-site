@@ -2,8 +2,10 @@ import logoMark from './image/8bc92f844a-HJcsbsT7DoyxGIAH4vL0MPsbU4.svg'
 import logoBlack from './image/7d95751d18-vg9aaklAiduTQcorf3lyf1Hrk.svg'
 import logoWhite from './image/6f2f6b5448-912Bk5uKdxMx0IggmgUKAE201Q.svg'
 import searchIcon from './image/3507a8cc41-jtN9X3wUuHlfmuioJIF8R1zXPkU.svg'
-import paidSalesPreview from './image/67e8b544d1-FsJlNs2Ba0yBA2y6GK4UYWEXG0c.png'
-import nextRewardPreview from './image/b119f8763b-LLAxLwsDdfYtMiRTr8xPCjor64.png'
+import paidSalesPreview from './image/dashboard-sales-chart-pt-br.avif'
+import paidSalesPreviewEn from './image/dashboard-sales-chart-en.png'
+import nextRewardPreview from './image/dashboard-next-reward-pt-br.png'
+import nextRewardPreviewEn from './image/dashboard-next-reward-en.png'
 import noiseTexture from './image/8050a6e0a7-6mcf62RlDfRfU61Yg5vb2pefpi4.avif'
 import announcementMask from './image/2e7b2e0bab-em5qooCvb61yAp8BaGcsoKBs.avif'
 import ctaWoman from './image/a6b0afff01-I3RkisUMSUSfNlBTwlOlfm7tsto.avif'
@@ -51,7 +53,9 @@ export const mundpayAssets = {
   logoWhite,
   searchIcon,
   paidSalesPreview,
+  paidSalesPreviewEn,
   nextRewardPreview,
+  nextRewardPreviewEn,
   noiseTexture,
   announcementMask,
   ctaWoman,

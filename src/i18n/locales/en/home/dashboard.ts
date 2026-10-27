@@ -2,6 +2,8 @@ export const dashboard = {
   title: 'Dashboard',
   greeting: 'Hi, Joao!',
   periodToday: 'Today',
+  paidSalesAlt: 'Paid sales by hour',
+  nextRewardAlt: 'Next reward',
   menu: {
     dashboard: 'Dashboard',
     products: 'Products',
