@@ -1,6 +1,22 @@
 {
   "rewrites": [
     {
+      "source": "/marketplace",
+      "destination": "https://develop-area-do-cliente-mundpay.vercel.app/marketplace"
+    },
+    {
+      "source": "/marketplace/:path*",
+      "destination": "https://develop-area-do-cliente-mundpay.vercel.app/marketplace/:path*"
+    },
+    {
+      "source": "/api/marketplace/:path*",
+      "destination": "https://develop-area-do-cliente-mundpay.vercel.app/api/marketplace/:path*"
+    },
+    {
+      "source": "/_next/:path*",
+      "destination": "https://develop-area-do-cliente-mundpay.vercel.app/_next/:path*"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
