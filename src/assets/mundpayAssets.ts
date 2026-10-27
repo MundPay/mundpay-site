@@ -7,6 +7,7 @@ import nextRewardPreview from './image/b119f8763b-LLAxLwsDdfYtMiRTr8xPCjor64.png
 import noiseTexture from './image/8050a6e0a7-6mcf62RlDfRfU61Yg5vb2pefpi4.avif'
 import announcementMask from './image/2e7b2e0bab-em5qooCvb61yAp8BaGcsoKBs.avif'
 import ctaWoman from './image/a6b0afff01-I3RkisUMSUSfNlBTwlOlfm7tsto.avif'
+import ctaWomanEn from './image/earnings-cta-en.png'
 import pricingPortrait from './image/a75ad6617d-QO40GmMF6zLv22Fghz4nnlEqHj0.avif'
 import awardBracelet from './image/605f94e1db-gjWwfFUknzjDiJxwPnXp1XW0oQ.png'
 import awardPlaqueOne from './image/2e3ec32373-62N82VSu4qGrkkUCxU0cRgZ4.gif'
@@ -39,7 +40,7 @@ import countriesIcon from './image/14dd7e7e0c-YeC9iAsSD8dA3fG6hrl2o7Aoxw.svg'
 import secretOrderBumpVideo from './media/e9d1e4db4d-VvSzPV9AMbABgMbs4Bww23ibW0.mp4'
 import upsellOneClickVideo from './media/1308a8a13b-y86K6VjfWKx5yVcKKGMDE5oecE.mp4'
 import subscriptionsVideo from './media/d17ad99e60-PFQonoDgyxxGR3kz69IHdmaLw.mp4'
-import affiliateMarketplaceVideo from './media/df605571e7-1DNXekr1l3hwSpUmyMrSHGYMlc.mp4'
+import affiliateMarketplaceVideo from './media/mundpay-marketplace-en.mp4'
 import smartMultitryVideo from './media/468add484d-SbJ6OVCgjHJeyzFrQgY1PiFQYrc.mp4'
 import fraudPreventionVideo from './media/ab70c3472e-2qCbAsFN7tYlFi7XpI4OKhIHFqs.mp4'
 import helpSupportImage from './image/b56f327411-MJPib1t5nbptvoI83w5vZjfswE.png'
@@ -54,6 +55,7 @@ export const mundpayAssets = {
   noiseTexture,
   announcementMask,
   ctaWoman,
+  ctaWomanEn,
   pricingPortrait,
   awardBracelet,
   awardPlaqueOne,

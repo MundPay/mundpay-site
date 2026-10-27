@@ -22,11 +22,18 @@ export const benefits = {
       title: 'Recurring payment on autopilot',
       description:
         'Offer subscription plans and retain your customers with automatic billing and simplified management.',
+      animation: {
+        completed: 'Sale completed',
+        now: 'now',
+      },
     },
     aiTools: {
       title: 'AI and tools to help you earn more',
       description:
         'With Upsell 1-Click, Secret Order Bump, and AI Sales Recovery, Mundpay automatically increases your revenue, without complication.',
+      animation: {
+        earnings: 'Earnings',
+      },
     },
     pciSecurity: {
       title: 'PCI DSS - Global Security',

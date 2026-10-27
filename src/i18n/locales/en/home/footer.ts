@@ -6,6 +6,7 @@ export const footer = {
         paymentsAndFees: 'Payments and Fees',
         terms: 'Terms and Conditions',
         privacy: 'Privacy Policy',
+        refundPolicy: 'Refund and Return Policy',
         reporting: 'Reporting Channel',
       },
     },

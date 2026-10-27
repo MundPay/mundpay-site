@@ -1,21 +1,11 @@
 import { useTranslation } from 'react-i18next'
-import { mundpayAssets } from '../../../assets/mundpayAssets'
 import { ArrowRightIcon } from '../../icons/ArrowRightIcon'
+import { EarningsCtaImage } from './EarningsCtaImage'
 
 const earningsCtaHref = '/'
 
 const ctaButtonClassName =
   'group mt-5 inline-flex h-12 min-w-40 cursor-pointer items-center justify-between rounded-full bg-[#050700] px-5 font-space-grotesk text-[12px] font-bold uppercase leading-none tracking-[-0.03em] text-white shadow-[0_8px_24px_rgba(5,7,0,0.16)] transition-transform duration-200 hover:scale-[1.02] min-[811px]:mt-[24px] min-[811px]:h-[52px] min-[811px]:min-w-[168px] min-[811px]:px-6 min-[1201px]:h-[56px] min-[1201px]:min-w-[178px] min-[1201px]:text-[14px]'
-
-function EarningsCtaImage() {
-  return (
-    <img
-      src={mundpayAssets.ctaWoman}
-      alt=""
-      className="absolute right-[-72px] top-0 z-[1] h-[248px] w-[460px] max-w-none object-cover min-[811px]:bottom-0 min-[811px]:left-[300px] min-[811px]:right-auto min-[811px]:top-auto min-[811px]:h-[400px] min-[811px]:w-[740px] min-[1201px]:left-[360px] min-[1201px]:h-[454px] min-[1201px]:w-[840px]"
-    />
-  )
-}
 
 function EarningsCtaButton() {
   const { t } = useTranslation()

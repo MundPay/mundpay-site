@@ -26,6 +26,9 @@ export function FooterColumns() {
           <FooterLink href={withLanguagePrefix("/politica-de-privacidade", currentLanguage)}>
             {t("home.footer.columns.legal.links.privacy")}
           </FooterLink>
+          <FooterLink href={withLanguagePrefix("/refund-policy", currentLanguage)}>
+            {t("home.footer.columns.legal.links.refundPolicy")}
+          </FooterLink>
           <FooterLink href={withLanguagePrefix("/canal-de-denuncias", currentLanguage)}>
             {t("home.footer.columns.legal.links.reporting")}
           </FooterLink>
