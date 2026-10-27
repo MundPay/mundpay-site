@@ -345,39 +345,256 @@ export const legal = {
       },
     },
     refundPolicy: {
-      blocks: {
-        politicaDeReembolsoE: 'POLÍTICA DE REEMBOLSO E',
-        devolucaoDaMundpay: 'DEVOLUÇÃO DA MUNDPAY',
-        estaPoliticaRegulaOsReembolsosDevolucoesTrocasE: 'Esta Política regula os reembolsos, devoluções, trocas e cancelamentos da plataforma aplicáveis a todas as transações processadas via checkout da Mundpay, abrangendo Produtos Físicos, Produtos Digitais (downloads, chaves de licença, acesso em nuvem ou streaming) e Assinaturas com cobrança recorrente. Aplica-se a todos os Usuários — Vendedores, Compradores, Afiliados e Produtores — que interagem com a Plataforma Mundpay, constituindo parte integrante dos Termos Gerais de Uso aceitos no momento do cadastro.',
-        aMundpayOperaPorMeioDeEntidadesJuridicas: 'A Mundpay opera por meio de entidades jurídicas distintas, conforme a natureza da transação e a região do comprador: Mundpay Pagamentos Internacionais Ltda. (CNPJ 55.009.285/0001-13), sediada no Rio de Janeiro; Mund USA LLC (EIN 32-0819366), em Apopka, Florida; Mundpay LLC (EIN 36-5099929), em Nova York; e MundP Tech OÜ (Reg. 17270502), em Tallinn, Estônia. A entidade efetivamente contratada é definida transação a transação, de acordo com a jurisdição, moeda e exigências regulatórias aplicáveis.',
-        oAcompanhamentoDePedidosOCancelamentoDeAssinaturas: 'O acompanhamento de pedidos, o cancelamento de assinaturas e todas as solicitações de reembolso podem ser gerenciados diretamente em support@mundpay.com.br.',
-        section2JanelasPadraoDeReembolso: '2. Janelas Padrão de Reembolso',
-        aElegibilidadeParaReembolsoELimitadaPorPrazo: 'A elegibilidade para reembolso é limitada por prazo e varia conforme o tipo de produto adquirido. Produtos Físicos estão cobertos por até 30 (trinta) dias corridos após a entrega confirmada. Produtos Digitais adquiridos em compra avulsa contêm uma janela de 7 (sete) dias corridos a partir da data da compra. Para Assinaturas, a primeira cobrança é reembolsável em até 7 (sete) dias corridos; as renovações subsequentes são, via de regra, não reembolsáveis após o processamento, salvo quando a solicitação envolver erro de cobrança, cobrança duplicada, fraude ou falha de acesso não resolvida imputável à plataforma ou ao Vendedor/Produtor.',
-        quandoAPaginaDeUmProdutoOferecerExpressamente: 'Quando a página de um produto oferecer expressamente uma janela de garantia mais ampla, esse prazo estendido prevalecerá sobre os termos padrão acima.',
-        section3ProdutosFisicosDevolucaoTrocaEReembolso: '3. Produtos Físicos — Devolução, Troca e Reembolso',
-        paraSerElegivelADevolucaoOuTrocaO: 'Para ser elegível à devolução ou troca, o produto físico deve ser devolvido com todos os acessórios originais e, sempre que possível, na embalagem original. Itens com evidências de mau uso ou dano anormal podem ter o reembolso reduzido ou cancelado após inspeção. O endereço de devolução (RMA) é fornecido somente após abertura formal da solicitação pelo portal do cliente ou pelo canal de suporte, e o prazo de análise corre por até 10 (dez) dias úteis a partir do recebimento e inspeção do item devolvido.',
-        osCustosDeFreteDeDevolucaoObservaraoA: 'Os custos de frete de devolução observarão a natureza da solicitação. Nos casos em que o pedido decorrer de defeito e/ou vício no produto ou no serviço, avaria no transporte, envio de item incorreto ou divergência material entre o produto ou serviço recebido e a descrição ofertada, o frete de retorno e eventual substituição poderão ser assumidos pela Mundpay ou pelo Vendedor/Produtor.',
-        porOutroLadoNasHipotesesDeDevolucaoPor: 'Por outro lado, nas hipóteses de devolução por arrependimento após o prazo de 7 (sete) dias corridos, contados do recebimento do produto ou da disponibilização do serviço, bem como em situações decorrentes de fato exclusivo de terceiro após a devida entrega do produto ou serviço — incluindo, mas não se limitando, ao uso inadequado —, o custo do frete de retorno será de responsabilidade do cliente.',
-        section4ProdutosDigitaisReembolso: '4. Produtos Digitais — Reembolso',
-        oPrazoPadraoDeReembolsoParaProdutosDigitais: 'O prazo padrão de reembolso para produtos digitais é de 7 (sete) dias corridos a partir da data da compra. Como o acesso a conteúdo baixado, transmitido ou licenciado é liberado imediatamente após a ativação da compra, o simples início de um download, sessão de streaming ou resgate de chave de licença não implica, por si só, a perda do direito ao reembolso dentro da janela aplicável. Todavia, quando problemas de acesso ou ativação são reportados e não resolvidos pela Mundpay ou pelo Vendedor/Produtor em prazo razoável, o comprador tem direito a reembolso integral ou substituição, a seu critério.',
-        section5AssinaturasCancelamentoEReembolso: '5. Assinaturas — Cancelamento e Reembolso',
-        asAssinaturasPodemSerCanceladasAQualquerMomento: 'As assinaturas podem ser canceladas a qualquer momento via support@mundpay.com.br. Para evitar uma cobrança futura, recomenda-se o cancelamento com pelo menos 48 (quarenta e oito) horas de antecedência em relação à data de renovação programada. A primeira cobrança de qualquer assinatura é reembolsável em até 7 (sete) dias corridos. Uma vez processada a cobrança de renovação, ela é geralmente não reembolsável pelo período já iniciado, salvo quando a solicitação se enquadrar em uma das exceções aceitas: erro de cobrança, cobrança duplicada, fraude ou falha de acesso ou serviço não resolvida. Não são concedidos reembolsos pro rata por porções não utilizadas de um período ativo fora dessas hipóteses.',
-        section6ComoSolicitarReembolsoOuDevolucao: '6. Como Solicitar Reembolso ou Devolução',
-        todasAsSolicitacoesDeReembolsoEDevolucaoDevem: 'Todas as solicitações de reembolso e devolução devem ser submetidas por meio de support@mundpay.com.br, selecionando o pedido correspondente e optando por “Solicitar reembolso/devolução” ou “Cancelar assinatura”, com a descrição clara do motivo. Para produtos físicos, o cliente deve aguardar as instruções de RMA e, quando aplicável, a etiqueta de devolução pré-paga antes de despachar o item. Solicitações também podem ser direcionadas a support@mundpay.com.br com o número do pedido, e-mail da compra, nome do produto e detalhes de suporte; fotografias devem ser anexadas nos casos em que for reportado dano físico.',
-        aMundpayReservaSeODireitoDeIntervir: 'A Mundpay reserva-se o direito de intervir e proceder diretamente ao reembolso ao comprador — sem consulta prévia ao Vendedor/Produtor — sempre que identificar circunstâncias que possam comprometer a prestação adequada do serviço, a boa-fé nas relações de consumo, a regularidade das ofertas disponibilizadas na plataforma, fraude confirmada, plágio, violação de direitos autorais, práticas abusivas ou não entrega do produto adquirido. A existência de reclamações em órgãos de defesa do consumidor ou plataformas públicas de denúncia, bem como a ausência de canais de atendimento válidos e operacionais cadastrados pelo Vendedor/Produtor, também constituem fundamentos para a intervenção direta.',
-        section7PrazosDeProcessamentoEFormaDoReembolso: '7. Prazos de Processamento e Forma do Reembolso',
-        paraProdutosFisicosOReembolsoEProcessadoEm: 'Para produtos físicos, o reembolso é processado em até 10 (dez) dias úteis após a inspeção do item devolvido. Para produtos digitais e assinaturas, o processamento poderá ser concluído dentro de 3 a 7 dias úteis após a aprovação da solicitação. Uma vez processado, o crédito pode levar de 1 a 2 ciclos de fatura para aparecer no extrato do comprador, a depender da operadora do cartão ou da rede de pagamento. Todos os reembolsos são emitidos exclusivamente ao método de pagamento original utilizado no momento da compra; não estão disponíveis canais alternativos de desembolso.',
-        section8ExcecoesECondicoesEspeciais: '8. Exceções e Condições Especiais',
-        determinadasCircunstanciasPodemLimitarOuExcluirAElegibilidade: 'Determinadas circunstâncias podem limitar ou excluir a elegibilidade ao reembolso. Para produtos físicos, itens devolvidos com danos por mau uso ou componentes faltantes podem resultar em reembolso parcial ou totalmente cancelado após inspeção. Chaves de licença ou ativações digitais já resgatadas são geralmente não reembolsáveis, salvo quando persistir falha de acesso não resolvida. Brindes ou bônus vinculados a um pedido devem ser devolvidos juntamente com o item principal, quando aplicável. Compras B2B (entre empresas) podem seguir condições específicas definidas na oferta, que prevalecerão caso sejam mais restritivas do que estes termos padrão.',
-        section9SuspensaoBloqueioEEncerramentoDeConta: '9. Suspensão, Bloqueio e Encerramento de Conta',
-        asPenalidadesDecorrentesDoUsoIndevidoDaPlataforma: 'As penalidades decorrentes do uso indevido da plataforma, violação destes Termos, políticas correlatas, legislação aplicável ou obrigações contratuais assumidas incluem suspensão, bloqueio e exclusão da conta do Vendedor/Produtor e dos produtos vinculados. Essas medidas podem ser adotadas preventiva ou definitivamente, de forma individual ou cumulativa, a exclusivo critério da Mundpay, sempre que for identificada conduta representativa de risco operacional, financeiro, regulatório, reputacional ou jurídico para a plataforma, seus usuários ou terceiros. São fundamentos para essas medidas, entre outros: taxas de chargeback acima dos limiares aceitáveis, indícios de fraude, reclamações reiteradas de compradores, não cumprimento de ofertas, violação de direitos de propriedade intelectual e descumprimento da Política de Uso Aceitável.',
-        aSuspensaoEUmaMedidaPreventivaETemporaria: 'A suspensão é uma medida preventiva e temporária que limita o acesso à plataforma, suspende links de checkout, páginas de venda e transferências financeiras enquanto pende investigação. Em casos de suspeita de fraude, a suspensão pode ser aplicada por até 120 (cento e vinte) dias úteis ou pelo prazo integral exigido por investigações internas ou externas. O bloqueio constitui medida mais grave, aplicável quando há evidência de infração ou descumprimento material; implica o cancelamento automático de anúncios e ofertas, a interrupção do processamento de pagamentos e o congelamento de saldos existentes e futuros. A exclusão representa o encerramento definitivo da conta e da relação contratual, reservado para casos de fraude confirmada, violações reincidentes, descumprimento grave destes Termos, dano material à plataforma ou a terceiros ou ordens legais que exijam a rescisão. Após o encerramento, a Mundpay pode debitar da conta os valores necessários para indenizar danos causados a terceiros ou à própria plataforma, e solicitações de chargeback podem continuar a gerar débitos por até 365 (trezentos e sessenta e cinco) dias a partir da data original da compra.',
-        section10Privacidade: '10. Privacidade',
-        todosOsDadosPessoaisETransacionaisColetadosEm: 'Todos os dados pessoais e transacionais coletados em conexão com solicitações de reembolsos, devoluções, trocas e cancelamentos serão tratados em estrita conformidade com a Política de Privacidade da Mundpay e com a legislação de proteção de dados aplicável, incluindo a LGPD (Brasil), o GDPR (União Europeia) e o FIPA (Estados Unidos – Flórida).',
-        emObservanciaAoPrincipioDaFinalidadeTaisDados: 'Em observância ao princípio da finalidade, tais dados são utilizados para propósitos legítimos, específicos e informados ao titular, abrangendo, entre outros, a viabilização e comprovação de operações financeiras, a elaboração de demonstrativos internos de valores e resultados, o acompanhamento individualizado do cliente, o oferecimento de produtos e serviços compatíveis com o perfil do Usuário, bem como a realização de comunicações personalizadas. Os dados poderão, ainda, ser compartilhados com bandeiras, participantes de arranjos de pagamento, parceiros operacionais e autoridades competentes, quando necessário para a adequada resolução de disputas, prevenção a fraudes e cumprimento de obrigações legais e regulatórias.',
-        informacoesCompletasAcercaDasFinalidadesDoTratamentoDas: 'Informações completas acerca das finalidades do tratamento, das bases legais aplicáveis, dos direitos dos titulares e das medidas de segurança adotadas encontram-se devidamente descritas na Política de Privacidade da Mundpay.',
-        section11AtualizacoesDestaPolitica: '11. Atualizações desta Política',
-        aMundpayPodeAtualizarEstaPoliticaAQualquer: 'A Mundpay pode atualizar esta Política a qualquer tempo por razões operacionais, regulatórias ou comerciais. Mudanças relevantes serão comunicadas com antecedência e destacadas no topo do documento publicado, com a nova data de vigência. A versão atual e vinculante desta Política é sempre a publicada no site da Mundpay e refletida no painel da conta do Vendedor/Produtor. A continuidade do uso da plataforma após a entrada em vigor de qualquer atualização constitui aceitação dos termos revisados.',
+      title: 'POLÍTICA DE REEMBOLSO E DEVOLUÇÃO DA MUNDPAY',
+      lastUpdated: 'Última atualização: 20 de outubro de 2026',
+      scope: {
+        title: '1. Objetivo e Escopo',
+        policy: 'Esta Política estabelece as regras de envio e entrega, reembolso, devolução, troca e cancelamento aplicáveis às compras realizadas via checkout da Mundpay, abrangendo Produtos Físicos — incluindo suplementos alimentares e nutracêuticos —, Produtos Digitais (downloads, chaves de licença, acesso em nuvem ou streaming) e Assinaturas com cobrança recorrente. Aplica-se a todos os Usuários — Compradores, Vendedores, Fornecedores, Afiliados e Produtores — que interagem com a Plataforma Mundpay, constituindo parte integrante dos Termos Gerais de Uso e do Contrato Operacional aplicável. As consequências financeiras de reembolsos e chargebacks para Vendedores e Fornecedores, incluindo taxas, reservas e monitoramento de índices, são reguladas pelo Contrato Operacional aplicável.',
+        entities: 'Esta versão em língua portuguesa aplica-se às transações processadas pela Mundpay Pagamentos Internacionais Ltda., identificada na Cláusula 14, que atua como Merchant of Record nas operações no Brasil. As operações conduzidas pelas entidades do grupo Mundpay nos Estados Unidos e na União Europeia são regidas pela versão em língua inglesa desta Política.',
+        rights: 'Nada nesta Política exclui ou limita direitos assegurados ao Comprador pelo Código de Defesa do Consumidor (Lei nº 8.078/1990 — CDC), pelo Decreto nº 7.962/2013 ou por outras normas de ordem pública. Havendo na legislação condição mais favorável ao consumidor, ela prevalece.',
+      },
+      windows: {
+        title: '2. Resumo dos Prazos de Reembolso',
+        introduction: 'A tabela abaixo resume os prazos aplicáveis nos termos desta Política. Quando a página de um produto oferecer expressamente prazo de garantia mais amplo, prevalecerá o prazo mais amplo.',
+        table: {
+          headers: [
+            'Tipo de produto',
+            'Prazo',
+            'Fundamento',
+          ],
+          rows: [
+            [
+              'Produtos Físicos — arrependimento',
+              '7 dias corridos a contar do recebimento',
+              'Art. 49 do CDC (Cláusula 4.2)',
+            ],
+            [
+              'Produtos Físicos — devolução comercial',
+              'Até 30 dias corridos da entrega confirmada',
+              'Política comercial (Cláusula 4.3)',
+            ],
+            [
+              'Produtos Físicos — vício, avaria, não entrega ou recall',
+              '30 dias (não duráveis) ou 90 dias (duráveis); vício oculto a partir da constatação',
+              'Arts. 18 e 26 do CDC (Cláusulas 3.6, 4.4 e 5)',
+            ],
+            [
+              'Suplementos alimentares e nutracêuticos',
+              'Arrependimento em 7 dias; após, devolução comercial apenas com lacre intacto',
+              'Cláusula 5',
+            ],
+            [
+              'Produtos Digitais — compra avulsa',
+              '7 dias corridos a contar da compra',
+              'Art. 49 do CDC (Cláusula 6.1)',
+            ],
+            [
+              'Assinaturas — primeira cobrança',
+              '7 dias corridos',
+              'Art. 49 do CDC (Cláusula 7.3)',
+            ],
+            [
+              'Assinaturas — renovações',
+              'Apenas nas exceções da Cláusula 7.3',
+              'Cláusula 7.3',
+            ],
+          ],
+        },
+      },
+      shipping: {
+        title: '3. Envio e Entrega',
+        roles: {
+          title: '3.1 Papéis e Responsabilidades',
+          description: 'Os Produtos Físicos são expedidos e enviados pelo Fornecedor responsável pela oferta. A Mundpay, como Merchant of Record, processa o pagamento, recolhe os tributos aplicáveis e processa os reembolsos nos termos desta Política. Os Fornecedores devem cumprir os padrões de envio desta Cláusula, e a Mundpay poderá adotar as medidas previstas na Cláusula 8.3 em caso de descumprimento.',
+        },
+        dispatch: {
+          title: '3.2 Prazos de Postagem e Entrega',
+          description: 'O prazo estimado de postagem e o prazo de entrega são informados na página do produto e no checkout antes do pagamento, nos termos do art. 2º do Decreto nº 7.962/2013, e confirmados no e-mail de confirmação do pedido. Salvo prazo diverso informado na oferta, os pedidos são postados em até 7 (sete) dias úteis a contar da confirmação do pagamento. O prazo de entrega é contado da postagem e varia conforme a transportadora e o CEP de destino. Toda oferta de Produto Físico deve informar o prazo de entrega, que vincula o Fornecedor nos termos dos arts. 30 e 35 do CDC.',
+        },
+        costs: {
+          title: '3.3 Frete, Tributos e Encargos',
+          description: 'O valor do frete, os tributos aplicáveis e, nas compras internacionais, eventuais tributos de importação e encargos aduaneiros são informados no checkout antes do pagamento. Caso a transportadora ou a autoridade aduaneira exija do Comprador valor não informado no checkout, o Comprador poderá recusar a entrega e receber reembolso integral, ou solicitar o ressarcimento desse valor mediante apresentação do comprovante de pagamento.',
+        },
+        tracking: {
+          title: '3.4 Rastreamento do Pedido',
+          description: 'Após a postagem, o Comprador recebe por e-mail a confirmação de envio, com o nome da transportadora e, quando disponível, o código de rastreamento. O rastreamento também pode ser consultado pela Central de Ajuda.',
+        },
+        delays: {
+          title: '3.5 Atrasos na Entrega',
+          description: 'Se o pedido não puder ser postado ou entregue no prazo informado, o Comprador será notificado antes do vencimento do prazo e informado do novo prazo. Nos termos do art. 35 do CDC, o Comprador poderá, à sua escolha: (i) exigir o cumprimento da oferta; (ii) aceitar outro produto equivalente; ou (iii) cancelar o pedido, com restituição integral da quantia paga, incluindo o frete, monetariamente atualizada. Em caso de cancelamento, o reembolso é processado em até 7 (sete) dias úteis.',
+        },
+        incidents: {
+          title: '3.6 Extravio, Avaria ou Não Entrega',
+          description: 'Os riscos de perda ou avaria dos Produtos Físicos correm por conta do Fornecedor até a efetiva entrega ao Comprador ou a terceiro por ele indicado. Recomenda-se ao Comprador comunicar:',
+          reporting: {
+            nonDelivery: 'o não recebimento, em até 30 (trinta) dias corridos após a data máxima estimada de entrega; e',
+            damage: 'o recebimento de produto avariado, incorreto ou incompleto, em até 7 (sete) dias corridos da entrega, preferencialmente com fotografias do produto e da embalagem.',
+          },
+          resolution: 'Esses prazos de comunicação destinam-se a permitir a apuração célere junto à transportadora e não prejudicam os prazos legais do art. 26 do CDC. Confirmada a reclamação, ou não havendo comprovação de entrega no endereço correto, o Comprador poderá optar entre o reenvio do produto sem custo adicional e o reembolso integral, incluindo o frete pago.',
+        },
+        address: {
+          title: '3.7 Endereço de Entrega e Devoluções ao Remetente',
+          description: 'O Comprador é responsável por informar endereço de entrega completo e correto. Alterações de endereço podem ser solicitadas pela Central de Ajuda antes da postagem. Se a remessa retornar ao Fornecedor em razão de endereço incorreto ou incompleto informado pelo Comprador, ou da não retirada do objeto, o Comprador poderá solicitar o reenvio mediante pagamento de novo frete, ou o reembolso do valor do produto. Nesses casos, o frete original não é reembolsável, ressalvado o direito de arrependimento do art. 49 do CDC exercido dentro do prazo legal.',
+        },
+        restrictions: {
+          title: '3.8 Restrições de Envio',
+          description: 'Determinados produtos, em especial suplementos alimentares e nutracêuticos, podem estar sujeitos a restrições regulatórias (inclusive da ANVISA) ou da transportadora para certos destinos. A Mundpay e o Fornecedor poderão deixar de enviar a destinos sujeitos a restrição quando exigido por lei ou pela transportadora. Os pedidos que não puderem ser enviados por esses motivos serão cancelados e integralmente reembolsados.',
+        },
+      },
+      physical: {
+        title: '4. Produtos Físicos — Devolução, Troca e Reembolso',
+        conditions: {
+          title: '4.1 Condições Gerais',
+          description: 'Para ser elegível à devolução ou troca, o produto físico deve ser devolvido com todos os acessórios originais e, sempre que possível, na embalagem original. O endereço de devolução (RMA) e, quando aplicável, a etiqueta de devolução pré-paga são fornecidos após a abertura da solicitação pela Central de Ajuda ou pelo e-mail help@mundpay.com. Os itens devolvidos são inspecionados em até 10 (dez) dias úteis a contar do recebimento. No exercício do direito de arrependimento, a inspeção destina-se apenas a confirmar a identidade do item e não prorroga o prazo de reembolso da Cláusula 9.',
+        },
+        withdrawal: {
+          title: '4.2 Direito de Arrependimento (Art. 49 do CDC)',
+          description: 'O Comprador pode desistir da compra, sem necessidade de justificativa, em até 7 (sete) dias corridos a contar do recebimento do produto. A manifestação pode ser feita pela Central de Ajuda, pelo e-mail help@mundpay.com ou pelo modelo do Anexo I, pela mesma ferramenta utilizada para a contratação ou por outro meio disponibilizado, nos termos do art. 5º do Decreto nº 7.962/2013.',
+          items: [
+            {
+              label: 'Reembolso integral:',
+              description: 'são restituídos todos os valores pagos, inclusive o frete de envio, monetariamente atualizados, no prazo da Cláusula 9.',
+            },
+            {
+              label: 'Frete de retorno:',
+              description: 'é de responsabilidade do Vendedor/Fornecedor, por meio de etiqueta pré-paga ou de ressarcimento ao Comprador.',
+            },
+            {
+              label: 'Confirmação e estorno:',
+              description: 'a Mundpay envia ao Comprador confirmação imediata do recebimento da manifestação de arrependimento e comunica imediatamente a instituição financeira ou a administradora do cartão para que a transação não seja lançada na fatura ou seja estornada, nos termos do art. 5º, §§ 3º e 4º, do Decreto nº 7.962/2013.',
+            },
+          ],
+        },
+        commercial: {
+          title: '4.3 Devolução Comercial (até 30 dias)',
+          description: 'Como política comercial, adicional e mais ampla que o prazo legal, o Comprador poderá devolver Produtos Físicos por qualquer motivo do 8º ao 30º dia corrido após a entrega confirmada, observadas as Cláusulas 4.1 e 5. Nesse caso, o frete de retorno é de responsabilidade do Comprador, e itens com evidências de mau uso, ou de dano não ocorrido no transporte, podem ter o reembolso reduzido proporcionalmente ou cancelado após inspeção.',
+        },
+        defects: {
+          title: '4.4 Produtos com Vício, Avaria ou Divergência',
+          description: 'Quando o Produto Físico apresentar vício, avaria, contaminação, rotulagem incorreta ou divergência material em relação à oferta, aplicam-se os arts. 18 e 26 do CDC: o Comprador pode reclamar em até 30 (trinta) dias para produtos não duráveis e 90 (noventa) dias para produtos duráveis, contados da entrega ou, no caso de vício oculto, do momento em que ficar evidenciado o defeito. Não sendo o vício sanado em até 30 (trinta) dias, o Comprador poderá exigir, à sua escolha, a substituição do produto, a restituição imediata da quantia paga, monetariamente atualizada, ou o abatimento proporcional do preço — podendo fazê-lo de imediato nas hipóteses do art. 18, § 3º, do CDC. O frete de retorno e eventual reenvio são assumidos pela Mundpay ou pelo Vendedor/Fornecedor. Eventual garantia contratual oferecida na página do produto é complementar à garantia legal (art. 50 do CDC).',
+        },
+        responsibilities: {
+          title: '4.5 Distribuição de Responsabilidades',
+          description: 'O Fornecedor permanece responsável pelo produto, sua expedição, envio e entrega, ressalvadas as obrigações expressamente assumidas pela Mundpay. A Mundpay é responsável pelo processamento de reembolsos e chargebacks e pelos tributos de sua responsabilidade como Merchant of Record, sem prejuízo das responsabilidades previstas na legislação de defesa do consumidor.',
+        },
+      },
+      supplements: {
+        title: '5. Suplementos Alimentares e Nutracêuticos',
+        sealed: 'Produtos cujo lacre de segurança ou embalagem original tenha sido rompido não são elegíveis à devolução comercial da Cláusula 4.3, sem prejuízo do exercício do direito de arrependimento do art. 49 do CDC dentro dos 7 (sete) dias legais.',
+        defects: 'Essa restrição não se aplica a devoluções fundadas em vício, contaminação, rotulagem incorreta ou ingrediente não declarado, que permanecem cobertas pela Cláusula 4.4 independentemente do estado do lacre.',
+        recalls: 'Sempre que a Mundpay ou o Vendedor/Fornecedor tomar conhecimento de recall, alerta sanitário ou medida determinada pela ANVISA ou outra autoridade competente que afete produto adquirido, os Compradores terão direito a reembolso integral independentemente do decurso de qualquer prazo, podendo a Mundpay iniciar o reembolso de forma proativa. A devolução do produto não é exigida, salvo determinação em sentido contrário nas instruções do recall. Reembolsos concedidos por esse motivo não são computados nos índices de reembolso ou de chargeback do Vendedor/Fornecedor previstos no Contrato Operacional aplicável.',
+      },
+      digital: {
+        title: '6. Produtos Digitais — Reembolso',
+        standard: {
+          title: '6.1 Prazo de Arrependimento',
+          description: 'Produtos Digitais adquiridos em compra avulsa podem ser reembolsados em até 7 (sete) dias corridos a contar da data da compra, nos termos do art. 49 do CDC. Como o acesso é liberado imediatamente após a compra, o simples início de um download, de uma sessão de streaming ou o resgate de chave de licença não implica, por si só, a perda do direito ao reembolso dentro desse prazo.',
+        },
+        statutory: {
+          title: '6.2 Vícios do Produto Digital',
+          description: 'Quando o conteúdo digital não corresponder à oferta ou apresentar vício que o torne impróprio ao uso, aplicam-se as garantias legais dos arts. 18, 20 e 26 do CDC, independentemente do prazo da Cláusula 6.1.',
+        },
+        access: {
+          title: '6.3 Falhas de Acesso e Ativação',
+          description: 'Quando problemas de acesso ou ativação forem reportados e não resolvidos em prazo razoável, o Comprador terá direito a reembolso integral ou substituição, à sua escolha, independentemente do prazo de reembolso.',
+        },
+      },
+      subscriptions: {
+        title: '7. Assinaturas e Cobrança Recorrente',
+        consent: {
+          title: '7.1 Transparência e Consentimento',
+          description: 'Antes de qualquer cobrança — incluindo a primeira, a conversão de período de teste gratuito e cada renovação —, os termos materiais da assinatura (preço, periodicidade, data de renovação, data de término do teste, quando houver, e forma de cancelamento) devem ser apresentados de forma clara e ostensiva, em proximidade razoável ao ponto de compra, nos termos dos arts. 31 do CDC e 2º a 4º do Decreto nº 7.962/2013. É obrigatório o consentimento expresso do titular quanto à cobrança recorrente, sendo vedado o uso de caixas de seleção pré-marcadas. A Mundpay envia lembrete antes da conversão de teste gratuito em assinatura paga e antes da renovação de assinaturas anuais ou de prazo superior.',
+        },
+        cancellation: {
+          title: '7.2 Cancelamento',
+          description: 'As assinaturas podem ser canceladas a qualquer momento, online, pela Central de Ajuda ou pela conta do Comprador, por meio de mecanismo tão simples quanto o utilizado para a contratação; o cancelamento pelo e-mail help@mundpay.com também é aceito. A Mundpay confirma cada cancelamento por e-mail. O cancelamento produz efeitos ao final do período já pago, sem novas cobranças, mantido o acesso até essa data.',
+          supplierRequirements: 'Vendedores/Fornecedores que ofereçam produtos por assinatura ou envio automático (incluindo programas de continuidade de nutracêuticos) devem implementar fluxo de cancelamento em conformidade com o art. 4º, V, do Decreto nº 7.962/2013, que não imponha questionários de retenção, atendimento telefônico obrigatório ou outros entraves indevidos.',
+        },
+        refunds: {
+          title: '7.3 Reembolso',
+          description: 'A primeira cobrança de qualquer assinatura é reembolsável em até 7 (sete) dias corridos, nos termos do art. 49 do CDC. Uma vez processada a cobrança de renovação, ela é geralmente não reembolsável pelo período já iniciado, salvo quando a solicitação se enquadrar em uma das seguintes exceções: erro de cobrança, cobrança duplicada, fraude ou cobrança não autorizada, falha de acesso ou serviço não resolvida, ou cobrança processada após cancelamento válido. Não são concedidos reembolsos pro rata por porções não utilizadas de um período ativo fora dessas hipóteses.',
+          renewalCancellation: 'O cancelamento recebido antes da data de renovação impede a cobrança seguinte. Para evitar problemas de processamento, recomenda-se cancelar com pelo menos 48 (quarenta e oito) horas de antecedência em relação à data de renovação programada. Qualquer cobrança processada após cancelamento válido é integralmente reembolsada.',
+        },
+      },
+      requests: {
+        title: '8. Como Solicitar Reembolso, Devolução ou Cancelamento',
+        submit: {
+          title: '8.1 Envio da Solicitação',
+          description: 'As solicitações devem ser feitas pela Central de Ajuda, selecionando o pedido correspondente e a opção "Solicitar reembolso/devolução" ou "Cancelar assinatura", ou pelo e-mail help@mundpay.com. A solicitação deve conter o número do pedido, o e-mail da compra, o nome do produto e o motivo, com fotografias nos casos de dano físico, contaminação ou violação de lacre. Para Produtos Físicos, o Comprador deve aguardar as instruções de RMA e, quando aplicável, a etiqueta de devolução pré-paga antes de postar o item. O exercício do direito de arrependimento independe de justificativa e pode ser feito pelo modelo do Anexo I.',
+        },
+        response: {
+          title: '8.2 Prazo de Resposta',
+          description: 'A Mundpay confirma o recebimento de cada solicitação e se manifesta em até 5 (cinco) dias corridos, nos termos do art. 4º, parágrafo único, do Decreto nº 7.962/2013.',
+        },
+        intervention: {
+          title: '8.3 Direito de Intervenção da Mundpay',
+          description: 'A Mundpay poderá intervir e reembolsar diretamente o Comprador — sem consulta prévia ao Vendedor/Fornecedor — sempre que identificar circunstâncias que possam comprometer a adequada prestação do serviço, a boa-fé nas relações de consumo ou a regularidade das ofertas na Plataforma, incluindo fraude confirmada, plágio, violação de direitos autorais ou de outros direitos de propriedade intelectual, práticas abusivas, recall sanitário, descumprimento dos padrões de envio da Cláusula 3 ou não entrega do produto adquirido.',
+        },
+      },
+      processing: {
+        title: '9. Prazos de Processamento e Forma do Reembolso',
+        table: {
+          headers: [
+            'Situação',
+            'Prazo do reembolso',
+          ],
+          rows: [
+            [
+              'Arrependimento — Produtos Físicos (Cláusula 4.2)',
+              'Em até 5 dias úteis do recebimento do produto devolvido ou do comprovante de postagem, o que ocorrer primeiro',
+            ],
+            [
+              'Arrependimento — Produtos Digitais e Assinaturas (Cláusulas 6.1 e 7.3)',
+              'Em até 5 dias úteis da manifestação de arrependimento',
+            ],
+            [
+              'Devolução comercial — Produtos Físicos (Cláusula 4.3)',
+              'Em até 10 dias úteis do recebimento do item devolvido, incluída a inspeção',
+            ],
+            [
+              'Vício, avaria ou não entrega (Cláusulas 3.6 e 4.4)',
+              'Em até 7 dias úteis da confirmação da reclamação',
+            ],
+            [
+              'Cancelamento por atraso na entrega (Cláusula 3.5)',
+              'Em até 7 dias úteis do cancelamento',
+            ],
+            [
+              'Recall sanitário (Cláusula 5)',
+              'Imediatamente após a confirmação do recall',
+            ],
+            [
+              'Demais reembolsos de Produtos Digitais e Assinaturas',
+              'Em até 7 dias úteis da aprovação',
+            ],
+          ],
+        },
+        method: 'Todos os reembolsos são emitidos ao método de pagamento original utilizado na compra. No cartão de crédito, o estorno é solicitado à administradora e o crédito pode levar de 1 a 2 faturas para aparecer, conforme o emissor. No Pix, o valor é devolvido à conta de origem. Quando o método original não permitir estorno (por exemplo, boleto), o reembolso é feito por transferência para conta de titularidade do Comprador. Nenhuma tarifa é cobrada do Comprador pelo reembolso.',
+      },
+      exceptions: {
+        title: '10. Exceções e Condições Especiais',
+        damage: 'Itens devolvidos com danos por mau uso ou componentes faltantes podem resultar em reembolso parcial ou totalmente cancelado após inspeção, exceto no exercício do direito de arrependimento (Cláusula 4.2).',
+        digital: 'Chaves de licença ou ativações digitais já resgatadas não são reembolsáveis após o prazo da Cláusula 6.1, salvo falha de acesso persistente. Dentro desse prazo, o resgate não implica, por si só, a perda do direito ao reembolso.',
+        supplements: 'Suplementos alimentares e nutracêuticos com lacre rompido seguem a Cláusula 5.',
+        business: 'Compras realizadas por Compradores que atuem com finalidade empresarial (B2B) podem seguir condições de reembolso definidas na oferta, que prevalecerão quando informadas de forma clara antes da compra e compatíveis com a legislação aplicável. Essas condições nunca se aplicam a consumidores.',
+      },
+      chargebacks: {
+        title: '11. Chargebacks e Contestações',
+        description: 'Recomenda-se que o Comprador entre em contato pelo help@mundpay.com antes de abrir contestação junto ao emissor do cartão ou à instituição de pagamento, pois a maioria das questões é resolvida mais rapidamente de forma direta. Essa recomendação não limita o direito do Comprador de contestar a cobrança, nem de recorrer aos órgãos de defesa do consumidor. Quando houver contestação aberta para transação já reembolsada, ou pedido de reembolso para transação sob contestação, a Mundpay informará o emissor para evitar restituição em duplicidade. A Mundpay poderá apresentar registros de pedido, entrega, acesso e comunicação como evidência nos procedimentos de contestação, nos termos da Cláusula 12.',
+      },
+      privacy: {
+        title: '12. Privacidade',
+        description: 'Todos os dados pessoais e transacionais coletados em conexão com pedidos, entregas, solicitações de reembolso e procedimentos de chargeback são tratados em estrita conformidade com a Política de Privacidade da Mundpay e com a Lei nº 13.709/2018 (LGPD). Os dados poderão ser compartilhados com transportadoras, bandeiras, participantes de arranjos de pagamento, instituições parceiras e autoridades competentes, quando necessário para a entrega, a resolução de disputas, a prevenção a fraudes e o cumprimento de obrigações legais e regulatórias, incluindo eventuais comunicações à ANVISA em casos de recall. Informações completas encontram-se na Política de Privacidade da Mundpay.',
+      },
+      updates: {
+        title: '13. Atualizações desta Política',
+        notice: 'A Mundpay poderá atualizar esta Política por razões operacionais, regulatórias ou comerciais. As alterações serão comunicadas por meio de aviso no site da Mundpay e, para Vendedores e Fornecedores, em sua conta, com indicação da respectiva data de vigência.',
+        applicability: 'Para o Comprador, aplica-se à compra a versão vigente na data em que ela foi realizada; as alterações não afetam pedidos anteriores à sua vigência, salvo se mais favoráveis ao Comprador. Para Vendedores e Fornecedores, a continuidade do uso da Plataforma após a entrada em vigor das alterações constitui aceite das novas condições, nos termos do Contrato Operacional aplicável. A versão vigente é a publicada no site da Mundpay.',
+      },
+      contact: {
+        supportLabel: 'Atendimento:',
+        helpLabel: 'Central de Ajuda:',
+        phoneLabel: 'SAC/telefone:',
       },
     },
     paymentsFees: {

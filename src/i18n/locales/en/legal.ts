@@ -344,36 +344,257 @@ export const legal = {
       },
     },
     refundPolicy: {
-      blocks: {
-        mundpaySRefundAnd: 'MUNDPAY’S REFUND AND',
-        returnPolicy: 'RETURN POLICY',
-        thisPolicyGovernsAllRefundsReturnsExchangesAnd: 'This Policy governs all refunds, returns, exchanges and cancellations applicable to transactions processed through the Mundpay checkout, covering Physical Products, Digital Products (downloads, license keys, cloud or streaming access), and Subscriptions with recurring billing. It applies to all Users — Sellers, Buyers, Affiliates, and Producers — who interact with the Mundpay Platform and constitutes an integral part of the General Terms of Use agreed upon at registration.',
-        mundpayOperatesThroughDistinctLegalEntitiesDependingOn: 'Mundpay operates through distinct legal entities depending on the nature of the transaction and the buyer\'s region: Mundpay Pagamentos Internacionais Ltda. (CNPJ 55.009.285/0001-13), headquartered in Rio de Janeiro, Brazil; Mund USA LLC (EIN 32-0819366), in Apopka, Florida; Mundpay LLC (EIN 36-5099929), in New York; and MundP Tech OÜ (Reg. 17270502), in Tallinn, Estonia. The entity effectively engaged is defined on a transaction-by-transaction basis according to jurisdiction, currency, and applicable regulatory requirements.',
-        orderTrackingSubscriptionCancellationAndAllRefundRequests: 'Order tracking, subscription cancellation, and all refund requests can be managed directly at support@mundpay.com.br.',
-        section2StandardRefundWindows: '2. Standard Refund Windows',
-        refundEligibilityIsTimeBoundAndVariesAccording: 'Refund eligibility is time-bound and varies according to the product type purchased. Physical Products are covered for up to 30 (thirty) calendar days after confirmed delivery. Digital Products purchased as one-time transactions carry a 7 (seven) calendar day window from the date of purchase. For Subscriptions, the first charge is refundable within 7 (seven) calendar days; subsequent renewals are, as a rule, non-refundable once processed, unless the claim involves a billing error, duplicate charge, fraud, or an unresolved access failure attributable to the platform or supplier.',
-        whereASpecificProductPageExpresslyOffersA: 'Where a specific product page expressly offers a longer guarantee window, that extended period shall prevail over the standard terms above.',
-        section3PhysicalProductsReturnsExchangesRefunds: '3. Physical Products — Returns, Exchanges & Refunds',
-        toBeEligibleForAReturnOrExchange: 'To be eligible for a return or exchange, physical items must be returned with all original accessories and, wherever practicable, in their original packaging. Items showing evidence of misuse or abnormal damage may have refunds reduced or voided following inspection. A return address (RMA) is provided only after a formal request is opened via the customer portal or support channel, and the review timeline runs up to 10 (ten) business days from receipt and inspection of the returned item.',
-        returnShippingCostsFollowTheNatureOfThe: 'Return shipping costs follow the nature of the claim: where the reason is a product defect, transit damage, wrong item dispatched, or a description materially inconsistent with what was received, Mundpay or the supplier bears the return and replacement freight. For change-of-mind returns or other discretionary reasons, return shipping may fall to the customer.',
-        section4DigitalProductsRefunds: '4. Digital Products — Refunds',
-        theStandardRefundWindowForDigitalProductsIs: 'The standard refund window for digital products is 7 (seven) calendar days from the purchase date. Because access to downloadable, streamed, or licensed content is granted immediately upon purchase activation, the act of initiating a download, streaming session, or license key redemption does not, by itself, forfeit the refund right within the applicable window. However, where access or activation issues are reported and are not resolved by Mundpay or the seller within a reasonable timeframe, the buyer is entitled to a full refund or a replacement at their election.',
-        section5SubscriptionsCancellationRefunds: '5. Subscriptions — Cancellation & Refunds',
-        subscriptionsMayBeCancelledAtAnyTimeVia: 'Subscriptions may be cancelled at any time via support@mundpay.com.br. To prevent an upcoming charge, cancellation is recommended at least 48 (forty-eight) hours before the scheduled renewal date. The first charge on any subscription is refundable within 7 (seven) calendar days. Once a renewal charge is processed, it is generally non-refundable for the period already initiated, unless the claim qualifies under one of the accepted exceptions: billing error, duplicate charge, fraud, or an unresolved access or service failure. No pro-rata refunds are issued for unused portions of an active subscription period outside these circumstances.',
-        section6RequestingARefundOrReturn: '6. Requesting a Refund or Return',
-        allRefundAndReturnRequestsShouldBeSubmitted: 'All refund and return requests should be submitted through support@mundpay.com.br by selecting the relevant order and choosing the “Request Refund/Return” or “Cancel Subscription” option, accompanied by a clear description of the reason. For physical products, the customer should then await RMA instructions and, where applicable, a prepaid return label before dispatching the item. Requests may alternatively be directed to support@mundpay.com.br with the order number, purchase email address, product name, and supporting details; photographs should be attached where physical damage is being reported.',
-        mundpayReservesTheRightToInterveneAndProceed: 'Mundpay reserves the right to intervene and proceed directly with a refund to the buyer — without prior consultation with the seller — whenever it identifies circumstances that may compromise adequate service delivery, good faith in consumer relations, the regularity of offers made available on the platform, confirmed fraud, plagiarism, copyright infringement, abusive practices, or non-delivery of the purchased product. The existence of complaints filed with consumer protection agencies or public complaint platforms, as well as the absence of valid and operational customer support channels registered by the supplier, are also grounds for direct intervention.',
-        section7ProcessingTimesRefundMethod: '7. Processing Times & Refund Method',
-        forPhysicalProductsTheRefundIsProcessedWithin: 'For physical products, the refund is processed within 30 (thirty) business days following inspection of the returned item. For digital products and subscriptions, processing is typically completed within 7 business days after approval of the request. Once processed, credits may take 1 to 2 billing cycles to appear on the buyer’s statement, depending on the card issuer or payment network. All refunds are issued exclusively to the original payment method used at the time of purchase; no alternative disbursement channels are available.',
-        section8ExceptionsSpecialConditions: '8. Exceptions & Special Conditions',
-        certainCircumstancesMayLimitOrExcludeRefundEligibility: 'Certain circumstances may limit or exclude refund eligibility. For physical products, items returned with misuse damage or missing components may result in a partial or fully voided refund following inspection. License keys or digital activations that have already been redeemed are generally non-refundable unless an unresolved access issue persists. Bundled gifts or bonuses linked to an order must be returned alongside the main item where applicable. Business-to-business (B2B) purchases may follow specific refund conditions defined at the offer level, which shall prevail if more restrictive than these standard terms.',
-        section9AccountSuspensionBlockingRelatedMeasures: '9. Account Suspension, Blocking & Related Measures',
-        penaltiesArisingFromMisuseOfThePlatformViolation: 'Penalties arising from misuse of the platform, violation of these Terms, related policies, applicable legislation, or assumed contractual duties include suspension, blocking, and deletion of the supplier/seller’s account and linked products. These measures may be adopted preventively or definitively, individually or cumulatively, at Mundpay’s sole discretion, whenever conduct representing operational, financial, regulatory, reputational, or legal risk to the platform, its users, or third parties is identified. Grounds include, but are not limited to, chargeback rates exceeding acceptable thresholds, fraud suspicions, repeated buyer complaints, non-fulfillment of offers, violation of intellectual property rights, and breach of the Acceptable Use Policy.',
-        suspensionIsAPreventiveAndTemporaryMeasureThat: 'Suspension is a preventive and temporary measure that limits platform access, suspends checkout links, sales pages, and financial transfers pending investigation. In cases of suspected fraud, suspension may be applied for up to 120 (one hundred and twenty) business days or for the full period required by internal or external investigations. Blocking constitutes a more severe measure, applicable when evidence of an infraction or material breach is identified; it implies automatic cancellation of advertisements and offers, interruption of payment processing, and freezing of existing and future balances. Deletion constitutes the definitive closure of the account and contractual relationship, reserved for cases of confirmed fraud, repeat violations, serious breach of these Terms, material damage to the platform or to third parties, or legal orders requiring termination. Upon closure, Mundpay may debit from the account any amounts necessary to settle damages caused to third parties or to the platform itself, and future chargeback requests may continue to generate debits for up to 365 (three hundred and sixty-five) days from the original purchase date.',
-        section10Privacy: '10. Privacy',
-        allPersonalAndTransactionalDataCollectedInConnection: 'All personal and transactional data collected in connection with refunds, returns, exchanges and cancellations proceedings is handled in strict accordance with Mundpay’s Privacy Policy and applicable data protection legislation, including the LGPD (Brazil), GDPR (EU), and FIPA (USA – Florida). Data may be shared with card networks, payment arrangement participants, and competent authorities as required for dispute resolution, fraud prevention, and regulatory compliance. Full details on data handling purposes, legal bases, data subject rights, and security measures are described in the Mundpay Privacy Policy.',
-        section11PolicyUpdates: '11. Policy Updates',
-        mundpayMayUpdateThisPolicyAtAnyTime: 'Mundpay may update this Policy at any time for operational, regulatory, or commercial reasons. Material changes will be communicated in advance and highlighted at the top of the published document with a revised effective date. The current and binding version of this Policy is always the one published on the Mundpay website and reflected in the supplier/seller’s account dashboard. Continued use of the platform after any update takes effect constitutes acceptance of the revised terms.',
+      title: 'MUNDPAY’S REFUND AND RETURN POLICY',
+      lastUpdated: 'Last updated: October 20, 2026',
+      scope: {
+        title: '1. Purpose & Scope',
+        policy: 'This Policy sets out the rules on shipping and delivery, refunds, returns, exchanges and cancellations applicable to purchases made through the Mundpay checkout, covering Physical Products — including dietary supplements and nutraceuticals —, Digital Products (downloads, license keys, cloud or streaming access) and Subscriptions with recurring billing. It applies to all Users — Buyers, Sellers, Suppliers, Affiliates and Producers — who interact with the Mundpay Platform, and forms an integral part of the General Terms of Use and of the applicable Global Operating Agreement. The financial consequences of refunds and chargebacks for Sellers and Suppliers, including fees, reserves and ratio monitoring, are governed by the applicable Global Operating Agreement.',
+        entities: 'This English-language version applies to transactions processed by the Mundpay entities in the United States and in the European Union, identified in Section 14. Transactions processed by Mundpay Pagamentos Internacionais Ltda. in Brazil are governed by the Portuguese-language version of this Policy. The Mundpay entity acting as Merchant of Record for each order is identified at checkout, in the order confirmation and in the billing descriptor shown on the Buyer\'s statement.',
+        rights: 'Nothing in this Policy excludes or limits any non-waivable consumer right a Buyer has under the mandatory law of their country or state of residence. Where such law grants the Buyer a more favorable right, that right prevails. In this Policy, "EEA Buyers" means consumers residing in the European Economic Area.',
+      },
+      windows: {
+        title: '2. Summary of Refund Windows',
+        introduction: 'The table below summarizes the windows that apply under this Policy. Where a product page expressly offers a longer guarantee period, that longer period prevails.',
+        table: {
+          headers: [
+            'Product type',
+            'United States Buyers',
+            'EEA Buyers',
+          ],
+          rows: [
+            [
+              'Physical Products — change of mind',
+              '30 calendar days from confirmed delivery (Section 4.3)',
+              '14 calendar days from receipt of the goods — statutory right of withdrawal (Section 4.2)',
+            ],
+            [
+              'Physical Products — defect, damage, non-delivery or recall',
+              'Full remedy regardless of the return window (Sections 3.6, 4.4 and 5)',
+              'Statutory conformity remedies and full recall rights (Sections 3.6, 4.4 and 5)',
+            ],
+            [
+              'Dietary supplements and nutraceuticals',
+              'Change-of-mind return only with the seal intact (Section 5)',
+              'Change-of-mind return only with the seal intact — Art. 16(e), Directive 2011/83/EU (Section 5)',
+            ],
+            [
+              'Digital Products — one-time purchase',
+              '7 calendar days from purchase (Section 6.1)',
+              '14 calendar days, or 7 calendar days where the Buyer consented to immediate supply (Section 6.2)',
+            ],
+            [
+              'Subscriptions — first charge',
+              '7 calendar days (Section 7.3)',
+              '14 calendar days (Section 7.3)',
+            ],
+            [
+              'Subscriptions — renewals',
+              'Refundable only under the exceptions in Section 7.3',
+              'Refundable only under the exceptions in Section 7.3',
+            ],
+          ],
+        },
+      },
+      shipping: {
+        title: '3. Shipping & Delivery',
+        roles: {
+          title: '3.1 Roles and Responsibilities',
+          description: 'Physical Products are fulfilled and shipped by the Supplier responsible for the offer. Mundpay, as Merchant of Record, processes the payment, collects and remits the applicable consumption taxes and processes refunds under this Policy. Suppliers must comply with the shipping standards set out in this Section, and Mundpay may take the measures described in Section 8.3 where they are not met.',
+        },
+        dispatch: {
+          title: '3.2 Dispatch and Delivery Times',
+          description: 'The estimated dispatch (handling) time and delivery time are displayed on the product page and at checkout before payment, and are confirmed in the order confirmation email. Unless a different handling time is stated, orders are dispatched within 7 (seven) business days of payment confirmation. Delivery times are estimates counted from dispatch and depend on the carrier and the destination. Where no delivery time is stated, the goods shall be delivered within 30 (thirty) calendar days of the order.',
+        },
+        costs: {
+          title: '3.3 Shipping Costs, Taxes and Duties',
+          description: 'Shipping costs, applicable taxes and, for cross-border shipments, any import duties or customs charges are displayed at checkout before payment. For EEA Buyers, prices include VAT and, for eligible cross-border consignments with an intrinsic value not exceeding EUR 150, import VAT is collected at checkout under the Import One-Stop Shop (IOSS) scheme. For U.S. Buyers, sales tax is collected where Mundpay is required to do so as Merchant of Record. Where the carrier or a customs authority requires the Buyer to pay a charge that was not disclosed at checkout, the Buyer may refuse the delivery and receive a full refund, or request reimbursement of that charge upon presentation of proof of payment.',
+        },
+        tracking: {
+          title: '3.4 Order Tracking',
+          description: 'Once an order is dispatched, the Buyer receives a shipping confirmation by email with the carrier name and, where available, a tracking number. Tracking may also be consulted through the Help Center.',
+        },
+        delays: {
+          title: '3.5 Shipping Delays',
+          description: 'If an order cannot be dispatched within the stated handling time — or within 30 (thirty) calendar days where no time was stated — the Buyer will be notified before that deadline expires, informed of a revised dispatch date and offered the option to cancel the order for a full refund. If the Buyer cancels, or does not expressly consent to the delay, the order is cancelled and refunded within 7 (seven) business days.',
+          eeaRights: 'For EEA Buyers, if the goods are not delivered within the agreed period, or within 30 (thirty) calendar days where no period was agreed, the Buyer may set an additional period of appropriate duration for delivery and, if delivery does not take place within it, terminate the contract and receive a full refund without undue delay.',
+        },
+        incidents: {
+          title: '3.6 Lost, Damaged or Non-Delivered Orders',
+          description: 'The risk of loss of or damage to Physical Products passes to the Buyer only when the Buyer, or a third party designated by the Buyer other than the carrier, acquires physical possession of the goods. Buyers should report:',
+          reporting: {
+            nonDelivery: 'non-delivery, within 30 (thirty) calendar days of the latest estimated delivery date; and',
+            damage: 'items received damaged, incorrect or incomplete, within 7 (seven) calendar days of delivery, preferably with photographs of the item and its packaging.',
+          },
+          resolution: 'These reporting periods exist to allow prompt investigation with the carrier and do not limit any statutory right. Where the claim is confirmed, or the carrier cannot provide proof of delivery to the correct address, the Buyer may choose between reshipment of the item at no additional cost and a full refund, including the original shipping charges.',
+        },
+        address: {
+          title: '3.7 Delivery Address and Returned Shipments',
+          description: 'The Buyer is responsible for providing a complete and accurate delivery address. Address changes may be requested through the Help Center before dispatch. If a shipment is returned to the Supplier because of an incorrect or incomplete address provided by the Buyer, or because the Buyer failed to collect it, the Buyer may request reshipment upon payment of the new shipping costs, or a refund of the product price. In these cases the original shipping charges are non-refundable, except where applicable law provides otherwise.',
+        },
+        restrictions: {
+          title: '3.8 Shipping Restrictions',
+          description: 'Certain products, in particular dietary supplements and nutraceuticals, may be subject to import or sale restrictions in some destinations. Mundpay and the Supplier may decline to ship to restricted destinations, PO boxes or freight-forwarding addresses where required by law or by the carrier. Orders that cannot be shipped for these reasons are cancelled and refunded in full.',
+        },
+      },
+      physical: {
+        title: '4. Physical Products — Returns, Exchanges & Refunds',
+        conditions: {
+          title: '4.1 General Conditions',
+          description: 'To be eligible for a return or exchange, physical items must be returned with all original accessories and, wherever practicable, in their original packaging. A return address (RMA) and, where applicable, a prepaid return label are provided after a return request is opened through the Help Center or at help@mundpay.com. Returned items are inspected within 10 (ten) business days of receipt. For EEA Buyers exercising the right of withdrawal, inspection never extends the refund deadline set out in Section 4.2.',
+        },
+        withdrawal: {
+          title: '4.2 EEA Buyers — Statutory Right of Withdrawal',
+          description: 'EEA Buyers may withdraw from the purchase of Physical Products, without giving any reason, within 14 (fourteen) calendar days from the day on which they, or a third party designated by them other than the carrier, acquire physical possession of the goods (for multiple items delivered separately, from receipt of the last item). To exercise this right, the Buyer must inform Mundpay before the period expires by an unequivocal statement, made through the Help Center, by email to help@mundpay.com or using the model withdrawal form in Annex I, pursuant to Directive 2011/83/EU.',
+          items: [
+            {
+              label: 'Return of the goods:',
+              description: 'the Buyer must send the goods back without undue delay and in any event within 14 (fourteen) calendar days of notifying the withdrawal.',
+            },
+            {
+              label: 'Refund:',
+              description: 'Mundpay reimburses all payments received, including the cost of standard delivery (excluding any supplementary cost of a delivery method other than the least expensive standard option offered), without undue delay and in any event within 14 (fourteen) calendar days of being informed of the withdrawal. The refund may be withheld until the goods are received back or the Buyer provides evidence of having sent them, whichever is earlier.',
+            },
+            {
+              label: 'Return costs:',
+              description: 'the Buyer bears the direct cost of returning the goods, unless the Supplier has agreed to bear it or the return results from a defect, damage, non-delivery or Supplier error.',
+            },
+            {
+              label: 'Diminished value:',
+              description: 'the Buyer is liable only for any diminished value of the goods resulting from handling beyond what is necessary to establish their nature, characteristics and functioning.',
+            },
+          ],
+          conformity: 'The right of withdrawal is in addition to the legal guarantee of conformity of goods under Directive (EU) 2019/771.',
+        },
+        commercial: {
+          title: '4.3 United States Buyers — Commercial Return Policy',
+          description: 'U.S. Buyers may return Physical Products for any reason within 30 (thirty) calendar days of confirmed delivery, subject to Sections 4.1 and 5. The Buyer bears return shipping and related carrier costs for change-of-mind returns. Items showing evidence of misuse, or of damage not caused in transit, may have the refund reduced proportionally or voided following inspection.',
+        },
+        defects: {
+          title: '4.4 Defective, Damaged or Non-Conforming Products',
+          description: 'Where a Physical Product is defective, damaged, contaminated, mislabeled or materially different from its description, the Buyer is entitled, at no cost, to a replacement or a full refund, including the original shipping charges and any return costs, regardless of the commercial return window and without prejudice to any statutory warranty or guarantee of conformity.',
+        },
+        responsibilities: {
+          title: '4.5 Allocation of Responsibilities',
+          description: 'The Supplier remains responsible for the product, its fulfillment, shipping and delivery, except for obligations expressly undertaken by Mundpay. Mundpay is responsible for processing refunds and chargebacks and for the consumption taxes for which it is responsible as Merchant of Record, without prejudice to mandatory consumer-protection law.',
+        },
+      },
+      supplements: {
+        title: '5. Dietary Supplements and Nutraceuticals',
+        sealed: 'Products whose tamper-evident seal, safety seal or original packaging has been opened or broken are not eligible for a change-of-mind return. For EEA Buyers, this reflects the health-protection and hygiene exception in Article 16(e) of Directive 2011/83/EU; for U.S. Buyers, it is a condition of the commercial return policy in Section 4.3.',
+        defects: 'This restriction does not apply where the return is based on a product defect, contamination, mislabeling or an undisclosed ingredient, which remain covered by Section 4.4 regardless of the condition of the seal.',
+        recalls: 'Where Mundpay or the Supplier becomes aware of a recall, safety alert or enforcement action issued by the FDA, EFSA, a competent national authority or an equivalent regulator affecting a purchased product, Buyers are entitled to a full refund regardless of whether any window has elapsed, and Mundpay may initiate such refunds proactively. The product need not be returned unless the recall instructions require it. Refunds issued for this reason are not counted against the Supplier\'s refund or chargeback ratios under the applicable Global Operating Agreement.',
+      },
+      digital: {
+        title: '6. Digital Products — Refunds',
+        standard: {
+          title: '6.1 United States Buyers',
+          description: 'Digital Products purchased as one-time transactions carry a refund window of 7 (seven) calendar days from the date of purchase. Because access is granted immediately upon purchase, initiating a download, a streaming session or a license key redemption does not, by itself, forfeit the refund right within this window.',
+        },
+        statutory: {
+          title: '6.2 EEA Buyers',
+          description: 'EEA Buyers may withdraw from the purchase of digital content within 14 (fourteen) calendar days of the conclusion of the contract. Where, before supply begins, the Buyer gives express consent to the immediate supply of the digital content and acknowledges that they thereby lose the right of withdrawal, and Mundpay provides confirmation of that consent and acknowledgement on a durable medium, the statutory right of withdrawal ends once supply begins. In that case, the 7 (seven) calendar day commercial refund window in Section 6.1 continues to apply. EEA Buyers also retain the conformity remedies under Directive (EU) 2019/770.',
+        },
+        access: {
+          title: '6.3 Access and Activation Issues',
+          description: 'Where access or activation issues are reported and are not resolved within a reasonable time, the Buyer is entitled to a full refund or a replacement, at their election, regardless of the refund window.',
+        },
+      },
+      subscriptions: {
+        title: '7. Subscriptions & Recurring Billing',
+        consent: {
+          title: '7.1 Disclosure and Consent',
+          description: 'Before any charge — including the first charge, any free-trial conversion and each renewal — the material terms of the subscription (price, billing frequency, renewal date, trial end date where applicable, and how to cancel) must be disclosed clearly and conspicuously, in reasonable proximity to the point of purchase. The Buyer\'s express affirmative consent to the recurring-billing term must be obtained without pre-checked boxes. Where required by applicable law, a reminder is sent before a free trial converts into a paid subscription and before the renewal of annual or longer-term subscriptions.',
+        },
+        cancellation: {
+          title: '7.2 Cancellation',
+          description: 'Subscriptions may be cancelled at any time, online, through the Help Center or the Buyer\'s account, using a mechanism at least as simple as the one used to subscribe; cancellation by email to help@mundpay.com is also accepted. Mundpay confirms each cancellation by email. Cancellation takes effect at the end of the current paid period, no further charges are made, and access continues until that date.',
+          supplierRequirements: 'Sellers offering subscription or auto-ship products (including nutraceutical continuity programs) must implement a cancellation flow that complies with the Restore Online Shoppers\' Confidence Act (ROSCA), applicable state automatic-renewal laws and EEA consumer law, and that does not impose retention questionnaires, mandatory phone calls or other undue friction.',
+        },
+        refunds: {
+          title: '7.3 Refunds',
+          description: 'The first charge on any subscription is refundable within 7 (seven) calendar days of the charge for U.S. Buyers and 14 (fourteen) calendar days for EEA Buyers. Once a renewal charge is processed, it is generally non-refundable for the period already initiated, unless the request qualifies under one of the following exceptions: billing error, duplicate charge, fraud or unauthorized charge, unresolved access or service failure, or a charge processed after a valid cancellation. No pro-rata refunds are issued for unused portions of an active subscription period outside these circumstances.',
+          renewalCancellation: 'A cancellation received before the renewal date prevents the next charge. To avoid processing-timing issues, we recommend cancelling at least 48 (forty-eight) hours before the scheduled renewal date. Any charge processed after a valid cancellation is refunded in full.',
+        },
+      },
+      requests: {
+        title: '8. Requesting a Refund, Return or Cancellation',
+        submit: {
+          title: '8.1 How to Submit a Request',
+          description: 'Requests should be submitted through the Help Center, by selecting the relevant order and choosing "Request Refund/Return" or "Cancel Subscription", or by email to help@mundpay.com. Requests should include the order number, the purchase email address, the product name and the reason, with photographs where physical damage, contamination or seal tampering is reported. For Physical Products, the Buyer should await the RMA instructions and, where applicable, the prepaid return label before dispatching the item. EEA Buyers exercising a right of withdrawal need not give any reason and may use the form in Annex I.',
+        },
+        response: {
+          title: '8.2 Response Time',
+          description: 'Mundpay acknowledges each request upon receipt and responds within 5 (five) calendar days.',
+        },
+        intervention: {
+          title: '8.3 Mundpay\'s Right to Intervene',
+          description: 'Mundpay may intervene and refund the Buyer directly — without prior consultation with the Seller or Supplier — whenever it identifies circumstances that may compromise adequate service delivery, good faith in consumer relations or the regularity of offers on the Platform, including confirmed fraud, plagiarism, copyright or other intellectual-property infringement, abusive practices, a regulatory recall, failure to meet the shipping standards in Section 3, or non-delivery of the purchased product.',
+        },
+      },
+      processing: {
+        title: '9. Processing Times & Refund Method',
+        table: {
+          headers: [
+            'Situation',
+            'Refund issued',
+          ],
+          rows: [
+            [
+              'EEA withdrawal — Physical Products (Section 4.2)',
+              'Within 14 calendar days of the withdrawal notice; may be withheld until the goods or proof of dispatch are received',
+            ],
+            [
+              'EEA withdrawal — Digital Products and Subscriptions (Sections 6.2 and 7.3)',
+              'Within 14 calendar days of the withdrawal notice',
+            ],
+            [
+              'U.S. commercial return — Physical Products (Section 4.3)',
+              'Within 10 business days of receipt of the returned item, inspection included',
+            ],
+            [
+              'Defect, damage or non-delivery (Sections 3.6 and 4.4)',
+              'Within 7 business days of confirmation of the claim',
+            ],
+            [
+              'Cancellation due to shipping delay (Section 3.5)',
+              'Within 7 business days of cancellation',
+            ],
+            [
+              'Regulatory recall (Section 5)',
+              'Immediately upon confirmation of the recall',
+            ],
+            [
+              'Other Digital Product and Subscription refunds',
+              'Within 7 business days of approval',
+            ],
+          ],
+        },
+        method: 'All refunds are issued to the original payment method used at the time of purchase. Once processed, the credit may take 1 to 2 billing cycles to appear on the Buyer\'s statement, depending on the card issuer. Where the original payment method does not support refunds, the refund is made by another means agreed with the Buyer, at no cost. No fees are charged to the Buyer for any refund.',
+      },
+      exceptions: {
+        title: '10. Exceptions & Special Conditions',
+        damage: 'Physical items returned with misuse damage or missing components may result in a partial or fully voided refund following inspection; for EEA Buyers, only the diminished value described in Section 4.2 may be deducted.',
+        digital: 'License keys or digital activations that have already been redeemed are non-refundable after the applicable refund window in Section 6, unless an unresolved access issue persists. Within the window, redemption does not by itself forfeit the refund right (for EEA Buyers, subject to the consent mechanism in Section 6.2).',
+        supplements: 'Dietary supplements and nutraceuticals with a broken seal follow Section 5.',
+        business: 'Purchases made by Buyers acting for business purposes (B2B) may follow refund conditions defined at the offer level, which prevail where clearly disclosed before purchase and consistent with applicable law. These conditions never apply to consumers.',
+      },
+      chargebacks: {
+        title: '11. Chargebacks and Payment Disputes',
+        description: 'Buyers are encouraged to contact help@mundpay.com before opening a dispute with their card issuer or payment provider, as most issues are resolved faster directly. This does not limit any Buyer\'s right to dispute a charge. Where a dispute is opened for a transaction that has already been refunded, or a refund is requested for a transaction under an open dispute, Mundpay will inform the issuer to avoid duplicate reimbursement. Mundpay may submit order, delivery, access and communication records as evidence in dispute proceedings, as described in Section 12.',
+      },
+      privacy: {
+        title: '12. Privacy',
+        description: 'All personal and transactional data collected in connection with orders, deliveries, refund requests and chargeback proceedings is handled in strict accordance with the Mundpay Privacy Policy and applicable data protection legislation, including the GDPR (EU) and applicable U.S. state privacy laws. Data may be shared with carriers, card networks, payment arrangement participants, Partner Financial Institutions and competent authorities as required for delivery, dispute resolution, fraud prevention and regulatory compliance, including communications with the FDA, EFSA or other competent authorities in recall cases. Full details are described in the Mundpay Privacy Policy.',
+      },
+      updates: {
+        title: '13. Policy Updates',
+        notice: 'Mundpay may update this Policy for operational, regulatory or commercial reasons. Changes will be communicated through a notice on Mundpay\'s website and, for Sellers and Suppliers, in their account, indicating the effective date.',
+        applicability: 'For Buyers, the version in force at the time of purchase governs that purchase; changes do not affect orders placed before their effective date, unless they are more favorable to the Buyer. For Sellers and Suppliers, continued use of the Platform after the effective date constitutes acceptance of the revised terms, as further provided in the applicable Global Operating Agreement. The current version is the one published on Mundpay\'s website.',
+      },
+      contact: {
+        supportLabel: 'Customer support:',
+        helpLabel: 'Help Center:',
+        phoneLabel: 'Phone:',
       },
     },
     paymentsFees: {

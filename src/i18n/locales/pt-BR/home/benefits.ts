@@ -22,11 +22,18 @@ export const benefits = {
       title: 'Recorrência no piloto automático',
       description:
         'Ofereça assinaturas e retenha clientes com cobrança automática e gestão simplificada.',
+      animation: {
+        completed: 'Venda realizada',
+        now: 'agora',
+      },
     },
     aiTools: {
       title: 'IA e ferramentas para vender mais',
       description:
         'Com Upsell 1-Click, Secret Order Bump e recuperação com IA, a Mundpay aumenta sua receita sem complicação.',
+      animation: {
+        earnings: 'Ganhos',
+      },
     },
     pciSecurity: {
       title: 'PCI DSS - Segurança global',
