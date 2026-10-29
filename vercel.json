@@ -2,19 +2,19 @@
   "rewrites": [
     {
       "source": "/marketplace",
-      "destination": "https://area-do-cliente-mundpay.vercel.app/marketplace"
+      "destination": "https://orders.mundpay.com/marketplace"
     },
     {
       "source": "/marketplace/:path*",
-      "destination": "https://area-do-cliente-mundpay.vercel.app/marketplace/:path*"
+      "destination": "https://orders.mundpay.com/marketplace/:path*"
     },
     {
       "source": "/api/marketplace/:path*",
-      "destination": "https://area-do-cliente-mundpay.vercel.app/api/marketplace/:path*"
+      "destination": "https://orders.mundpay.com/api/marketplace/:path*"
     },
     {
       "source": "/_next/:path*",
-      "destination": "https://area-do-cliente-mundpay.vercel.app/_next/:path*"
+      "destination": "https://orders.mundpay.com/_next/:path*"
     },
     {
       "source": "/(.*)",
