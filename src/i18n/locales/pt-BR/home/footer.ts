@@ -3,11 +3,11 @@ export const footer = {
     legal: {
       title: 'Legal e Compliance',
       links: {
-        paymentsAndFees: 'Pagamentos e taxas',
+        paymentsAndFees: 'Pagamentos e Taxas',
         terms: 'Termos e Condições',
-        privacy: 'Política de privacidade',
-        refundPolicy: 'Política de Reembolso e Devolução',
-        reporting: 'Canal de denúncias',
+        privacy: 'Política de Privacidade',
+        refundPolicy: 'Política de Envio, Devoluções e Reembolsos',
+        reporting: 'Canal de Denúncias',
       },
     },
     contact: {
@@ -22,7 +22,7 @@ export const footer = {
       title: 'Site',
       links: {
         home: 'Home',
-        globalSales: 'Venda global',
+        globalSales: 'Venda Global',
         taxes: 'Taxas',
         blog: 'Blog',
       },
