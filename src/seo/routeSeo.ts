@@ -1,3 +1,5 @@
+import { bridge } from '../i18n/locales/pt-BR/bridge'
+
 export const siteUrl = (
   import.meta.env.VITE_SITE_URL ?? 'https://mundpay.com'
 ).replace(/\/$/, '')
@@ -30,6 +32,12 @@ const acceptableUseSeoContent = {
 
 export const routeSeoByPath: Record<string, RouteSeo> = {
   '/': defaultSeo,
+  '/bridge': {
+    title: 'Mund Bridge',
+    description: bridge.meta_desc,
+    path: '/bridge',
+    robots: 'noindex, nofollow, noarchive, nosnippet',
+  },
   '/lp': {
     title: 'Comece agora | Mundpay',
     description:
