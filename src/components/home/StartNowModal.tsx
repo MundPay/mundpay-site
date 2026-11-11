@@ -4,6 +4,7 @@ import closeIcon from "../../assets/image/e3ed09eaf7-G939BVW7HdEqLMLKjDFkYMIyqZg
 import buyerIcon from "../../assets/image/ucrdUw5fOYlcHF2SqVOqwU6IMQ.svg";
 import sellerIcon from "../../assets/image/9OHlTMVAEgceHueHFOC3oGe3eY.svg";
 import affiliateIcon from "../../assets/image/9N73fUbWx8v7I8xE5uxLAqDcdDM.svg";
+import { withCampaignParams } from "../../libs/campaignParams";
 
 type StartNowModalProps = {
   isOpen: boolean;
@@ -15,16 +16,19 @@ const profileOptions = [
     key: "buyer",
     href: "https://orders.mundpay.com/",
     icon: buyerIcon,
+    isSignup: false,
   },
   {
     key: "seller",
     href: "https://login.mundpay.com/register",
     icon: sellerIcon,
+    isSignup: true,
   },
   {
     key: "affiliate",
     href: "https://login.mundpay.com/register",
     icon: affiliateIcon,
+    isSignup: true,
   },
 ] as const;
 
@@ -89,7 +93,7 @@ export function StartNowModal({ isOpen, onClose }: StartNowModalProps) {
           {profileOptions.map((option) => (
             <a
               key={option.key}
-              href={option.href}
+              href={option.isSignup ? withCampaignParams(option.href) : option.href}
               target={option.href.startsWith("http") ? "_blank" : undefined}
               rel={option.href.startsWith("http") ? "noopener" : undefined}
               className="group grid min-h-[102px] grid-cols-[88px_1fr] border border-[#EAEEE4]/[0.05] bg-[#EAEEE4]/[0.01] transition hover:border-[#EAEEE4]/[0.09] hover:bg-[#EAEEE4]/[0.025]"
