@@ -4,6 +4,7 @@ import rateLimit from 'express-rate-limit';
 import helmet from 'helmet';
 import { pinoHttp } from 'pino-http';
 import type { Logger } from 'pino';
+import { createBridgeContactController } from './controllers/bridgeContactController.js';
 import { createLeadsController } from './controllers/leadsController.js';
 import type { Env } from './config/env.js';
 import { errorHandler } from './middleware/errorHandler.js';
@@ -11,6 +12,7 @@ import { notFoundHandler } from './middleware/notFoundHandler.js';
 import { requestId } from './middleware/requestId.js';
 import type { AssignmentStateRepository } from './repositories/assignmentStateRepository.js';
 import type { LeadAssignmentService } from './services/leadAssignmentService.js';
+import type { BridgeContactService } from './services/bridgeContactService.js';
 import { AppError } from './utils/errors.js';
 
 export interface AppDependencies {
@@ -18,6 +20,7 @@ export interface AppDependencies {
   logger: Logger;
   assignmentRepository: AssignmentStateRepository;
   leadAssignmentService: LeadAssignmentService;
+  bridgeContactService?: BridgeContactService;
 }
 
 export function createApp(dependencies: AppDependencies): Express {
@@ -46,7 +49,29 @@ export function createApp(dependencies: AppDependencies): Express {
   app.get('/health', statusController('healthy', assignmentRepository, env));
   app.get('/ready', statusController('ready', assignmentRepository, env));
 
-  const leadRateLimiter = rateLimit({
+  const leadRateLimiter = createRateLimiter(env);
+  app.post(
+    '/api/leads',
+    leadRateLimiter,
+    requireJson,
+    express.json({ limit: env.REQUEST_BODY_LIMIT, strict: true }),
+    createLeadsController(leadAssignmentService),
+  );
+  app.post(
+    '/api/bridge/contact',
+    createRateLimiter(env),
+    requireJson,
+    express.json({ limit: env.REQUEST_BODY_LIMIT, strict: true }),
+    createBridgeContactController(dependencies.bridgeContactService),
+  );
+
+  app.use(notFoundHandler);
+  app.use(errorHandler);
+  return app;
+}
+
+function createRateLimiter(env: Env): RequestHandler {
+  return rateLimit({
     windowMs: env.RATE_LIMIT_WINDOW_MS,
     limit: env.RATE_LIMIT_MAX_REQUESTS,
     standardHeaders: 'draft-8',
@@ -59,17 +84,6 @@ export function createApp(dependencies: AppDependencies): Express {
       });
     },
   });
-  app.post(
-    '/api/leads',
-    leadRateLimiter,
-    requireJson,
-    express.json({ limit: env.REQUEST_BODY_LIMIT, strict: true }),
-    createLeadsController(leadAssignmentService),
-  );
-
-  app.use(notFoundHandler);
-  app.use(errorHandler);
-  return app;
 }
 
 const requireJson: RequestHandler = (req, _res, next) => {

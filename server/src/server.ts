@@ -4,6 +4,7 @@ import { parseEnv } from './config/env.js';
 import { AssignmentStateRepository } from './repositories/assignmentStateRepository.js';
 import { MockDataCrazyClient, RealDataCrazyClient } from './services/dataCrazyService.js';
 import { LeadAssignmentService } from './services/leadAssignmentService.js';
+import { BridgeContactService } from './services/bridgeContactService.js';
 import { createLogger } from './utils/logger.js';
 
 const env = parseEnv();
@@ -20,10 +21,21 @@ const service = new LeadAssignmentService(repository, dataCrazyClient, {
   alex: { attendantId: env.DATACRAZY_ALEX_ATTENDANT_ID, stageId: env.DATACRAZY_ALEX_STAGE_ID },
   brenno: { attendantId: env.DATACRAZY_BRENNO_ATTENDANT_ID, stageId: env.DATACRAZY_BRENNO_STAGE_ID },
 }, logger);
-const app = createApp({ env, logger, assignmentRepository: repository, leadAssignmentService: service });
+const bridgeContactService = env.RESEND_API_KEY && env.BRIDGE_CONTACT_FROM && env.BRIDGE_CONTACT_TO
+  ? new BridgeContactService({
+      apiKey: env.RESEND_API_KEY,
+      from: `Mundpay <${env.BRIDGE_CONTACT_FROM}>`,
+      to: env.BRIDGE_CONTACT_TO,
+      timeoutMs: env.RESEND_TIMEOUT_MS,
+    }, logger)
+  : undefined;
+const app = createApp({
+  env, logger, assignmentRepository: repository, leadAssignmentService: service,
+  ...(bridgeContactService ? { bridgeContactService } : {}),
+});
 const server = createServer(app);
 
-server.requestTimeout = env.DATACRAZY_TIMEOUT_MS + 5_000;
+server.requestTimeout = Math.max(env.DATACRAZY_TIMEOUT_MS, env.RESEND_TIMEOUT_MS) + 5_000;
 server.headersTimeout = Math.min(60_000, server.requestTimeout + 1_000);
 server.keepAliveTimeout = 5_000;
 
