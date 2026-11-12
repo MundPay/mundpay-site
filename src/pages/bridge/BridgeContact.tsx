@@ -6,6 +6,7 @@ import {
   type BridgeContactPayload,
 } from '../../libs/bridgeContactApi'
 import { bridgeCountries } from './bridgeCountries'
+import { BridgeTurnstile } from './BridgeTurnstile'
 import { BridgeArrowIcon } from './icons/BridgeArrowIcon'
 import { BridgeCloseIcon } from './icons/BridgeCloseIcon'
 import { useBridgeTranslation } from './useBridgeTranslation'
@@ -16,7 +17,9 @@ export function BridgeContact() {
   const { t, language } = useBridgeTranslation()
   const [submitted, setSubmitted] = useState(false)
   const [pending, setPending] = useState(false)
-  const [error, setError] = useState<'f_error' | 'f_invalid' | 'f_rate_limit' | 'f_unavailable' | null>(
+  const [turnstileToken, setTurnstileToken] = useState('')
+  const [verificationAttempt, setVerificationAttempt] = useState(0)
+  const [error, setError] = useState<'f_error' | 'f_invalid' | 'f_rate_limit' | 'f_unavailable' | 'f_verification_error' | null>(
     null,
   )
   const sending = useRef(false)
@@ -25,6 +28,10 @@ export function BridgeContact() {
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     if (sending.current) return
+    if (!turnstileToken) {
+      setError('f_verification_error')
+      return
+    }
     const form = event.currentTarget
     const data = new FormData(form)
     const payload: BridgeContactPayload = {
@@ -48,19 +55,22 @@ export function BridgeContact() {
     setSubmitted(false)
     setError(null)
     try {
-      await submitBridgeContact({ ...payload, submissionId: submission.current.id })
+      await submitBridgeContact({ ...payload, submissionId: submission.current.id, turnstileToken })
       form.reset()
       submission.current = null
       setSubmitted(true)
     } catch (cause) {
       const status = cause instanceof BridgeContactError ? cause.status : undefined
       if (status === 429) setError('f_rate_limit')
+      else if (status === 403) setError('f_verification_error')
       else if (status === 422) setError('f_invalid')
       else if (status === 503) setError('f_unavailable')
       else setError('f_error')
     } finally {
       sending.current = false
       setPending(false)
+      setTurnstileToken('')
+      setVerificationAttempt((value) => value + 1)
     }
   }
 
@@ -158,10 +168,15 @@ export function BridgeContact() {
               <input type="checkbox" name="consent" required />
               <span>{t('f_consent')}</span>
             </label>
+            <BridgeTurnstile
+              key={`${language}-${verificationAttempt}`}
+              onTokenChange={setTurnstileToken}
+            />
             <div>
               <button
-                className="btn btn-k btn-lg disabled:cursor-wait disabled:opacity-60"
+                className="btn btn-k btn-lg disabled:cursor-not-allowed disabled:opacity-60"
                 type="submit"
+                disabled={pending || !turnstileToken}
               >
                 <span>{t(pending ? 'f_sending' : 'f_send')}</span>
                 <span className="arr">

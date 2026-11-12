@@ -13,6 +13,7 @@ import { requestId } from './middleware/requestId.js';
 import type { AssignmentStateRepository } from './repositories/assignmentStateRepository.js';
 import type { LeadAssignmentService } from './services/leadAssignmentService.js';
 import type { BridgeContactService } from './services/bridgeContactService.js';
+import type { TurnstileService } from './services/turnstileService.js';
 import { AppError } from './utils/errors.js';
 
 export interface AppDependencies {
@@ -21,6 +22,7 @@ export interface AppDependencies {
   assignmentRepository: AssignmentStateRepository;
   leadAssignmentService: LeadAssignmentService;
   bridgeContactService?: BridgeContactService;
+  turnstileService?: TurnstileService;
 }
 
 export function createApp(dependencies: AppDependencies): Express {
@@ -62,7 +64,7 @@ export function createApp(dependencies: AppDependencies): Express {
     createRateLimiter(env),
     requireJson,
     express.json({ limit: env.REQUEST_BODY_LIMIT, strict: true }),
-    createBridgeContactController(dependencies.bridgeContactService),
+    createBridgeContactController(dependencies.bridgeContactService, dependencies.turnstileService),
   );
 
   app.use(notFoundHandler);

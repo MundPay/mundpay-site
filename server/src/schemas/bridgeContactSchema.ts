@@ -4,6 +4,7 @@ const singleLine = (value: string): string => value.trim().replace(/\s+/g, ' ');
 
 export const bridgeContactSchema = z.object({
   submissionId: z.uuid(),
+  turnstileToken: z.string().trim().min(1).max(2048),
   name: z.string().transform(singleLine).pipe(z.string().min(2).max(120)),
   company: z.string().transform(singleLine).pipe(z.string().min(1).max(160)),
   email: z.string().trim().toLowerCase().pipe(z.email().max(254)),
@@ -15,4 +16,4 @@ export const bridgeContactSchema = z.object({
   website: z.string().max(200).default(''),
 }).strict();
 
-export type BridgeContact = z.infer<typeof bridgeContactSchema>;
+export type BridgeContact = Omit<z.infer<typeof bridgeContactSchema>, 'turnstileToken'>;

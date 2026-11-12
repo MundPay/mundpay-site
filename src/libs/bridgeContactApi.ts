@@ -41,7 +41,7 @@ export function createBridgeSubmissionId(): string {
 }
 
 export async function submitBridgeContact(
-  payload: BridgeContactPayload & { submissionId: string },
+  payload: BridgeContactPayload & { submissionId: string; turnstileToken: string },
 ): Promise<void> {
   let response: Response
   try {

@@ -2,6 +2,24 @@ import { describe, expect, it } from 'vitest';
 import { parseEnv } from '../src/config/env.js';
 
 describe('environment validation', () => {
+  it('allows the CRM to start without optional Bridge Turnstile credentials', () => {
+    const env = parseEnv({ DATACRAZY_MOCK: 'true' });
+    expect(env.TURNSTILE_SECRET_KEY).toBe('');
+    expect(env.TURNSTILE_ALLOWED_HOSTNAMES).toEqual([]);
+  });
+
+  it('normalizes exact Turnstile hostnames', () => {
+    const env = parseEnv({ DATACRAZY_MOCK: 'true', TURNSTILE_ALLOWED_HOSTNAMES: ' Mundpay.com, www.mundpay.com, localhost ' });
+    expect(env.TURNSTILE_ALLOWED_HOSTNAMES).toEqual(['mundpay.com', 'www.mundpay.com', 'localhost']);
+  });
+
+  it.each(['https://mundpay.com', 'mundpay.com/bridge', 'localhost:5175', '*.mundpay.com'])(
+    'rejects an invalid Turnstile hostname: %s',
+    (hostname) => {
+      expect(() => parseEnv({ DATACRAZY_MOCK: 'true', TURNSTILE_ALLOWED_HOSTNAMES: hostname })).toThrow();
+    },
+  );
+
   it('requires an explicit CRM mode', () => {
     expect(() => parseEnv({ NODE_ENV: 'production' })).toThrow(/DATACRAZY_MOCK/);
   });

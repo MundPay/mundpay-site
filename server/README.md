@@ -107,6 +107,25 @@ Consulte [`.env.example`](.env.example). As principais são:
 
 Em modo real, todas as variáveis do Data Crazy são obrigatórias no startup. Nunca use nomes `VITE_*` para secrets.
 
+## Formulário /bridge: Resend e Turnstile
+
+Somente `POST /api/bridge/contact` exige Turnstile. Os campos visíveis e a rota do CRM permanecem com seus contratos atuais.
+
+Configure os exemplos de ambiente, sem colocar credenciais no código:
+
+- No frontend, `VITE_TURNSTILE_SITE_KEY` recebe a chave pública do widget. Ela precisa estar configurada no ambiente de build da landing page.
+- No Node, `TURNSTILE_SECRET_KEY` recebe a chave secreta e `TURNSTILE_ALLOWED_HOSTNAMES` recebe os domínios exatos do **frontend**, separados por vírgula, sem protocolo, porta ou caminho (exemplo: `mundpay.com,www.mundpay.com`).
+- `TURNSTILE_TIMEOUT_MS` limita a consulta à Cloudflare; o padrão é 5000 ms.
+- O envio continua usando `RESEND_API_KEY`, `BRIDGE_CONTACT_FROM` e `BRIDGE_CONTACT_TO`.
+
+Na Cloudflare, crie um widget **Managed** e autorize os domínios onde a página será exibida. Para desenvolvimento, use um widget separado que autorize `localhost` ou o hostname local usado no navegador; inclua esse mesmo hostname na configuração do Node. A configuração de produção deve listar somente os hostnames de produção.
+
+O frontend envia `turnstileToken` junto com os dados. O Node valida o token em `https://challenges.cloudflare.com/turnstile/v0/siteverify`, exige um hostname da lista e a ação `bridge_contact`, e só então chama o Resend. O token é descartado antes de montar o e-mail. Falhas de verificação retornam 403; indisponibilidade ou ausência de configuração retorna 503, sem enviar e-mail. O rate limit e o honeypot continuam ativos.
+
+Sem a chave pública, o botão de envio fica desabilitado. Sem a chave secreta ou a lista de hostnames, o Node bloqueia o envio da Bridge, mas continua iniciando normalmente para atender o CRM. Após configurar, reinicie o Node e reinicie o Vite local ou publique um novo build do frontend. Nenhum banco de dados é necessário.
+
+Referências: [configuração do widget](https://developers.cloudflare.com/turnstile/get-started/) e [validação no servidor](https://developers.cloudflare.com/turnstile/get-started/server-side-validation/).
+
 ## Configuração obrigatória no servidor (produção)
 
 Esta seção concentra toda a configuração necessária para publicar a API com Docker e Nginx. O cenário adotado pelo `docker-compose.yml` é: **API em container e Nginx instalado diretamente no servidor**.

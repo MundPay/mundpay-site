@@ -5,6 +5,7 @@ import { AssignmentStateRepository } from './repositories/assignmentStateReposit
 import { MockDataCrazyClient, RealDataCrazyClient } from './services/dataCrazyService.js';
 import { LeadAssignmentService } from './services/leadAssignmentService.js';
 import { BridgeContactService } from './services/bridgeContactService.js';
+import { TurnstileService } from './services/turnstileService.js';
 import { createLogger } from './utils/logger.js';
 
 const env = parseEnv();
@@ -29,13 +30,21 @@ const bridgeContactService = env.RESEND_API_KEY && env.BRIDGE_CONTACT_FROM && en
       timeoutMs: env.RESEND_TIMEOUT_MS,
     }, logger)
   : undefined;
+const turnstileService = env.TURNSTILE_SECRET_KEY && env.TURNSTILE_ALLOWED_HOSTNAMES.length > 0
+  ? new TurnstileService({
+      secretKey: env.TURNSTILE_SECRET_KEY,
+      allowedHostnames: env.TURNSTILE_ALLOWED_HOSTNAMES,
+      timeoutMs: env.TURNSTILE_TIMEOUT_MS,
+    })
+  : undefined;
 const app = createApp({
   env, logger, assignmentRepository: repository, leadAssignmentService: service,
   ...(bridgeContactService ? { bridgeContactService } : {}),
+  ...(turnstileService ? { turnstileService } : {}),
 });
 const server = createServer(app);
 
-server.requestTimeout = Math.max(env.DATACRAZY_TIMEOUT_MS, env.RESEND_TIMEOUT_MS) + 5_000;
+server.requestTimeout = Math.max(env.DATACRAZY_TIMEOUT_MS, env.RESEND_TIMEOUT_MS + env.TURNSTILE_TIMEOUT_MS) + 5_000;
 server.headersTimeout = Math.min(60_000, server.requestTimeout + 1_000);
 server.keepAliveTimeout = 5_000;
 
