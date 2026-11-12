@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/marketplace/sitemap.xml",
+      "destination": "https://orders.mundpay.com/sitemap.xml"
+    },
+    {
       "source": "/marketplace",
       "destination": "https://orders.mundpay.com/marketplace"
     },
@@ -15,6 +19,10 @@
     {
       "source": "/_next/:path*",
       "destination": "https://orders.mundpay.com/_next/:path*"
+    },
+    {
+      "source": "/images/:path*",
+      "destination": "https://orders.mundpay.com/images/:path*"
     },
     {
       "source": "/(.*)",
