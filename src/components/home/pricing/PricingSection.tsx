@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next'
+import { withCampaignParams } from '../../../libs/campaignParams'
 import { PrimaryCtaLink } from '../../layout/PrimaryCtaLink'
 import { PricingPortrait } from './PricingPortrait'
 import { PricingTable } from './PricingTable'
@@ -19,7 +20,7 @@ export function PricingSection() {
                 {t('home.pricing.subtitle')}
               </p>
               <PrimaryCtaLink
-                href="https://login.mundpay.com/register"
+                href={withCampaignParams('https://login.mundpay.com/register')}
                 target="_blank"
                 rel="noopener noreferrer"
               >

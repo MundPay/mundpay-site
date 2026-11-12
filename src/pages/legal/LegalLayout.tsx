@@ -5,6 +5,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { twMerge } from 'tailwind-merge'
 import { mundpayAssets } from '../../assets/mundpayAssets'
 import { LanguageSwitcher } from '../../components/home/LanguageSwitcher'
+import { withCampaignParams } from '../../libs/campaignParams'
 import {
   areRoutePathsEquivalent,
   getPathLanguagePrefix,
@@ -90,7 +91,7 @@ export function LegalLayout({ children }: LegalLayoutProps) {
               {t('home.nav.logIn')}
             </a>
             <a
-              href="https://app.mundpay.com/register"
+              href={withCampaignParams('https://app.mundpay.com/register')}
               target="_blank"
               rel="noopener"
               className="flex h-10 items-center justify-center rounded-full bg-mundpay-lime/[0.02] px-3 text-mundpay-cream transition hover:bg-mundpay-lime/10 sm:px-4"

@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { mundpayAssets } from '../../assets/mundpayAssets'
 import { LanguageSwitcher } from '../../components/home/LanguageSwitcher'
 import { getPathLanguagePrefix, withLanguagePrefix } from '../../i18n/languageRouting'
+import { withCampaignParams } from '../../libs/campaignParams'
 import { helpNavbarLinks } from './helpData'
 
 export function HelpNavbar() {
@@ -47,7 +48,7 @@ export function HelpNavbar() {
             {t('home.nav.logIn')}
           </a>
           <a
-            href={helpNavbarLinks.register}
+            href={withCampaignParams(helpNavbarLinks.register)}
             target="_blank"
             rel="noopener"
             className="flex h-10 items-center justify-center rounded-full bg-mundpay-lime/[0.02] px-3 text-mundpay-cream transition hover:bg-mundpay-lime/10 sm:px-4"
