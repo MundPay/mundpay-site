@@ -17,6 +17,15 @@ const baseSchema = z.object({
   DATACRAZY_BRENNO_STAGE_ID: z.string().default(''),
   DATACRAZY_TIMEOUT_MS: positiveInteger.default(10_000),
   DATACRAZY_MOCK: booleanString,
+  RESEND_API_KEY: z.string().trim().default(''),
+  BRIDGE_CONTACT_FROM: z.union([z.email(), z.literal('')]).default(''),
+  BRIDGE_CONTACT_TO: z.union([z.email(), z.literal('')]).default(''),
+  RESEND_TIMEOUT_MS: positiveInteger.max(30_000).default(10_000),
+  TURNSTILE_SECRET_KEY: z.string().trim().default(''),
+  TURNSTILE_ALLOWED_HOSTNAMES: z.string().trim().default('')
+    .transform((value) => value.split(',').map((hostname) => hostname.trim().toLowerCase()).filter(Boolean))
+    .pipe(z.array(z.string().max(253).regex(/^(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)*[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/))),
+  TURNSTILE_TIMEOUT_MS: positiveInteger.max(10_000).default(5_000),
   RATE_LIMIT_WINDOW_MS: positiveInteger.default(60_000),
   RATE_LIMIT_MAX_REQUESTS: positiveInteger.default(10),
   REQUEST_BODY_LIMIT: z.string().regex(/^\d+(?:b|kb|mb)$/i, 'Invalid body-size limit').default('20kb'),

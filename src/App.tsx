@@ -1,9 +1,10 @@
-import type { ReactElement } from 'react'
+import { lazy, Suspense, type ReactElement } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { CrispChat } from './components/support/CrispChat'
 import { useLenis } from './hooks/useLenis'
 import { LanguageRouteSync } from './i18n/LanguageRouteSync'
 import { languageRoutePrefixes } from './i18n/languageRouting'
+import { spanishBridgePath } from './pages/bridge/bridgeRouting'
 import { HelpPage } from './pages/help/HelpPage'
 import { HomePage } from './pages/home/HomePage'
 import { legalRouteAliases, legalRoutes } from './pages/legal/legalRoutes'
@@ -22,6 +23,9 @@ import {
 } from './pages/legal/pages'
 import { NotFoundPage } from './pages/not-found/NotFoundPage'
 import { Seo } from './seo/Seo'
+
+const BridgePage = lazy(() => import('./pages/bridge/BridgePage'))
+const bridgeRoutePaths = [...getLanguageRoutePaths('bridge'), spanishBridgePath]
 
 const legalPageByPath: Record<string, ReactElement> = {
   'termos-de-uso': <TermsOfUsePage />,
@@ -73,6 +77,13 @@ function App() {
         ))}
         {getLanguageRoutePaths('lp').map((path) => (
           <Route key={path} path={path} element={<HomePage variant="lp" />} />
+        ))}
+        {bridgeRoutePaths.map((path) => (
+          <Route
+            key={path}
+            path={path}
+            element={<Suspense fallback={null}><BridgePage /></Suspense>}
+          />
         ))}
         {helpRoutePaths.map((path) => (
           <Route key={path} path={path} element={<HelpPage />} />
