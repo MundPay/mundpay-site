@@ -98,7 +98,7 @@ export const bridge = {
   client_aria: 'Usage example',
   key_ph: '<your test key>',
   mcp_pre:
-    '// install the MCP in Cursor or Claude\nhttps://api.ltpago.com/mcp/install\n→ deposit · payout · country · method\n→ documentation only, never moves money',
+    '// install the MCP in Cursor or Claude\nhttps://v2.mundpay.com/mcp\n→ deposit · payout · country · method\n→ documentation only, never moves money',
   api_wh: '// webhooks: deposit, payout and settlement',
   copy: 'Copy',
   copied: 'Copied',

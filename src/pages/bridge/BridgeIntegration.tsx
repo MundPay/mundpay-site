@@ -93,10 +93,10 @@ export function BridgeIntegration() {
           </div>
         </div>
         <div className="ilinks rv">
-          <BridgeLink className="btn btn-g btn-lg" href="https://api.ltpago.com/docs/api" external>
+          <BridgeLink className="btn btn-g btn-lg" href="https://docs.mundpay.com" external>
             {t('doc')}
           </BridgeLink>
-          <BridgeLink className="btn btn-p btn-lg" href="https://api.ltpago.com/mcp/install" external>
+          <BridgeLink className="btn btn-p btn-lg" href="https://docs.mundpay.com/guides/payments/mcp#mcp" external>
             {t('mcp_btn')}
           </BridgeLink>
         </div>

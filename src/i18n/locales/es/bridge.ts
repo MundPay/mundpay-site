@@ -100,7 +100,7 @@ export const bridge = {
   client_aria: 'Ejemplo de uso',
   key_ph: '<tu clave de prueba>',
   mcp_pre:
-    '// instala el MCP en Cursor o Claude\nhttps://api.ltpago.com/mcp/install\n→ depósito · retiro · país · método\n→ solo documentación, nunca mueve dinero',
+    '// instala el MCP en Cursor o Claude\nhttps://v2.mundpay.com/mcp\n→ depósito · retiro · país · método\n→ solo documentación, nunca mueve dinero',
   api_wh: '// webhooks: depósito, pago y liquidación',
   copy: 'Copiar',
   copied: 'Copiado',
