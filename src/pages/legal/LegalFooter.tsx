@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import { mundpayAssets } from "../../assets/mundpayAssets";
 import { AppleIcon } from "../../components/icons/AppleIcon";
 import { EuropeanUnionFlagIcon } from "../../components/icons/EuropeanUnionFlagIcon";
@@ -214,6 +214,13 @@ export function LegalFooter() {
           </div>
         </div>
       </div>
+
+      <p className="mt-8 text-sm leading-relaxed text-mundpay-cream/65">
+        <Trans
+          i18nKey="legal.footer.regulatoryNotice"
+          components={{ strong: <strong className="font-bold" /> }}
+        />
+      </p>
 
       <div className="mt-10 flex flex-col gap-4 text-[14px] font-bold leading-none text-mundpay-cream/35 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-wrap items-center gap-4">

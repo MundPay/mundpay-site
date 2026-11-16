@@ -1,110 +1,25 @@
 import { useTranslation } from "react-i18next";
 import { LegalDocument } from "../LegalDocument";
 import { LegalLayout } from "../LegalLayout";
+import { ReportingPaymentSupport } from "../reporting-channel/ReportingPaymentSupport";
+import { ReportingPlagiarismSection } from "../reporting-channel/ReportingPlagiarismSection";
+import { ReportingProductSection } from "../reporting-channel/ReportingProductSection";
 
 export function ReportingChannelPage() {
-  const { t } = useTranslation();
+  const { t } = useTranslation(undefined, {
+    keyPrefix: "legal.pages.reportingChannel",
+  });
 
   return (
     <LegalLayout>
       <LegalDocument>
-        <h1>{t("legal.pages.reportingChannel.title")}</h1>
-        <h2>{t("legal.pages.reportingChannel.reports.title")}</h2>
-        <p>
-          {t("legal.pages.reportingChannel.reports.description")}
-        </p>
-        <h2>{t("legal.pages.reportingChannel.plagiarism.title")}</h2>
-        <p>
-          {t("legal.pages.reportingChannel.plagiarism.description")}
-        </p>
-        <h3>{t("legal.pages.reportingChannel.plagiarism.aboutYouTitle")}</h3>
-        <ul>
-          <li>
-            <p>{t("legal.pages.reportingChannel.plagiarism.aboutYouItems.name")}</p>
-          </li>
-          <li>
-            <p>{t("legal.pages.reportingChannel.plagiarism.aboutYouItems.email")}</p>
-          </li>
-          <li>
-            <p>
-              {t("legal.pages.reportingChannel.plagiarism.aboutYouItems.originalPlatform")}
-            </p>
-          </li>
-          <li>
-            <p>
-              {t("legal.pages.reportingChannel.plagiarism.aboutYouItems.availableSince")}
-            </p>
-          </li>
-          <li>
-            <p>
-              {t("legal.pages.reportingChannel.plagiarism.aboutYouItems.originalLinks")}
-            </p>
-          </li>
-          <li>
-            <p>
-              {t("legal.pages.reportingChannel.plagiarism.aboutYouItems.ownershipProof")}
-            </p>
-          </li>
-          <li>
-            <p>
-              {t("legal.pages.reportingChannel.plagiarism.aboutYouItems.previousSales")}
-            </p>
-          </li>
-          <li>
-            <p>
-              {t("legal.pages.reportingChannel.plagiarism.aboutYouItems.comparativeMaterial")}
-            </p>
-          </li>
-        </ul>
-        <h3>{t("legal.pages.reportingChannel.plagiarism.copiedProductTitle")}</h3>
-        <ul>
-          <li>
-            <p>
-              {t("legal.pages.reportingChannel.plagiarism.copiedProductItems.illegalWebsite")}
-            </p>
-          </li>
-          <li>
-            <p>
-              {t("legal.pages.reportingChannel.plagiarism.copiedProductItems.plagiarizedCheckout")}
-            </p>
-          </li>
-          <li>
-            <p>
-              {t("legal.pages.reportingChannel.plagiarism.copiedProductItems.proof")}
-            </p>
-          </li>
-        </ul>
-        <p>
-          {t("legal.pages.reportingChannel.plagiarism.details")}
-        </p>
-        <p>
-          {t("legal.pages.reportingChannel.plagiarism.deadline")}
-        </p>
-        <h2>{t("legal.pages.reportingChannel.prohibitedProduct.title")}</h2>
-        <p>
-          {t("legal.pages.reportingChannel.prohibitedProduct.description")}
-        </p>
-        <h2>{t("legal.pages.reportingChannel.prohibitedProduct.productTitle")}</h2>
-        <ul>
-          <li>
-            <p>{t("legal.pages.reportingChannel.prohibitedProduct.items.website")}</p>
-          </li>
-          <li>
-            <p>{t("legal.pages.reportingChannel.prohibitedProduct.items.checkout")}</p>
-          </li>
-          <li>
-            <p>{t("legal.pages.reportingChannel.prohibitedProduct.items.reason")}</p>
-          </li>
-          <li>
-            <p>{t("legal.pages.reportingChannel.prohibitedProduct.items.proof")}</p>
-          </li>
-        </ul>
-        <p>
-          {t("legal.pages.reportingChannel.prohibitedProduct.details")}
-        </p>
-        <p>
-          {t("legal.pages.reportingChannel.prohibitedProduct.deadline")}
-        </p>
+        <h1>{t("title")}</h1>
+        <h2>{t("reports.title")}</h2>
+        <p>{t("reports.description")}</p>
+        <p>{t("reports.regulation")}</p>
+        <ReportingPaymentSupport />
+        <ReportingPlagiarismSection />
+        <ReportingProductSection />
       </LegalDocument>
     </LegalLayout>
   );
