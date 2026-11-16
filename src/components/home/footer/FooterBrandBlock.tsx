@@ -1,4 +1,4 @@
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import { mundpayAssets } from "../../../assets/mundpayAssets";
 import { appStoreHref, playStoreHref, socialLinks } from "./footerData";
 import { FooterSeparator } from "./FooterSeparator";
@@ -37,6 +37,13 @@ export function FooterBrandBlock() {
         <FooterSeparator />
         <span>{t("home.footer.copyright.allRightsReserved")}</span>
       </div>
+
+      <p className="mt-6 max-w-lg text-center text-xs leading-relaxed text-mundpay-cream/65 min-[811px]:text-left">
+        <Trans
+          i18nKey="home.footer.regulatoryNotice"
+          components={{ strong: <strong className="font-semibold" /> }}
+        />
+      </p>
     </div>
   );
 }

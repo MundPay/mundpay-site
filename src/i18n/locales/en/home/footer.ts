@@ -31,4 +31,5 @@ export const footer = {
   copyright: {
     allRightsReserved: 'All rights reserved',
   },
+  regulatoryNotice: '<strong>Regulatory Information.</strong> Mundpay is a technology platform that facilitates the sale of digital products and <strong>is not a financial institution or an authorized payment institution.</strong> Payment processing, custody, and settlement services are provided by partner institutions duly authorized by the relevant regulatory authorities to perform such activities. The institution responsible for each transaction is identified at checkout and in the corresponding payment receipt.',
 }

@@ -12,6 +12,9 @@ export const legal = {
     amlPolicies: 'Políticas PLD',
     reportingChannel: 'Canal de denúncias',
   },
+  footer: {
+    regulatoryNotice: 'A Mundpay é uma plataforma de tecnologia para venda de produtos digitais e <strong>não é instituição financeira nem instituição de pagamento autorizada pelo Banco Central do Brasil</strong>.',
+  },
   pages: {
     acceptableUsePolicy: {
       blocks: {
@@ -190,10 +193,31 @@ export const legal = {
       reports: {
         title: 'Denúncias',
         description:
-          'Se você encontrou um produto sendo vendido na plataforma MundPay que não deveria estar à venda, denuncie! Nossa equipe analisará a situação e tomará as medidas necessárias o mais rápido possível.',
+          'A Mundpay é uma plataforma de tecnologia que oferece soluções para viabilizar e gerenciar operações comerciais e transações realizadas por meio de seus sistemas. O processamento, a custódia e a liquidação dos pagamentos são realizados por instituições financeiras, instituições de pagamento e provedores parceiros responsáveis pela execução da operação de pagamento em cada transação.',
+        regulation:
+          'No Brasil, as instituições financeiras e de pagamento responsáveis por essas operações estão sujeitas à regulamentação aplicável e, quando exigido, à autorização do Banco Central do Brasil. Para garantir transparência e facilitar a identificação da instituição envolvida, o responsável pela operação de pagamento de cada compra é indicado no checkout e/ou no respectivo comprovante de pagamento.',
+      },
+      questions: {
+        title: 'DÚVIDAS, SOLICITAÇÕES E RECLAMAÇÕES',
+        description:
+          'Caso tenha dúvidas ou precise de esclarecimentos sobre uma compra, pagamento, cobrança, estorno ou outra questão relacionada à operação de pagamento, você poderá entrar em contato com a Mundpay por meio de nossos canais de suporte ou diretamente com a instituição responsável, conforme identificada no checkout ou no comprovante da transação.',
+      },
+      picpay: {
+        title: 'SE A INSTITUIÇÃO RESPONSÁVEL FOR O PICPAY',
+        description:
+          'Se o PicPay estiver identificado como a instituição responsável pela operação de pagamento da sua compra, você também poderá utilizar os seguintes canais oficiais de atendimento:',
+        channels: {
+          chat: '<strong>Chat pelo aplicativo:</strong> atendimento 24 horas por dia, 7 dias por semana. Acesse o aplicativo PicPay, toque no ícone de interrogação (?) e selecione a opção de atendimento. Caso não consiga acessar sua conta, utilize a opção "Preciso de ajuda".',
+          customerService: '<strong>SAC – Pessoa Física:</strong> <phone>0800 025 8000</phone>, disponível 24 horas por dia, todos os dias.',
+          ombudsman: '<strong>Ouvidoria:</strong> <phone>0800 025 2000</phone>, em dias úteis, das 9h às 18h. Esse canal é indicado para situações em que a demanda já tenha sido apresentada aos canais regulares de atendimento do PicPay, mas não tenha sido solucionada satisfatoriamente.',
+          helpCenter: '<strong>Central de Ajuda PicPay:</strong> <resourceLink>{{url}}</resourceLink>.',
+          ombudsmanForm: '<strong>Formulário da Ouvidoria:</strong> <resourceLink>{{url}}</resourceLink>.',
+        },
+        support:
+          'A Mundpay permanece à disposição para orientar os usuários e prestar suporte dentro do escopo de sua atuação, contribuindo para o encaminhamento adequado de cada solicitação.',
       },
       plagiarism: {
-        title: 'Plágio ou Pirataria',
+        title: 'PLÁGIO OU PIRATARIA',
         description:
           'Para denunciar casos de plágio ou pirataria, envie um e-mail para denuncias@mundpay.com com as seguintes informações:',
         aboutYouTitle: 'Sobre você:',
@@ -227,7 +251,7 @@ export const legal = {
           'Nossa equipe de denúncias atua de segunda a sexta-feira e se compromete a investigar e resolver a situação em até 24 horas úteis.',
       },
       prohibitedProduct: {
-        title: 'Produto Proibido ou Fraudulento',
+        title: 'PRODUTO PROIBIDO OU FRAUDULENTO',
         description:
           'Se você identificou um produto proibido ou fraudulento sendo vendido na MundPay, envie um e-mail para denuncias@mundpay.com com as seguintes informações:',
         productTitle: 'Sobre o produto proibido ou fraudulento:',
@@ -240,6 +264,8 @@ export const legal = {
         },
         details:
           'Precisamos do máximo de informações possível para agilizar a análise e a solução do problema.',
+        report:
+          'Se você encontrou um produto sendo vendido na plataforma MundPay que não deveria estar à venda, DENUNCIE! Nossa equipe analisará a situação e tomará as medidas necessárias o mais rápido possível.',
         deadline:
           'Nossa equipe de denúncias trabalha de segunda a sexta-feira e fará o possível para investigar e resolver a denúncia em até 24 horas úteis.',
       },

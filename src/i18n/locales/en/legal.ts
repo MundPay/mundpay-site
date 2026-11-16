@@ -12,6 +12,9 @@ export const legal = {
     amlPolicies: 'AML Policies',
     reportingChannel: 'Reporting Channel',
   },
+  footer: {
+    regulatoryNotice: 'Mundpay is a technology platform that facilitates the sale of digital products and <strong>is not a financial institution or an authorized payment institution.</strong>',
+  },
   pages: {
     acceptableUsePolicy: {
       blocks: {
@@ -186,61 +189,84 @@ export const legal = {
       },
     },
     reportingChannel: {
-      title: 'Report Channel',
+      title: 'REPORTING CHANNEL',
       reports: {
-        title: 'Reports',
+        title: 'Reports and Complaints',
         description:
-          'If you found a product being sold on the Mundpay platform that should not be for sale, report it! Our team will analyze the situation and take the necessary actions as soon as possible.',
+          'Mundpay is a technology platform that provides solutions to facilitate and manage commercial activities and transactions carried out through its systems. Payment processing, custody, and settlement are performed by financial institutions, payment institutions, and partner service providers responsible for executing the payment operations associated with each transaction.',
+        regulation:
+          'In Brazil, the financial and payment institutions responsible for these operations are subject to applicable regulations and, where required, must be authorized by the Central Bank of Brazil (Banco Central do Brasil). To ensure transparency and facilitate identification, the institution responsible for processing each purchase is identified at checkout and/or in the corresponding payment receipt.',
+      },
+      questions: {
+        title: 'QUESTIONS, REQUESTS, AND COMPLAINTS',
+        description:
+          'If you have questions or require clarification regarding a purchase, payment, charge, refund, or any other matter related to a payment transaction, you may contact Mundpay through our support channels or directly contact the institution responsible for the payment, as identified at checkout or in the transaction receipt.',
+      },
+      picpay: {
+        title: 'IF THE RESPONSIBLE INSTITUTION IS PICPAY',
+        description:
+          'If PicPay is identified as the institution responsible for processing the payment associated with your purchase, you may also use the following official customer service channels:',
+        channels: {
+          chat: 'In-App Chat: Available 24 hours a day, 7 days a week. Open the PicPay app, tap the question mark (?) icon, and select the customer support option. If you are unable to access your account, select "Preciso de ajuda" (I Need Help).',
+          customerService: 'Customer Service (SAC – Individuals): <phone>0800 025 8000</phone>, available 24 hours a day, every day.',
+          ombudsman: 'Ombudsman: <phone>0800 025 2000</phone>, available on business days, from 9:00 a.m. to 6:00 p.m. This channel is intended for situations in which the matter has already been submitted through PicPay\'s regular customer service channels but has not been satisfactorily resolved.',
+          helpCenter: 'PicPay Help Center: <resourceLink>{{url}}</resourceLink>.',
+          ombudsmanForm: 'Ombudsman Online Form: <resourceLink>{{url}}</resourceLink>.',
+        },
+        support:
+          'Mundpay remains available to guide users and provide support within the scope of its activities, helping ensure that each request is appropriately directed.',
       },
       plagiarism: {
-        title: 'Plagiarism or Piracy',
+        title: 'PLAGIARISM OR PIRACY',
         description:
-          'To report cases of plagiarism or piracy, send an email to denuncias@mundpay.com with the following information:',
-        aboutYouTitle: 'About you:',
+          'To report cases of plagiarism or piracy, please send an email to denuncias@mundpay.com with the following information:',
+        aboutYouTitle: 'About You:',
         aboutYouItems: {
-          name: 'Name',
-          email: 'Email',
+          name: 'Full name',
+          email: 'Email address',
           originalPlatform:
             'Platform where the original product is being sold',
-          availableSince: 'Since when the product has been available for sale',
+          availableSince: 'How long the original product has been available for sale',
           originalLinks:
-            'Link to the website and the checkout page of the original product',
-          ownershipProof: 'Proof of ownership of the product, if any',
+            'Link to the original product\'s website and checkout page',
+          ownershipProof: 'Proof of ownership of the product, if available',
           previousSales:
-            'Screenshots of previous sales (if it has been sold on another platform)',
+            'Screenshots of previous sales (if the product was previously sold on another platform)',
           comparativeMaterial:
-            'Comparative material that proves the plagiarism (e.g., screenshots of the original content)',
+            'Comparative evidence supporting the plagiarism claim (e.g., screenshots of the original content)',
         },
-        copiedProductTitle: 'About the copied or pirate product:',
+        copiedProductTitle: 'About the Copied or Pirated Product:',
         copiedProductItems: {
           illegalWebsite:
-            'Link to the website where the product is being sold illegally',
+            'Link to the website where the product is allegedly being sold illegally',
           plagiarizedCheckout:
-            'Link to the checkout of the plagiarized or pirated product',
+            'Link to the checkout page of the allegedly plagiarized or pirated product',
           proof:
-            'Screenshots or any other material that proves the plagiarism or piracy',
+            'Screenshots or any other supporting materials demonstrating the alleged plagiarism or piracy',
         },
         details:
-          'The more details you can provide, the faster we can evaluate and take the necessary actions.',
+          'The more detailed the information you provide, the faster we will be able to assess the report and take any appropriate action.',
         deadline:
-          'Our reporting team operates from Monday to Friday and is committed to investigating and resolving the issue within 24 business hours.',
+          'Our reporting team operates Monday through Friday and aims to investigate and address reports within 24 business hours.',
       },
       prohibitedProduct: {
-        title: 'Prohibited or Fraudulent Product',
+        title: 'PROHIBITED OR FRAUDULENT PRODUCTS',
         description:
-          'If you identified a prohibited or fraudulent product being sold on Mundpay, send an email to denuncias@mundpay.com with the following information:',
-        productTitle: 'About the prohibited or fraudulent product:',
+          'If you identify a prohibited or fraudulent product being sold through Mundpay, please send an email to denuncias@mundpay.com with the following information:',
+        productTitle: 'About the Prohibited or Fraudulent Product:',
         items: {
           website: 'Link to the website where the product is being sold',
-          checkout: 'Link to the checkout',
+          checkout: 'Checkout page link',
           reason:
-            'Reason why you consider this product prohibited or fraudulent',
-          proof: 'Screenshots or any material that proves the irregularity',
+            'Explanation of why you believe the product is prohibited or fraudulent',
+          proof: 'Screenshots or any other supporting evidence demonstrating the alleged violation',
         },
         details:
-          'We need as much information as possible to expedite the analysis and solution of the problem.',
+          'Please provide as much information as possible to help us expedite the review and resolution process.',
+        report:
+          'If you come across a product being sold through the Mundpay platform that you believe should not be available for sale, REPORT IT! Our team will review the matter and take any appropriate measures as promptly as possible.',
         deadline:
-          'Our reporting team works from Monday to Friday and will do its best to investigate and resolve the report within 24 business hours.',
+          'Our reporting team operates Monday through Friday and will make every reasonable effort to investigate and address reports within 24 business hours.',
       },
     },
     generalComplianceProgram: {
